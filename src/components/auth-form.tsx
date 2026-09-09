@@ -68,15 +68,15 @@ function safeNextPath(raw: string | null): string | null {
 
 /**
  * 是否把默认 Tab 定在微信。
- * 微信内无公众号配置时授权按钮不可用 → 回退；
- * PC 扫码未就绪仍默认可进微信 Tab（展示现有说明，勿空白）。
+ * 微信内无公众号配置时授权按钮不可用 → 回退账号；
+ * 电脑浏览器只有配好开放平台扫码才默认微信，避免本地/未配置时看不到账号密码框。
  */
 function shouldDefaultToWechat(
   inWeChat: boolean,
   methods: Pick<MethodsState, "wechat" | "wechatQr">,
 ): boolean {
   if (inWeChat) return methods.wechat;
-  return true;
+  return methods.wechatQr;
 }
 
 /** 微信不可用时的回退：账号密码（不依赖短信/扫码配置） */
@@ -92,10 +92,8 @@ export function AuthForm({
   preferWechatDefault = true,
 }: Props) {
   const router = useRouter();
-  // 国内站默认微信；海外语言首屏邮箱（客户端时区还会再校正）
-  const [channel, setChannel] = useState<AuthChannel>(
-    preferWechatDefault ? "wechat" : "email",
-  );
+  // 论坛仓库默认账号密码：本地/未配微信时首屏就能看到输入框。
+  const [channel, setChannel] = useState<AuthChannel>("account");
   const [methods, setMethods] = useState<MethodsState>({
     email: true,
     phone: true,

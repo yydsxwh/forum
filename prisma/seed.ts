@@ -27,6 +27,7 @@ async function main() {
   const admin = await prisma.user.create({
     data: {
       email: "admin@yyds.local",
+      username: "andy",
       name: "站长",
       passwordHash,
       role: "ADMIN",
@@ -38,6 +39,7 @@ async function main() {
   const teacher = await prisma.user.create({
     data: {
       email: "teacher@yyds.local",
+      username: "teacher",
       name: "林知夏",
       passwordHash,
       role: "TEACHER",
@@ -49,6 +51,7 @@ async function main() {
   const agent = await prisma.user.create({
     data: {
       email: "agent@yyds.local",
+      username: "agent",
       name: "加盟代理演示",
       passwordHash,
       role: "AGENT",
@@ -60,6 +63,7 @@ async function main() {
   const student = await prisma.user.create({
     data: {
       email: "student@yyds.local",
+      username: "student",
       name: "学员小陈",
       passwordHash,
       role: "STUDENT",

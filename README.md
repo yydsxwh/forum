@@ -25,11 +25,11 @@ npm run dev
 
 ### 演示账号
 
-| 角色 | 邮箱 | 密码 |
-|------|------|------|
-| 学员 | student@yyds.local | 123456 |
-| 讲师 | teacher@yyds.local | 123456 |
-| 管理员 | admin@yyds.local | 123456 |
+| 角色 | 登录账号 | 邮箱 | 密码 |
+|------|----------|------|------|
+| 管理员 | `andy` | admin@yyds.local | 123456 |
+| 讲师 | `teacher` | teacher@yyds.local | 123456 |
+| 学员 | `student` | student@yyds.local | 123456 |
 
 ## 目录
 

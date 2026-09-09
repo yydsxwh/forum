@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // 本机浏览器 / 自动化测试可能从 127.0.0.1 或局域网 host 打开，避免 _next 资源 403。
+  allowedDevOrigins: ["127.0.0.1", "localhost", "0.0.0.0"],
   // webpack 生产构建不会自动编译工作区源码包，需显式转译。
   transpilePackages: [
     "@andyyyds/shared",
