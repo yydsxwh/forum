@@ -5,7 +5,9 @@
  * 支付相关字段被 payments.ts / wechat-pay.ts / alipay.ts 读取。
  */
 
+import { parseProviderVault, providerByBaseUrl } from "./ai-catalog";
 import { prisma } from "./db";
+import { applyGlobalConfig } from "./config-center";
 import { parseDecorate, type DecorateConfig } from "./decorate";
 import {
   parseEnabledLocalesJson,
@@ -41,6 +43,8 @@ export type SiteSettingsRow = {
   alipayEnabled: boolean;
   wechatAppId: string;
   wechatAppSecret: string;
+  /** 公众号检测记录。没有 Secret。 */
+  wechatOfficialProbeJson: string;
   wechatWebAppId: string;
   wechatWebAppSecret: string;
   /** 开放平台「移动应用」AppID（Android Capacitor 微信快捷登录） */
@@ -86,6 +90,10 @@ export type SiteSettingsRow = {
   translateApiBaseUrl: string;
   translateApiKey: string;
   translateApiModel: string;
+  translateApiFallbackModel: string;
+  translateTimeoutMs: number;
+  translateMaxRetries: number;
+  aiCatalogJson: string;
   smsEnabled: boolean;
   smsProvider: string;
   smsAccessKeyId: string;
@@ -121,6 +129,8 @@ export async function getSiteSettings(): Promise<SiteSettingsRow> {
   // 兼容迁移前后旧进程：缺字段时补默认，避免读配置崩溃
   const normalized = {
     ...row,
+    wechatOfficialProbeJson:
+      (row as { wechatOfficialProbeJson?: string }).wechatOfficialProbeJson || "",
     wechatMobileAppId:
       (row as { wechatMobileAppId?: string }).wechatMobileAppId || "",
     wechatMobileAppSecret:
@@ -136,6 +146,13 @@ export async function getSiteSettings(): Promise<SiteSettingsRow> {
     translateApiModel:
       (row as { translateApiModel?: string }).translateApiModel ||
       "gpt-4o-mini",
+    translateApiFallbackModel:
+      (row as { translateApiFallbackModel?: string }).translateApiFallbackModel || "",
+    translateTimeoutMs:
+      (row as { translateTimeoutMs?: number }).translateTimeoutMs || 45000,
+    translateMaxRetries:
+      (row as { translateMaxRetries?: number }).translateMaxRetries ?? 1,
+    aiCatalogJson: (row as { aiCatalogJson?: string }).aiCatalogJson || "",
     bgMusicJson: (row as { bgMusicJson?: string }).bgMusicJson || "",
     jamendoClientId:
       (row as { jamendoClientId?: string }).jamendoClientId || "",
@@ -144,8 +161,21 @@ export async function getSiteSettings(): Promise<SiteSettingsRow> {
       (row as { personSocialJson?: string }).personSocialJson || "",
     amapWebKey: (row as { amapWebKey?: string }).amapWebKey || "",
   } as SiteSettingsRow;
-  cache = { at: Date.now(), row: normalized };
-  return normalized;
+  // 共享配置（OSS / VOD / AI / 地图 / 短信）以 Platform Config Center 的有效值为准；
+  // 配置中心为空或不可达时保持本地值，主站不因此失去任何能力。
+  const effective = await applyGlobalConfig(normalized).catch(() => normalized);
+  cache = { at: Date.now(), row: effective };
+  return effective;
+}
+
+/** 只读本地 SiteSettings 行，不叠加配置中心；迁移脚本与「主站独立配置」对比用 */
+export async function getLocalSiteSettings(): Promise<SiteSettingsRow> {
+  const row = await prisma.siteSettings.upsert({
+    where: { id: "default" },
+    create: { id: "default" },
+    update: {},
+  });
+  return row as unknown as SiteSettingsRow;
 }
 
 /** 全站藏价开关；仅服务端调用（勿从客户端组件 import 本模块） */
@@ -343,7 +373,11 @@ export function publicSiteSettings(row: SiteSettingsRow) {
       ? maskSecret(row.translateApiKey)
       : "",
     translateApiModel: row.translateApiModel || "gpt-4o-mini",
+    translateApiFallbackModel: row.translateApiFallbackModel || "",
+    translateTimeoutMs: row.translateTimeoutMs || 45000,
+    translateMaxRetries: row.translateMaxRetries ?? 1,
     translateConfigured: Boolean(row.translateApiKey?.trim()),
+    ...publicAiProviders(row),
     smsEnabled: Boolean(row.smsEnabled),
     smsProvider: row.smsProvider || "test",
     smsAccessKeyId: row.smsAccessKeyId || "",
@@ -373,6 +407,39 @@ export function publicSiteSettings(row: SiteSettingsRow) {
     ),
     updatedAt: row.updatedAt.toISOString(),
   };
+}
+
+function publicAiProviders(row: SiteSettingsRow) {
+  const vault = parseProviderVault(row.aiCatalogJson);
+  if (!Object.keys(vault.providers).length && (row.translateApiKey || row.translateApiModel)) {
+    const id = providerByBaseUrl(row.translateApiBaseUrl || "").id;
+    vault.activeProvider = id;
+    vault.providers[id] = {
+      baseUrl: row.translateApiBaseUrl || "",
+      apiKey: row.translateApiKey || "",
+      model: row.translateApiModel || "",
+      fallbackModel: row.translateApiFallbackModel || "",
+      timeoutMs: row.translateTimeoutMs || 45000,
+      maxRetries: row.translateMaxRetries ?? 1,
+    };
+  }
+  const aiProviders: Record<string, {
+    baseUrl: string;
+    apiKey: string;
+    model: string;
+    fallbackModel: string;
+    timeoutMs: number;
+    maxRetries: number;
+    hasKey: boolean;
+  }> = {};
+  for (const [id, item] of Object.entries(vault.providers)) {
+    aiProviders[id] = {
+      ...item,
+      apiKey: item.apiKey ? maskSecret(item.apiKey) : "",
+      hasKey: Boolean(item.apiKey),
+    };
+  }
+  return { activeAiProvider: vault.activeProvider, aiProviders };
 }
 
 export function pickSecretUpdate(

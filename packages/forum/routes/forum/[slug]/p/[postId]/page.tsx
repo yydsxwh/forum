@@ -27,6 +27,7 @@ import { getHideSocialChatFlag } from "@andyyyds/shared/site-settings";
 import { canManageForum } from "@andyyyds/shared/roles";
 import { forumZoneDisplayName } from "@andyyyds/forum/lib/forum-zone";
 import { getPublicSiteUrl } from "@andyyyds/shared/payments";
+import { KNOWLEDGE_HREF } from "@andyyyds/shared/portal";
 import { resolveStoredAccessUrl } from "@andyyyds/shared/storage";
 
 export const dynamic = "force-dynamic";
@@ -247,6 +248,12 @@ export default async function ForumPostPage({
           status={post.status}
           canManage={isOwner || isMod}
         />
+        <p className="text-sm text-[var(--muted)]">
+          <a href={`${KNOWLEDGE_HREF}search?q=${encodeURIComponent(shareTitle)}`}>
+            在知识社区查找相关内容
+          </a>
+          。公开讨论留在论坛，会员内容不会被复制过来。
+        </p>
         <ForumThreadClient
           postId={post.id}
           shareUrl={shareUrl}

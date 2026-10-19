@@ -139,7 +139,7 @@ export const FORUM_KIND_LABEL: Record<ForumPostKind, string> = {
 export const FORUM_ACTION_LABEL: Record<ForumActionType, string> = {
   LIKE: "点赞",
   FAVORITE: "收藏",
-  WATCH: "蹲蹲后续",
+  WATCH: "蹲一蹲",
 };
 
 export function isForumPostKind(value: string): value is ForumPostKind {

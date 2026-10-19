@@ -7,17 +7,11 @@
 import { NextResponse } from "next/server";
 import { getSession } from "@andyyyds/shared/auth";
 import { resolveStoredAccessUrl, storeUpload } from "@andyyyds/shared/storage";
+import { inspectImageUpload } from "@andyyyds/shared/security/upload-policy";
 
 export const runtime = "nodejs";
 
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
-const ALLOWED_IMAGE_MIME = new Set([
-  "image/png",
-  "image/jpeg",
-  "image/jpg",
-  "image/webp",
-  "image/gif",
-]);
 
 export async function POST(req: Request) {
   try {
@@ -35,14 +29,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "图片不能超过 8MB" }, { status: 400 });
     }
     const mime = file.type || "application/octet-stream";
-    if (
-      !ALLOWED_IMAGE_MIME.has(mime) &&
-      !/\.(png|jpe?g|webp|gif)$/i.test(file.name)
-    ) {
-      return NextResponse.json(
-        { error: "仅支持 png / jpg / webp / gif" },
-        { status: 400 },
-      );
+    const peeked = new Uint8Array(await file.slice(0, 16).arrayBuffer());
+    const inspected = inspectImageUpload({
+      fileName: file.name || "image.png",
+      mime,
+      size: file.size,
+      bytes: peeked.length >= 4 ? peeked : new Uint8Array(await file.arrayBuffer()),
+      maxBytes: MAX_IMAGE_BYTES,
+    });
+    if (!inspected.ok) {
+      return NextResponse.json({ error: inspected.error }, { status: 400 });
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());

@@ -1,40 +1,13 @@
-# Andyyyds 论坛
+# 论坛
 
-从 [yydsxwh/Andyyyds](https://github.com/yydsxwh/Andyyyds) 搬过来的论坛产品。源码在 `packages/forum`，站点路由仍走 `/forum`。
+本草稿已按当前主站 3686fed59ecbc650157d096733db98954f418a06 重做，具有单独 Next.js 进程、产品路由、健康接口与数据库配置。身份通过 Account OIDC；不提供本地密码登录或演示种子。
 
-## 功能
+独立进程端口 4212 只是候选值，上线前核对监听。入口 /forum。
 
-- 大学校园、兴趣圈子、同城、机构四类空间
-- 分区发帖、评论、点赞 / 收藏 / 关注
-- 图片视频上传、地点、分享
-- 学生认证与论坛后台（`/studio/forum`）
-- 登录注册（与 Andyyyds 同一套账号体系）
-
-首页 `/` 会跳到 `/forum`。
-
-## 本地运行
-
-```bash
-cp .env.example .env
 npm install
-npm run db:reset
-npm run dev
-```
+npm run typecheck
+npm test
+npm run test:host
+npm run build
 
-打开 [http://localhost:3000](http://localhost:3000)
-
-### 演示账号
-
-| 角色 | 登录账号 | 邮箱 | 密码 |
-|------|----------|------|------|
-| 管理员 | `andy` | admin@yyds.local | 123456 |
-| 讲师 | `teacher` | teacher@yyds.local | 123456 |
-| 学员 | `student` | student@yyds.local | 123456 |
-
-## 目录
-
-- `packages/forum` 论坛页面、接口和业务
-- `packages/shared` 登录、存储、权限等公共能力
-- `packages/meetup` 发帖选点用地图组件
-- `src/app/forum`、`src/app/api/forum` 路由薄入口
-- `prisma` 数据模型与种子（含论坛空间表）
+生产切流前必须完成 docs/SPLIT-READINESS.md 的数据、身份和公共能力验收。本 PR 保持草稿，不表示已经部署。

@@ -176,7 +176,7 @@ export function ForumActionsBar({
           aria-label={`${FORUM_ACTION_LABEL.WATCH} ${state.counts.watchCount}`}
         >
           <ForumBellIcon filled={state.my.watching} />
-          <span className="hidden sm:inline">蹲蹲后续</span>
+          <span className="hidden sm:inline">{state.my.watching ? "取消蹲" : "蹲一蹲"}</span>
           <span className="tabular-nums">{state.counts.watchCount}</span>
         </button>
         <button
@@ -193,6 +193,10 @@ export function ForumActionsBar({
           <span className="tabular-nums">{state.counts.shareCount}</span>
         </button>
       </div>
+      {state.my.watching ? <p className="text-xs text-sky-700">已蹲</p> : null}
+      <p className="text-xs text-[var(--muted)]">
+        有新评论时可通过站内消息提醒。微信服务通知需要完成微信绑定并在小程序中授权相应订阅消息。网页里点蹲一蹲不会直接弹出微信授权。
+      </p>
       {hint ? <p className="text-xs text-[var(--muted)]">{hint}</p> : null}
       <ForumShareSheet
         open={shareOpen}

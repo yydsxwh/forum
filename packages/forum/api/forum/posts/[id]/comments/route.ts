@@ -6,11 +6,12 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSession } from "@andyyyds/shared/auth";
 import { prisma } from "@andyyyds/shared/db";
-import { FORUM_CLOSED, FORUM_COMMENT_MAX, forumMemberMay } from "@andyyyds/forum/lib/forum";
+import { FORUM_CLOSED, FORUM_COMMENT_MAX, displayPostTitle, forumMemberMay } from "@andyyyds/forum/lib/forum";
 import { canViewSchoolRestrictedPost } from "@andyyyds/forum/lib/forum-school";
 import { getForumSiteConfig } from "@andyyyds/forum/lib/forum-settings";
 import { canManageForum } from "@andyyyds/shared/roles";
 import { resolveStoredAccessUrl } from "@andyyyds/shared/storage";
+import { notifyForumReply } from "@andyyyds/forum/lib/watch-notify";
 
 type Ctx = { params: Promise<{ id: string }> };
 
@@ -28,7 +29,10 @@ export async function POST(req: Request, ctx: Ctx) {
     return NextResponse.json({ error: FORUM_CLOSED.comment }, { status: 403 });
   }
   const { id } = await ctx.params;
-  const post = await prisma.forumPost.findUnique({ where: { id } });
+  const post = await prisma.forumPost.findUnique({
+    where: { id },
+    include: { university: { select: { slug: true } } },
+  });
   if (!post || post.status !== "PUBLISHED") {
     return NextResponse.json({ error: "帖子不存在" }, { status: 404 });
   }
@@ -59,6 +63,14 @@ export async function POST(req: Request, ctx: Ctx) {
       });
       return row;
     });
+    await notifyForumReply({
+      postId: id,
+      commentId: comment.id,
+      authorId: session.id,
+      postTitle: displayPostTitle(post.title, post.body),
+      excerpt: body,
+      linkUrl: `/forum/${post.university.slug}/p/${post.id}`,
+    }).catch(() => undefined);
     return NextResponse.json({
       comment: {
         ...comment,

@@ -9,10 +9,14 @@ datasource db {
 
 model User {
   id           String             @id @default(cuid())
+  /// account OIDC 的稳定用户标识（sub=usr_xxx）。本地行只是业务投影，不是身份源。
+  accountSub   String?            @unique
   email        String             @unique
   passwordHash String
   /// 是否已设置可用登录密码；手机/微信自动注册且未设密码时为 false
   passwordSet  Boolean            @default(true)
+  /// 登出时自增；JWT.sv 对不上即视为已失效，避免旧 Cookie 重放
+  sessionEpoch Int                @default(0)
   name         String
   /// 账号密码登录用的登录名（小写存储）；空/null 表示未开通账号登录，与邮箱登录分开
   username     String?            @unique
@@ -35,6 +39,10 @@ model User {
   roleReviewedById String?
   /// 站长内部备注：仅后台用户管理可见，不展示给该用户本人
   adminNote        String         @default("")
+  /// 站长备注昵称缓存。不覆盖 name。权威值在账号中心，按 accountSub 对齐。
+  adminRemarkName  String?
+  remarkEvents     AdminRemarkEvent[] @relation("RemarkTarget")
+  remarkEventsActed AdminRemarkEvent[] @relation("RemarkActor")
   /// 微信公众号网页授权 openid（登录 / JSAPI 支付，同一 AppID 下）
   wechatOpenId String             @default("")
   /// 开放平台「网站应用」扫码登录 openid（与公众号 openid 不同，勿混用以免 JSAPI 失败）
@@ -74,6 +82,9 @@ model User {
   forumPosts           ForumPost[]
   forumComments        ForumComment[]
   forumActions         ForumAction[]
+  watchSubscriptions   WatchSubscription[]
+  siteNotifications    SiteNotification[]
+  directConversations  DirectConversation[]
   forumSchoolVerifications ForumSchoolVerification[]
   /// 识图转 LaTeX：会员页数 / 散买剩余页（站长不走这套账本）
   mathcodeWallet       MathcodeWallet?
@@ -81,8 +92,11 @@ model User {
   mathcodeGrants       MathcodeGrant[]
   /// 网页文档：登录用户的云端稿
   docsDocuments        DocsDocument[]
+  wwwDeviceAccounts    WwwDeviceAccount[]
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt
+  /// 学员编号（历史功能写入；线上库 46 条数据保留，功能代码后续恢复）
+  kkNumber             Int?
 
   @@index([forumUniversityId])
   @@index([roleApplicationStatus])
@@ -92,6 +106,20 @@ model User {
   @@index([wechatMobileOpenId])
   @@index([wechatUnionId])
   @@index([name])
+  @@index([adminRemarkName])
+}
+
+/// 站长备注昵称的操作记录。只记操作者和对象。
+model AdminRemarkEvent {
+  id              String   @id @default(cuid())
+  actorId         String
+  userId          String
+  accountPublicId String?
+  createdAt       DateTime @default(now())
+  actor           User     @relation("RemarkActor", fields: [actorId], references: [id])
+  user            User     @relation("RemarkTarget", fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
 }
 
 /// 站内私聊/群聊会话
@@ -373,6 +401,8 @@ model SiteSettings {
   wechatAppId         String @default("")
   /// 公众号/服务号 AppSecret（网页授权换 openid，JSAPI 支付需要）
   wechatAppSecret     String @default("")
+  /// 公众号连接 / 上传 / 草稿检测记录（JSON）。只有时间和错误码，不含 Secret 或 token
+  wechatOfficialProbeJson String @default("")
   /// 开放平台「网站应用」AppID（PC/浏览器微信扫码登录，与公众号 AppID 分开）
   wechatWebAppId      String @default("")
   /// 开放平台「网站应用」AppSecret（扫码登录用；可与环境变量 WECHAT_WEB_APP_SECRET 二选一）
@@ -454,6 +484,14 @@ model SiteSettings {
   translateApiBaseUrl String @default("")
   translateApiKey String @default("")
   translateApiModel String @default("gpt-4o-mini")
+  /// 全局 AI 备用模型。空则不自动切换。
+  translateApiFallbackModel String @default("")
+  /// 全局 AI 请求超时（毫秒）
+  translateTimeoutMs Int @default(45000)
+  /// 全局 AI 失败后的额外重试次数
+  translateMaxRetries Int @default(1)
+  /// 各提供商凭据互不覆盖。当前生效的那一家同时镜像到 translateApi*。
+  aiCatalogJson String @default("")
 
   /// 短信：是否启用手机号验证码登录
   smsEnabled Boolean @default(false)
@@ -469,6 +507,10 @@ model SiteSettings {
   smsTestMode Boolean @default(true)
   /// 测试固定验证码（仅 testMode 时生效）；空则每次随机并打日志
   smsTestFixedCode String @default("123456")
+  /// 分场景短信模板 CODE（历史功能写入；线上数据保留，功能代码后续恢复）
+  smsTemplateCodeLogin    String?
+  smsTemplateCodeRegister String?
+  smsTemplateCodeBind     String?
 
   /// 全站背景音乐歌单（JSON）：开关、循环、曲目列表（upload/url/stock/netease）
   bgMusicJson String @default("")
@@ -483,6 +525,9 @@ model SiteSettings {
 
   /// 高德 Web 服务 Key：论坛/约搭搜国内店名与反查地址；空则回退 OSM
   amapWebKey String @default("")
+
+  /// 中国象棋站长配置（JSON）。API Key 只存在这里，接口对外只回掩码。
+  xiangqiJson String @default("")
 
   updatedAt DateTime @updatedAt
 }
@@ -1164,6 +1209,88 @@ model ForumAction {
   @@index([userId, type, createdAt])
 }
 
+/// 蹲一蹲。取消只把 enabled 设为 false，不删历史。
+model WatchSubscription {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resourceType String
+  resourceId   String
+  enabled      Boolean  @default(true)
+  channels     String   @default("IN_APP,WECHAT")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, resourceType, resourceId])
+  @@index([resourceType, resourceId, enabled])
+}
+
+model SiteNotification {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  event     String
+  title     String
+  body      String
+  linkUrl   String    @default("")
+  dedupeKey String    @unique
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, readAt])
+}
+
+/// 站长和一名用户的长期私信。按 Account sub 关联，不用邮箱或手机号当主键。
+model DirectConversation {
+  id             String          @id @default(cuid())
+  /// usr_xxx；还没有账号中心编号时用 local:用户id，避免和别人的 sub 撞车
+  participantKey String          @unique
+  participantSub String          @default("")
+  userId         String?
+  user           User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  lastMessageAt  DateTime        @default(now())
+  messages       DirectMessage[]
+
+  @@index([userId])
+  @@index([lastMessageAt])
+}
+
+model DirectMessage {
+  id               String             @id @default(cuid())
+  conversationId   String
+  conversation     DirectConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  /// 发送人的 Account sub。本地旧账号可能为空
+  senderSub        String             @default("")
+  senderUserId     String             @default("")
+  /// OWNER 站长发给用户；USER 用户回复站长
+  senderKind       String
+  body             String
+  createdAt        DateTime           @default(now())
+  readAt           DateTime?
+  /// Platform 投递状态。空表示还没尝试微信，或这是用户回复
+  wechatStatus     String             @default("")
+  wechatDeliveryId String             @default("")
+  wechatDetail     String             @default("")
+  idempotencyKey   String?            @unique
+
+  @@index([conversationId, createdAt])
+  @@index([senderUserId, createdAt])
+}
+
+model SiteAuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  action     String
+  entityType String
+  entityId   String
+  detail     String   @default("")
+  createdAt  DateTime @default(now())
+
+  @@index([action, createdAt])
+}
+
 /// 业务正文多语言缓存（源文为简体中文；一键翻译写入，按 sourceHash 判断是否过期）
 model ContentTranslation {
   id         String   @id @default(cuid())
@@ -1225,6 +1352,25 @@ model DocsDocument {
 }
 
 /// 支付履约发页记录。orderId 唯一：微信回调重放时不得再加 150 页。
+/// 站长内容导出草稿。只存来源引用和宣传覆写，不回写原帖，也不存公众号密钥。
+model ContentPublishDraft {
+  id             String   @id @default(cuid())
+  ownerId        String
+  title          String   @default("")
+  presetKey      String   @default("forum-digest")
+  templateKey    String   @default("forum-wall")
+  collectionJson String   @default("{}")
+  status         String   @default("DRAFT")
+  contentHash    String   @default("")
+  wechatMediaIds String   @default("[]")
+  lastError      String   @default("")
+  idempotencyKey String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([ownerId, updatedAt])
+}
+
 model MathcodeGrant {
   orderId   String   @id
   userId    String
@@ -1235,4 +1381,41 @@ model MathcodeGrant {
   createdAt DateTime @default(now())
 
   @@index([userId])
+}
+
+/// 主站浏览器上的多账号。同一标签页用上下文 id 选择其中一枚会话。
+model WwwBrowserDevice {
+  id           String    @id @default(cuid())
+  tokenHash    String    @unique
+  explicitPick Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  revokedAt    DateTime?
+  accounts     WwwDeviceAccount[]
+  tabs         WwwTabContext[]
+}
+
+model WwwDeviceAccount {
+  id        String    @id @default(cuid())
+  deviceId  String
+  userId    String
+  holdId    String    @unique
+  tokenHash String
+  createdAt DateTime  @default(now())
+  revokedAt DateTime?
+  device    WwwBrowserDevice @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([deviceId, userId])
+}
+
+model WwwTabContext {
+  id         String    @id
+  deviceId   String
+  holdId     String    @default("")
+  activeRole String    @default("")
+  createdAt  DateTime  @default(now())
+  revokedAt  DateTime?
+  device     WwwBrowserDevice @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+
+  @@index([deviceId])
 }

@@ -216,8 +216,13 @@ export function classifyMediaKind(
   return "OTHER";
 }
 
+const BLOCKED_UPLOAD_EXTENSIONS = new Set(["svg", "html", "htm", "xhtml", "js", "mjs", "php"]);
+
 export function isAllowedUpload(mimeType: string, fileName: string): boolean {
+  const ext = fileExtension(fileName);
+  if (BLOCKED_UPLOAD_EXTENSIONS.has(ext)) return false;
   const mime = inferMimeType(mimeType, fileName);
+  if (mime === "image/svg+xml" || mime === "text/html") return false;
   if (ALLOWED_UPLOAD_MIME.has(mime)) return true;
   // 扩展名已知即可入库（部分浏览器 MIME 不准）
   return Boolean(EXT_TO_KIND[fileExtension(fileName)]);

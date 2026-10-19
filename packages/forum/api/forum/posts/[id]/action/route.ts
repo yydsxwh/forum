@@ -12,6 +12,7 @@ import { FORUM_CLOSED, forumMemberMay, isForumActionType } from "@andyyyds/forum
 import { canViewSchoolRestrictedPost } from "@andyyyds/forum/lib/forum-school";
 import { getForumSiteConfig } from "@andyyyds/forum/lib/forum-settings";
 import { canManageForum } from "@andyyyds/shared/roles";
+import { setForumWatch } from "@andyyyds/forum/lib/watch-notify";
 
 type Ctx = { params: Promise<{ id: string }> };
 
@@ -82,6 +83,7 @@ export async function POST(req: Request, ctx: Ctx) {
           data: { [field]: { decrement: 1 } },
         }),
       ]);
+      if (type === "WATCH") await setForumWatch(session.id, id, false);
       return NextResponse.json({ ok: true, active: false });
     }
 
@@ -94,6 +96,7 @@ export async function POST(req: Request, ctx: Ctx) {
         data: { [field]: { increment: 1 } },
       }),
     ]);
+    if (type === "WATCH") await setForumWatch(session.id, id, true);
     return NextResponse.json({ ok: true, active: true });
   } catch {
     return NextResponse.json({ error: "操作失败" }, { status: 400 });
