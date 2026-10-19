@@ -1,0 +1,815 @@
+{
+  "repository": "yydsxwh/Andyyyds",
+  "commit": "3686fed59ecbc650157d096733db98954f418a06",
+  "product": "forum",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb"
+    },
+    {
+      "path": "packages/decorate/lib/decorate.ts",
+      "sha256": "550415a536d8117e18f2d7050cf83f25b17fbcf9693399e56a45a938726d6750"
+    },
+    {
+      "path": "packages/decorate/lib/home-clock.ts",
+      "sha256": "15aa7cd0d9a1ee009489e2e43a43d09f92af18efbb9736bb4a13d42dd298b85f"
+    },
+    {
+      "path": "packages/decorate/lib/home-float-cards.ts",
+      "sha256": "c664cd11f716094d805ace441244202f619bdf2480877edca2f7cc4ae8d0af2e"
+    },
+    {
+      "path": "packages/decorate/lib/home-logo.ts",
+      "sha256": "e43930cec205c2c2459f6216b59e36d6a1741068857ff8e6eb57cf3a44f32750"
+    },
+    {
+      "path": "packages/decorate/lib/home-widget-layout.ts",
+      "sha256": "1a5c2e330fcfd9d1ee6bc01176d1a2411e0e01eee34f9baa2fba9b6aaa7ac818"
+    },
+    {
+      "path": "packages/decorate/lib/site-theme-backgrounds-extra.ts",
+      "sha256": "3604985c66bc04aacd64ca658543c25eaf4cb729b5039f611de4c2794d1388a7"
+    },
+    {
+      "path": "packages/decorate/lib/site-theme-islands.ts",
+      "sha256": "53388d4352366cde5de6bbbb49bb25e0fdfd0a050658d44b9198aecdae4e18be"
+    },
+    {
+      "path": "packages/decorate/lib/site-theme-palettes.ts",
+      "sha256": "3f1f65a954de464196034869ced95f11dfb483c7795ec92ba9deae86be50b42d"
+    },
+    {
+      "path": "packages/decorate/lib/site-theme-qzone.ts",
+      "sha256": "0b772509a2c2faf566ba6c1257cadd25be887930462ee9e77123308350a9b22a"
+    },
+    {
+      "path": "packages/decorate/lib/site-theme.ts",
+      "sha256": "313c3dad71c0d7d26ff51b654bfeef26910fbd3ac296410f696f194f40cb12f6"
+    },
+    {
+      "path": "packages/decorate/lib/site-typography.ts",
+      "sha256": "2eab24ed2113f2bd125e68f891e048878296a6f56f3282dcc2bc1460d474bba6"
+    },
+    {
+      "path": "packages/forum/api/forum/join/route.ts",
+      "sha256": "91af0a0e192592b5e520c51c7978701e5115dc9fe68807ba870d7501b56b2bc5"
+    },
+    {
+      "path": "packages/forum/api/forum/media/complete/route.ts",
+      "sha256": "9557b5c0115baac6e51a46e47ad2728a13d034f1b2568887a69446eb59418f20"
+    },
+    {
+      "path": "packages/forum/api/forum/media/prepare/route.ts",
+      "sha256": "2715ca1f4f043a2abc5f6ca8ea1350b4637e3829dd9986ca4a1777dc52e28963"
+    },
+    {
+      "path": "packages/forum/api/forum/media/route.ts",
+      "sha256": "15791aef1f518c6edca272d69f6c60f2c5aae23971af712d7a63aa2f87c493d7"
+    },
+    {
+      "path": "packages/forum/api/forum/posts/[id]/action/route.ts",
+      "sha256": "76d0ccfdcb5bb6bdaed68565895354cb9834b5ce18219aa791f3fa5d5dee8696"
+    },
+    {
+      "path": "packages/forum/api/forum/posts/[id]/comments/route.ts",
+      "sha256": "2712a7f1489ecc11f366e6ddc8958ca833816b5a5b0d4ba96323c523eeefb1a9"
+    },
+    {
+      "path": "packages/forum/api/forum/posts/[id]/route.ts",
+      "sha256": "6f38c69b8e3ee35f61772a54e4443dd7f79d028ee67ac8dc08e507460961a75d"
+    },
+    {
+      "path": "packages/forum/api/forum/posts/route.ts",
+      "sha256": "249d26579e6991a9671c437aceece01fa59052a72e1986d1eb6a9a41c2f2c764"
+    },
+    {
+      "path": "packages/forum/api/forum/verify/route.ts",
+      "sha256": "4c94e773930fd1ec736b5ba4a70d1894678c472b4d13c8f419b9e2eb4e4ce909"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/settings/route.ts",
+      "sha256": "9a3c33e74c044490c06689a7684275a52f08feb073578ec4bccb433ddce8b973"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/universities/[id]/route.ts",
+      "sha256": "9eee74d0cc767656f2dfe5549d354835d6ee839eb18d1d92c56eede8a5ad7732"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/universities/route.ts",
+      "sha256": "c9e0a903a9f6882dec43e61963195bc895d6b2f68e0741e4fa3fa5d1efa3501c"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/verifications/[id]/proof/route.ts",
+      "sha256": "3eb85b312b4b6202407db03068aea4bc6af5492ce86b44a2ac541b4e17acb4fd"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/verifications/[id]/route.ts",
+      "sha256": "96425eff61016c5df16a351439c85967fc9b08642e377712faaff7cccfdf1664"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/verifications/route.ts",
+      "sha256": "2b5b25be3f3bcaa376481b7cd5bfd1dd7dd2fa003e4353f92cee830224cfa8f8"
+    },
+    {
+      "path": "packages/forum/api/studio/forum/zones/[id]/route.ts",
+      "sha256": "335ed34dcfbd5b861f629d85eb5e5035548111243fdca50af165c2c146f9943a"
+    },
+    {
+      "path": "packages/forum/components/forum-account-bar.tsx",
+      "sha256": "75af9f623ff3e4a923eb2933802fb6b7d1c26425a23b930ba00d83e323ec4493"
+    },
+    {
+      "path": "packages/forum/components/forum-action-icons.tsx",
+      "sha256": "3ded926ad6d72a9e04e5cb8ed6384979d78775019a7ec8969111381bc792b387"
+    },
+    {
+      "path": "packages/forum/components/forum-actions-bar.tsx",
+      "sha256": "a53558a49cdaa25ee39be2aeafe4ae2831ec6a9b5ebbe719b59bf2aaad41e761"
+    },
+    {
+      "path": "packages/forum/components/forum-ad-banner.tsx",
+      "sha256": "db4f4e44e376845c56d5fd2ec694969bc7b383dd7cd87071a3a1e36da0971111"
+    },
+    {
+      "path": "packages/forum/components/forum-broadcast-picker.tsx",
+      "sha256": "bfe3236ebd0311731767e50190236c2bb1844df79556b951d64fb34af1d913d3"
+    },
+    {
+      "path": "packages/forum/components/forum-campus-directory.tsx",
+      "sha256": "bad50913cb77be8eb2898c916edd90c8115f7cf6e685e43ce7c8abe159bf73cb"
+    },
+    {
+      "path": "packages/forum/components/forum-campus-panel.tsx",
+      "sha256": "d5a16a92aeb1eb3242d0c63ba1af1813728f697772b687ed2c4400f726b38a56"
+    },
+    {
+      "path": "packages/forum/components/forum-composer.tsx",
+      "sha256": "72e665a9c1700a01f8cc336ecb72c504fcbf3c9771e30a1ee3e0ad64212401f9"
+    },
+    {
+      "path": "packages/forum/components/forum-feed-card.tsx",
+      "sha256": "709cd41c019418c951a4940fdc6e33e6a30f823ecd5a5ada2d6aeea1cfaea80f"
+    },
+    {
+      "path": "packages/forum/components/forum-join-bar.tsx",
+      "sha256": "a82e84cfc67c3a0c062efba2a28828b7b6c9def9e4999d18789dee24da51baf4"
+    },
+    {
+      "path": "packages/forum/components/forum-media-gallery.tsx",
+      "sha256": "760286292654223f4d7d1e02c0310d22575e9358e52e6b73988ddbe6ad18e972"
+    },
+    {
+      "path": "packages/forum/components/forum-notice-bar.tsx",
+      "sha256": "cf1836bf00a7e606b3ca133da9ad278c79aea4ad190e24aebc38f227a6a8a3e1"
+    },
+    {
+      "path": "packages/forum/components/forum-place-field.tsx",
+      "sha256": "52da89f1fcb80ff43593368174a9bfdb322034c81471c925d1f9517c9e54fe77"
+    },
+    {
+      "path": "packages/forum/components/forum-place-links.tsx",
+      "sha256": "93a582389c0f442642fc5d7bb0527bde777b73738c5154b08d17ee3c01947088"
+    },
+    {
+      "path": "packages/forum/components/forum-post-card.tsx",
+      "sha256": "22d01bb8e687564d1ea5b0d7ec126a3f3c37752bc3ad4125f444701ae8d6774f"
+    },
+    {
+      "path": "packages/forum/components/forum-post-manage.tsx",
+      "sha256": "9cb18a4fde7f07bd73a37976d1491b8fcdc30c4c1c7e7e1c2a61518520c7bdcb"
+    },
+    {
+      "path": "packages/forum/components/forum-school-verify-form.tsx",
+      "sha256": "f71926cb49907dccb6c2714aa2d145fb3ef7f6f76eb4d40cd2fd6c6a0c67b3fc"
+    },
+    {
+      "path": "packages/forum/components/forum-section-nav.tsx",
+      "sha256": "b5f4b9500127c567542a2d99a46a782e6e5147409f830c3850a9ecbd92d02b0e"
+    },
+    {
+      "path": "packages/forum/components/forum-share-sheet.tsx",
+      "sha256": "f7eda805fc806587ee193f9bff3bddd66c358cad3d218155f0000e3ef5b1af50"
+    },
+    {
+      "path": "packages/forum/components/forum-space-directory.tsx",
+      "sha256": "683b846f4e3183456303446a4617fbb7b65445c1aa19383535a782c6b8c1ae02"
+    },
+    {
+      "path": "packages/forum/components/forum-thread-client.tsx",
+      "sha256": "8d5e75888e7faef3f7dbca0f7359bd807ea7780a64be404578c498592a0b1c0d"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-panel.tsx",
+      "sha256": "216642a6a060020f9574eaa50d3e36fdafa35e4ec584f7495f8c2b29504eb548"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-settings.tsx",
+      "sha256": "6525a58443e6421957c51197f46ee83280de3d215a113c348213e015b99dd85c"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-space-edit-client.tsx",
+      "sha256": "897870b8196a6d5dd285010daee23da49b7209f09059eed930ef9d870dbe26b6"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-space-editor.tsx",
+      "sha256": "69ddbcb0363c17ff24788626b08b2802b73114ec06ca88f6c7673eea7d5abc61"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-university-board.tsx",
+      "sha256": "8e6898bd3d8f9602df8fb7fd8c279bccf450ec792dd84e984d91c704f4fed93f"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-verify-panel.tsx",
+      "sha256": "c922bb3771d264dce4cca7638806f5a8cbf124394703e4bfffcb1926e37c3e11"
+    },
+    {
+      "path": "packages/forum/components/studio-forum-zone-editor.tsx",
+      "sha256": "a393b3cd364c8762c66929694514f344a0df5462358deed29e09e2c144e9329e"
+    },
+    {
+      "path": "packages/forum/lib/forum-broadcast.ts",
+      "sha256": "0f80d0e384f9e786b37e29d7b34716ea89cc812061bcc367a919ac18b25ffb6f"
+    },
+    {
+      "path": "packages/forum/lib/forum-browser-upload.ts",
+      "sha256": "c407232793c94d500b997d278ba158efd23189f134b4db8e4636213d5fd326f0"
+    },
+    {
+      "path": "packages/forum/lib/forum-media.ts",
+      "sha256": "90faa1b948d9c52e24b4bb037ed6a21a2924f3253640a7395c17a41478210e00"
+    },
+    {
+      "path": "packages/forum/lib/forum-school.ts",
+      "sha256": "9a344963c81a848e2220bcca4552765584cabf02bd4367600cba66c618c90b9a"
+    },
+    {
+      "path": "packages/forum/lib/forum-settings.ts",
+      "sha256": "c4cc6a6dbb236684a7abb51c10a032b31959a7408cb3f1f5d004b7bcf76d739f"
+    },
+    {
+      "path": "packages/forum/lib/forum-share.ts",
+      "sha256": "93c59089bf49a179f610eee3b7c874b981e18b7bdfdbff116c0603402ecb8441"
+    },
+    {
+      "path": "packages/forum/lib/forum-space.ts",
+      "sha256": "8e9b474d73fa8c6e09c90335de5d0fb1afce77a96026e8d0cfe46839bfb1a466"
+    },
+    {
+      "path": "packages/forum/lib/forum-university.ts",
+      "sha256": "cc8c340183afb13bd005b51b2dc928df1b2d6b4ec9c8fde9c7f73dede605e962"
+    },
+    {
+      "path": "packages/forum/lib/forum-verify-proof.ts",
+      "sha256": "cc5a3862b3a4aa9a766baf0f8b765a135a728eb40256c61497859d6273e7304a"
+    },
+    {
+      "path": "packages/forum/lib/forum-zone-db.ts",
+      "sha256": "eae9bf4d3610299fa72d97acd68f91306b7016a5780c6f6712c8bb7f32a5989d"
+    },
+    {
+      "path": "packages/forum/lib/forum-zone.ts",
+      "sha256": "250d1791c71dda1b4fd2da9e7a0c38ac495ce07aefabb2483ec326176fe269e0"
+    },
+    {
+      "path": "packages/forum/lib/forum.ts",
+      "sha256": "98c11e34f194858ce111ca06c44c73d5d68b130edf68e7e77d4ff4e609b15831"
+    },
+    {
+      "path": "packages/forum/lib/watch-notify.test.ts",
+      "sha256": "62e1d71308c58ba5dfd4c469c374c02962fec7823afef14b5d7c6f0ce699edbc"
+    },
+    {
+      "path": "packages/forum/lib/watch-notify.ts",
+      "sha256": "6df4f86f52d88556a06e220baee476ef15a7f0ca07448eed1f16b4a9ea1c35d7"
+    },
+    {
+      "path": "packages/forum/lib/watch-recipients.ts",
+      "sha256": "d73a5d7628f3992d41d3408a44b8d568e26ae845e9863dc1627daef2280b8d5f"
+    },
+    {
+      "path": "packages/forum/package.json",
+      "sha256": "2b7ae1a41f336e34903f81e664b4114c74cabbbde7d8bf5ae9a859dbfdb571e7"
+    },
+    {
+      "path": "packages/forum/routes/forum/[slug]/new/page.tsx",
+      "sha256": "83a207e339325ff1c0a27ea9839d84590aa942b9556a97db3f4aeb3adee0b09a"
+    },
+    {
+      "path": "packages/forum/routes/forum/[slug]/p/[postId]/page.tsx",
+      "sha256": "c6d8f7f22be2c5bd6421b24870f08f992be1fb2be9e0db9a4ff42a56ea9a2376"
+    },
+    {
+      "path": "packages/forum/routes/forum/[slug]/page.tsx",
+      "sha256": "a1500e974f13cb5b5ab250d1425623cd62ce7af0a6894f2c3bed8a1768c63342"
+    },
+    {
+      "path": "packages/forum/routes/forum/campus/page.tsx",
+      "sha256": "4d3d40b635fce3284f2f55df83111c13468c751d17163f141a8d8c3004d9c40e"
+    },
+    {
+      "path": "packages/forum/routes/forum/circles/page.tsx",
+      "sha256": "74f31cd291539633360a1d6708046aad86b908476436e41461c2a98428bc755b"
+    },
+    {
+      "path": "packages/forum/routes/forum/cities/page.tsx",
+      "sha256": "6cc33704a457e2f78e901d61442054ff229b998909cca2337cb6bd3b53f1718e"
+    },
+    {
+      "path": "packages/forum/routes/forum/mine/page.tsx",
+      "sha256": "1a330b26a61796f44c8688ca5d47237c1213581aed828ad1e9eee7fc87c9d815"
+    },
+    {
+      "path": "packages/forum/routes/forum/orgs/page.tsx",
+      "sha256": "8e0f1c6a1cb674ded36c0d2fcf556dbadd2478cf4c8c7f06252b7af09da6345c"
+    },
+    {
+      "path": "packages/forum/routes/forum/page.tsx",
+      "sha256": "7662ac6fc7a83420dbdf496a19bcf6ddc34d4608bebc26f50d0b0687938ec8d1"
+    },
+    {
+      "path": "packages/forum/routes/studio/forum/[id]/edit/page.tsx",
+      "sha256": "20e70fd76df5df6ebb62a2e3f83f3e2cf10d0931c65cc285764500b3408d7bbc"
+    },
+    {
+      "path": "packages/forum/routes/studio/forum/page.tsx",
+      "sha256": "fb82b5a25a041d5c0283acf358584d76fb126b3d4f172ee4fbb53443ed208428"
+    },
+    {
+      "path": "packages/meetup/components/meetup-place-map-picker.tsx",
+      "sha256": "bcd4f5b5b62a8a3be73d059192603a2d7e873f7ff38f098f7c1ce13db7992f9b"
+    },
+    {
+      "path": "packages/shared/src/account-clients.ts",
+      "sha256": "2e1f6b9348f4417168ecedcc8c37b2b03e79e5e411889e0b014a4c0a9ea8591d"
+    },
+    {
+      "path": "packages/shared/src/account-identity.ts",
+      "sha256": "4e1c5345841174b7fd76340b0d061eb7224f980473cb65da9b47190c6f949696"
+    },
+    {
+      "path": "packages/shared/src/account-oidc-cookie.ts",
+      "sha256": "d49259655485c47a31fa83a5d4b9ae7fa6e174af1eafc28692d9e1db25a453fd"
+    },
+    {
+      "path": "packages/shared/src/account-oidc.ts",
+      "sha256": "a43123a14ef6664b640cfa34e61741537c8302c4fcd233577b4dabbe5b8ed031"
+    },
+    {
+      "path": "packages/shared/src/ai-catalog.ts",
+      "sha256": "a5110ac4b311f1ec409d2dc5b885d6b9ab8fdc0d053c654c95e7532ca58d7f4a"
+    },
+    {
+      "path": "packages/shared/src/aliyun-vod.ts",
+      "sha256": "99e59ae9471b7791b887bb026b20665645478dd8e1cf552db278916cd8469da9"
+    },
+    {
+      "path": "packages/shared/src/amap-place.ts",
+      "sha256": "5005937399ff5aaebc38d0a65f8119e83be66cda58b8c423ae1588cd9ad5f2ab"
+    },
+    {
+      "path": "packages/shared/src/auth-email.ts",
+      "sha256": "de48134493a4bd23688dff6fca82c6315edd96ac6a80fea35605ddcbe7fecb4f"
+    },
+    {
+      "path": "packages/shared/src/auth-session-cookie.ts",
+      "sha256": "553cdde5232326002c7de8e06e00c36e09e81fbc2bf47ba41a387ba21113fb4a"
+    },
+    {
+      "path": "packages/shared/src/auth.ts",
+      "sha256": "1cc7cfec3ad32a4856482f42d6a899a4708f1649bcfa59ba4ebf21b8a0cd1ba3"
+    },
+    {
+      "path": "packages/shared/src/bg-music.ts",
+      "sha256": "fc92d518e9b0c2b114541045191a6296e8f9d6f1ab9b5a7f750667ba443e9a3a"
+    },
+    {
+      "path": "packages/shared/src/browser-oss-multipart.ts",
+      "sha256": "5d57334e353b78188a65e368ef91bec61c0bf4f7a0f9123c9d9f68436110f7ff"
+    },
+    {
+      "path": "packages/shared/src/chat/constants.ts",
+      "sha256": "93698c57f9c22c379a11c836611ac6da92f9f12ea4a9fa2ef38d784b9281069b"
+    },
+    {
+      "path": "packages/shared/src/chat/direct-key.ts",
+      "sha256": "c74b1ee16626662bbd8c001fc58760f9c91a6f742276066e9ac70f8ff5daa10a"
+    },
+    {
+      "path": "packages/shared/src/chat/group-service.ts",
+      "sha256": "004559a592902d9942bae71facf86b449177d547b005fd114e5066b93b6c2401"
+    },
+    {
+      "path": "packages/shared/src/chat/policy.ts",
+      "sha256": "fc380ad54f58ef4440918fae9dae80a9a7e18ac99763a80d74831fc68681ac36"
+    },
+    {
+      "path": "packages/shared/src/chat/realtime-hub.ts",
+      "sha256": "922e07f37fdeb7bace514e3db7567fd0df3bddfc333ff49a8a952ac4667f8b50"
+    },
+    {
+      "path": "packages/shared/src/chat/service.ts",
+      "sha256": "9cab2c8f923392e2ac6bda253d11062eb9efe1379971f779b8ea3498a9ac9c97"
+    },
+    {
+      "path": "packages/shared/src/config-center.ts",
+      "sha256": "6c74cf3b4b9d1f4f96cd2e9faf14a7717ca12af085c05dc4f9624bb6980672f7"
+    },
+    {
+      "path": "packages/shared/src/coupon-share.ts",
+      "sha256": "56f09d173e162fbb7705d96e84964c277d67cee22685c66f33039af1df117be6"
+    },
+    {
+      "path": "packages/shared/src/coupons.ts",
+      "sha256": "ff4945a4af41a5d147b63a10bb5c70f3c47ed3b24f84a136c1b7af8a999051a8"
+    },
+    {
+      "path": "packages/shared/src/cover-images.ts",
+      "sha256": "e42c1446975790ea123797d290128fdb9a7b25bee33ed017473c7596179fdb69"
+    },
+    {
+      "path": "packages/shared/src/db.ts",
+      "sha256": "5724c272d3b449d2e089fb8b71cbf1d21c5c7db396075aa20fa9fadb05adf88e"
+    },
+    {
+      "path": "packages/shared/src/decorate.ts",
+      "sha256": "524bea83e605c01b4afeb5151807b9174d021de9904e564689b37f9a7377abbc"
+    },
+    {
+      "path": "packages/shared/src/geo-china.ts",
+      "sha256": "2dfca0949656adc76a4a0946a0fcc7929cba7a56dc4f1871aa3c6ccee8da6d31"
+    },
+    {
+      "path": "packages/shared/src/i18n/content-resolve.ts",
+      "sha256": "89415674c107c435a1306f713859cb9ca327498cb966ecf974c5192d406161fb"
+    },
+    {
+      "path": "packages/shared/src/i18n/get-request-locale.ts",
+      "sha256": "8eabe996abe1aab238daae4311c8757b594e4390849e708b3101b0b683958ac7"
+    },
+    {
+      "path": "packages/shared/src/i18n/locales.ts",
+      "sha256": "a18386a014c7bcce9a0992010c05b948db08e99e768e77af49ba29881490ac4c"
+    },
+    {
+      "path": "packages/shared/src/i18n/messages.ts",
+      "sha256": "717d02c3fcbda3121c79acaac43555e16ce04939dba9a53dd1c6f375b7ed8f9d"
+    },
+    {
+      "path": "packages/shared/src/i18n/nav-labels.ts",
+      "sha256": "c86eac3e3cc0fcd2cae58e2b69448923b023a520f9f42eab3b9d429d6c31bff1"
+    },
+    {
+      "path": "packages/shared/src/i18n/opencc.ts",
+      "sha256": "689c8d24318ec506db898a3fb42458ba964df205789ea33548586daed4b440c7"
+    },
+    {
+      "path": "packages/shared/src/i18n/resolve-locale.ts",
+      "sha256": "f78b5da0f178f5b36b4496c203dedd03244beda313c976e826391957bfc914dc"
+    },
+    {
+      "path": "packages/shared/src/i18n/source-hash.ts",
+      "sha256": "d91a9e7c4b8226aa2fd204a08bc30d5781c6fbea8ce473f59d41f47eef89160e"
+    },
+    {
+      "path": "packages/shared/src/invite.ts",
+      "sha256": "365f5a4f8d8c978eb536fabf7d2ada09c634567a2453a6b78e299fd217d24c02"
+    },
+    {
+      "path": "packages/shared/src/media.ts",
+      "sha256": "c0407083baf65a6ecf6d94514ce35c589e122a66bdb04be56c134a3a9c8bfdde"
+    },
+    {
+      "path": "packages/shared/src/order-form.ts",
+      "sha256": "1baaecfd086bb8dc0b658f2466236c9d3782cbe33fdef535771f350bf87c58dd"
+    },
+    {
+      "path": "packages/shared/src/page-templates.ts",
+      "sha256": "74dfa43c973310e4edb180d08d55c68448c2f25e68ddd417cda186e8abd61293"
+    },
+    {
+      "path": "packages/shared/src/password.ts",
+      "sha256": "2d4a8c43db71d4eb2c0df92607cc4b162e84a464f5f1d71fcebfae6eed0ca59c"
+    },
+    {
+      "path": "packages/shared/src/payments.ts",
+      "sha256": "403aac1f4f574c3761bd46ec1335129beeb1daa2d8485a19c5fd3c3ef62e0846"
+    },
+    {
+      "path": "packages/shared/src/portal-nav-title.ts",
+      "sha256": "4f29817170aaebb2fa92417c2ef52f37de942ad89332cfe8d5813838e99aaed7"
+    },
+    {
+      "path": "packages/shared/src/portal.ts",
+      "sha256": "2af4c5df04335b18f924d24142b11df5296559c3d9b19e0ecf15dacba42f9272"
+    },
+    {
+      "path": "packages/shared/src/product-types.ts",
+      "sha256": "74e84f4e9017d74956567a8a5669caa42fa171f69858a420a1cb07a4b86d48f1"
+    },
+    {
+      "path": "packages/shared/src/request-origin.ts",
+      "sha256": "29e3db6c9d554143f051c611703d7924d44b3b8410fe78339cf744d60a4e4e75"
+    },
+    {
+      "path": "packages/shared/src/roles.ts",
+      "sha256": "e634bca1c4db47604cb525805401ed2b651d8cb0897f27ca4955ad40b67cf394"
+    },
+    {
+      "path": "packages/shared/src/safe-next-path.ts",
+      "sha256": "b387888b0033090f532ca30c0b9b47744a724f101eeb41c79ee2b7dd8eaf2c56"
+    },
+    {
+      "path": "packages/shared/src/security/headers.ts",
+      "sha256": "c8deaeaceadbd8921c00ffb51aaab1308b87a3e1652b990e9b8957c8fe2722a8"
+    },
+    {
+      "path": "packages/shared/src/security/upload-policy.ts",
+      "sha256": "1b76999ada626f3c5146c6180a3facedd94015c62b21d2fdb75b03db96072ea5"
+    },
+    {
+      "path": "packages/shared/src/site-settings.ts",
+      "sha256": "c4dc5090195c50bd5e7e2459cd27a061fe0d8086b1bd4168d3fdff543698b08b"
+    },
+    {
+      "path": "packages/shared/src/storage.ts",
+      "sha256": "412486245a6c96fae0301515f6ba907cd120547b8eaa6a5196a762c01c6f8f0e"
+    },
+    {
+      "path": "packages/shared/src/studio-nav-config.ts",
+      "sha256": "d7335feea66a3d95b42c2839c753dff368c48761bb1fffe7acb104b0a58dc142"
+    },
+    {
+      "path": "packages/shared/src/studio.ts",
+      "sha256": "f5cf9a6891cf0bc3f34ed0c2a022e027aaa7e5155cd39dbebbbf9f677b5e7e4d"
+    },
+    {
+      "path": "packages/shared/src/tab-decision.ts",
+      "sha256": "1d7c6c879e409f87a5657ccf73d9896073d2673bacaf3eab4d385384d66af912"
+    },
+    {
+      "path": "packages/shared/src/ui-copy.ts",
+      "sha256": "9bee8101e9460a68ef79d7f80956766f99467c9590eef799f5e5a45cab5ca9ab"
+    },
+    {
+      "path": "packages/shared/src/wechat-env.ts",
+      "sha256": "f1cd40da745c7eb331f3f5c017dbe40dc9413c3f61108c51a5845383694f6f04"
+    },
+    {
+      "path": "packages/shared/src/www-tab-broker.ts",
+      "sha256": "e0fe8e4cffa381642f6ff88b7521b82686d3f68928db5c2c1497570683864136"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde"
+    },
+    {
+      "path": "prisma/schema.prisma",
+      "sha256": "8ea61b9ceb9e3e0cc41c1958d6b340b2a2f71426671fbac39e36dd3f6b02d947"
+    },
+    {
+      "path": "src/app/api/auth/account/start/route.ts",
+      "sha256": "5594b3721bd697d9955b58eda7e5b54a1113a5941c02f8fe85e29250ddc320e4"
+    },
+    {
+      "path": "src/app/api/auth/callback/route.ts",
+      "sha256": "050b011fe06aa93597b8ed3159cc4acf90a767ada48092526d50e3ee264d298d"
+    },
+    {
+      "path": "src/app/api/auth/logout/route.ts",
+      "sha256": "2b41ff4683dcc87ebf5a3a886ff5800d38600d91c3e1f375bab9d67c8435ed0c"
+    },
+    {
+      "path": "src/app/api/auth/session/route.ts",
+      "sha256": "41598b78ec965be562667dbe6fc0750c036de41af8b79fc7b2d6d99589a87e3f"
+    },
+    {
+      "path": "src/app/api/auth/tab/route.ts",
+      "sha256": "df9df7373c99f952a0c59b9ce56735fd15f793994377a762334637a55c07621f"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/accept/route.ts",
+      "sha256": "255968528b84645cd6439d595e29f8ea2a8b8dae7a34eb8239ff5964c04a4b29"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/announcement/route.ts",
+      "sha256": "af135a99e5d8282a0f23c5ca12a80fb5fef1fee3a9209f3b45f83f1cf0732697"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/invite/route.ts",
+      "sha256": "ba46430ba069906c7bf2410f30c509e0e339be5c539ef22d467c55cad3e8ddd8"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/join/route.ts",
+      "sha256": "a4da2730c2a468c89efc860422b73b81e3ed8400be441aa2c0463e69f3b5a17b"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/messages/[messageId]/recall/route.ts",
+      "sha256": "627619ad2b353dc711e169866a67b947cc8c2f6a2c3ffb0ff3a911756d1834d4"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/messages/[messageId]/route.ts",
+      "sha256": "5a77ac39167b16701faaf8638c2909312cc43eeb7a1d1f71d479fd46ca8d10a9"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/messages/route.ts",
+      "sha256": "0983119e33fb98cc71c4eb87ac42112be51744fa53fc3895073046472c2461d6"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/reject/route.ts",
+      "sha256": "8a7038f9ed7b3f12d049c173ba8955c8ff386ba562a6be34fc107d77f33d522d"
+    },
+    {
+      "path": "src/app/api/chat/conversations/[id]/route.ts",
+      "sha256": "0d99bd1831cba7710bb48a59b2c19bbacc1b071256521376c51a90ca88b3bf78"
+    },
+    {
+      "path": "src/app/api/chat/conversations/route.ts",
+      "sha256": "d9127cabc500c7250c3506f27a3362c0a46aed9fa4e4327a4dfa8f7e9ae58675"
+    },
+    {
+      "path": "src/app/api/forum/join/route.ts",
+      "sha256": "e7b3932c1e440a3ca6ebfe859414412f6625dbca4385b1437ba4aee65ce0dfd2"
+    },
+    {
+      "path": "src/app/api/forum/media/complete/route.ts",
+      "sha256": "79b1b0365f19992a4cd6a530e02a34ed809c9daa1431fe5c2c3d9ee23d676a32"
+    },
+    {
+      "path": "src/app/api/forum/media/prepare/route.ts",
+      "sha256": "7a94de4beb3b44f21f095c40bcb38de3d97cf03e020016a62c64944370c462ff"
+    },
+    {
+      "path": "src/app/api/forum/media/route.ts",
+      "sha256": "9f03980d7b5ec276c29b3aa47688d0547a894edcfd289e379033f0c3030aa1a0"
+    },
+    {
+      "path": "src/app/api/forum/posts/[id]/action/route.ts",
+      "sha256": "7b17cf198a889e299f0ff092b0fd64ac21a1893289526c86e61043fd2dc66497"
+    },
+    {
+      "path": "src/app/api/forum/posts/[id]/comments/route.ts",
+      "sha256": "bf43a48d4fdbc33f07819e969373594d68004a84dbcb4da48f65c57761106820"
+    },
+    {
+      "path": "src/app/api/forum/posts/[id]/route.ts",
+      "sha256": "4afe378990e9b313de5f577a4186c83f8a8a4ec5c1266920dcd676a7719218a0"
+    },
+    {
+      "path": "src/app/api/forum/posts/route.ts",
+      "sha256": "9f5ca91a605a92e9d036af6dc505fbabfa0aa497815e8314f4c436fd7f9f81e0"
+    },
+    {
+      "path": "src/app/api/forum/verify/route.ts",
+      "sha256": "eab4247fcf584e7cbab6e54bb7dffe643dc4d6ea4e9dde240c63f33cecce21de"
+    },
+    {
+      "path": "src/app/api/geo/reverse/route.ts",
+      "sha256": "5e69ae0dec98832ebc8282e6c86cde0e3bba5db0fa95347ceaa29a55d7e440f3"
+    },
+    {
+      "path": "src/app/api/geo/search/route.ts",
+      "sha256": "9012323e698aa058d1b7cf0145862391d03e7188faf7fc64deb9157b58e340ac"
+    },
+    {
+      "path": "src/app/api/geo/tile/[z]/[x]/[y]/route.ts",
+      "sha256": "e570edeb2e21b9dc4b967810dd8d8dad94d432afe46148e6964bee044460b207"
+    },
+    {
+      "path": "src/app/api/studio/forum/settings/route.ts",
+      "sha256": "50238eb786a05f14947ecf3d41d3570c531ef49361c8280e7cda942d426073b8"
+    },
+    {
+      "path": "src/app/api/studio/forum/universities/[id]/route.ts",
+      "sha256": "49e6da5776e05d6a73589648197143fa7277673e15b2d452716e7b057763b6bc"
+    },
+    {
+      "path": "src/app/api/studio/forum/universities/route.ts",
+      "sha256": "9d531758dc1997213e1d57bd3b787c61d5e3d5ba929252603a53fdd983836a76"
+    },
+    {
+      "path": "src/app/api/studio/forum/verifications/[id]/proof/route.ts",
+      "sha256": "bde80736f609a6d1aa2724e2baf574d0e34a7b60f44ec4fd42ecc2a817b5a30a"
+    },
+    {
+      "path": "src/app/api/studio/forum/verifications/[id]/route.ts",
+      "sha256": "5f34661eb6ae133583e5424f5cc4a6d0648056715580c5ab5c64dc0c6bad44ec"
+    },
+    {
+      "path": "src/app/api/studio/forum/verifications/route.ts",
+      "sha256": "d69e808ae6b0d5af278856b10c00b6c456160e08105440e3f1a366ee5c14c8b8"
+    },
+    {
+      "path": "src/app/api/studio/forum/zones/[id]/route.ts",
+      "sha256": "6ea57faf418807dd9f4d9c10f32894a68323ed0a2365ee047cc3cc7c558f67bd"
+    },
+    {
+      "path": "src/app/api/tab-bootstrap/route.ts",
+      "sha256": "ea3a28e170fd3db41b450da5bd88f1ef156341235f14822512df053b10844cf2"
+    },
+    {
+      "path": "src/app/api/upload/image/route.ts",
+      "sha256": "9110d84aced6f11f80f7a1223136889fa4307db07d733dadea2c7063b73d05a0"
+    },
+    {
+      "path": "src/app/forum/[slug]/new/page.tsx",
+      "sha256": "e350776b338f3e0c1619edab7ca469363edd5bcbd48be6f3662f0cb81803f16d"
+    },
+    {
+      "path": "src/app/forum/[slug]/p/[postId]/page.tsx",
+      "sha256": "f305583cb20dbdc57da7fb43c58e721218ec96b7ea8844ff31504404c286dcb9"
+    },
+    {
+      "path": "src/app/forum/[slug]/page.tsx",
+      "sha256": "499cdb39f29c9ab788f4503acf914bf7494e94720a7915926595e2b924c00ecd"
+    },
+    {
+      "path": "src/app/forum/campus/page.tsx",
+      "sha256": "2fb83ca1f50e459bf7c4a4c80db8770e9cf1b2b68da3d6d0de660c7eb9915a24"
+    },
+    {
+      "path": "src/app/forum/circles/page.tsx",
+      "sha256": "6c820a8cc257632a66121cde0c8698092d26b340b433d4b0ef6e815078961dac"
+    },
+    {
+      "path": "src/app/forum/cities/page.tsx",
+      "sha256": "251d31c4d045fc1b38c6d55b01809adff4e7a32788c9d7713491abdf19ff0877"
+    },
+    {
+      "path": "src/app/forum/mine/page.tsx",
+      "sha256": "20422162cf3ac980eb746f5caadaf0c7e253ca69c6392de505e3729f5d724b25"
+    },
+    {
+      "path": "src/app/forum/orgs/page.tsx",
+      "sha256": "c94809c0dcbc9054da5304e0a07fe522ca7c767c8cbee28878f44ea439016b2b"
+    },
+    {
+      "path": "src/app/forum/page.tsx",
+      "sha256": "eaec5b8a81ce1f4f705ce67a95f2d99ed0d436836e9a3a03cf52254602a2df4a"
+    },
+    {
+      "path": "src/app/globals.css",
+      "sha256": "3339604d3664341f5b06893f5181ea2c3be9ed93cb598704293aa8e187e410ba"
+    },
+    {
+      "path": "src/app/studio/forum/[id]/edit/page.tsx",
+      "sha256": "cd321ae9f49d220650d68007f132ad3565634dff704de039b58d3c040465431b"
+    },
+    {
+      "path": "src/app/studio/forum/page.tsx",
+      "sha256": "8e0544cb433f1ea479250b2aed5c581ab4c8bd7512322c87cb389bcb3ea810af"
+    },
+    {
+      "path": "src/components/chat/start-consult-chat-button.tsx",
+      "sha256": "6554bcfc5e91f5b667dcfcd258d98d0044124eb5eba6cce3acedfdd2e927bb9c"
+    },
+    {
+      "path": "src/components/i18n/locale-provider.tsx",
+      "sha256": "62d910eeec850c3c69896b87b1867bec58b2c82bd35c58bf508bffe17154399f"
+    },
+    {
+      "path": "src/components/user-avatar.tsx",
+      "sha256": "31da2336283cf26eeebae5fe9162a7ddff03a43d0791047bb2743aa141b06da9"
+    },
+    {
+      "path": "src/locales/de.json",
+      "sha256": "7ff89c00d9637c80733edc08d5510657dc57c6e92b6a3244c0f724e974d6cf39"
+    },
+    {
+      "path": "src/locales/en.json",
+      "sha256": "f16c4d30a59e2ce3ee5b0dbdcd034d43b95e12fca44c562aa5b19f4ca982c038"
+    },
+    {
+      "path": "src/locales/es.json",
+      "sha256": "bce5eb5b9603d8d8d6229061f51617cb08e74321d18eae109e2dffa0d5a39d7a"
+    },
+    {
+      "path": "src/locales/fil.json",
+      "sha256": "9652fde3a8580022a2d696de1963b5d316e435d99409e75eb747a59071bc5b6a"
+    },
+    {
+      "path": "src/locales/fr.json",
+      "sha256": "f7c6416bfac7a7cedc03be26400d5b05a2136f8bc8f11e99023becb74579e212"
+    },
+    {
+      "path": "src/locales/ja.json",
+      "sha256": "870d1fcb05e4b865ddff1924540cd6988ad16c0d1ad1e96cada2c3fae5c106ff"
+    },
+    {
+      "path": "src/locales/pt.json",
+      "sha256": "d9482c103f16acc82b14f92f1c0a6a1c4afedd66196d0c5bc381aa659ea51e2d"
+    },
+    {
+      "path": "src/locales/vi.json",
+      "sha256": "c078d45a54d4cda8a47ff6a337e76dfa2cb6c3b1d0bc0d503186b14732f7438a"
+    },
+    {
+      "path": "src/locales/zh-Hans.json",
+      "sha256": "863f000eb5135d363ea1d23cdaf835f45a9db9f52a20fd39b96f9ceb9f5d7e1f"
+    },
+    {
+      "path": "src/locales/zh-Hant.json",
+      "sha256": "7dbf26c9b25fb04f7479d5797702a01d922cb3fc124bca14c3c8f8f80660d387"
+    }
+  ]
+}

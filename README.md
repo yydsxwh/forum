@@ -1,3 +1,13 @@
-# forum
+# 论坛
 
-论坛页面在主站仓库 Andyyyds 的 `packages/forum`，和主站同一个进程、同一份数据库。本仓库还没有可运行的服务。主站停止时论坛一起停止，直到拆成独立进程。
+本草稿已按当前主站 3686fed59ecbc650157d096733db98954f418a06 重做，具有单独 Next.js 进程、产品路由、健康接口与数据库配置。身份通过 Account OIDC；不提供本地密码登录或演示种子。
+
+独立进程端口 4212 只是候选值，上线前核对监听。入口 /forum。
+
+npm install
+npm run typecheck
+npm test
+npm run test:host
+npm run build
+
+生产切流前必须完成 docs/SPLIT-READINESS.md 的数据、身份和公共能力验收。本 PR 保持草稿，不表示已经部署。
