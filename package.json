@@ -11,7 +11,7 @@
     "build": "prisma generate && next build --webpack",
     "start": "next start --hostname 127.0.0.1 --port 4212",
     "typecheck": "tsc --noEmit",
-    "test": "tsx packages/forum/lib/watch-notify.test.ts",
+    "test": "tsx packages/forum/lib/watch-notify.test.ts && tsx packages/forum/lib/knowledge-directory.test.ts",
     "postinstall": "prisma generate",
     "test:host": "node --test test/host.test.mjs"
   },

@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb"
+      "sha256": "c393b972018651cf7709caf22ec09eb9cc9b193cbc20923e673aa52d4a2d5e8d"
     },
     {
       "path": "packages/decorate/lib/decorate.ts",
@@ -325,7 +325,7 @@
     },
     {
       "path": "packages/forum/routes/forum/page.tsx",
-      "sha256": "7662ac6fc7a83420dbdf496a19bcf6ddc34d4608bebc26f50d0b0687938ec8d1"
+      "sha256": "84c99a298b0cb82fb805e6ab490410cb7f630bffc904d73ba68e2949a33ae7d7"
     },
     {
       "path": "packages/forum/routes/studio/forum/[id]/edit/page.tsx",
@@ -810,6 +810,18 @@
     {
       "path": "src/locales/zh-Hant.json",
       "sha256": "7dbf26c9b25fb04f7479d5797702a01d922cb3fc124bca14c3c8f8f80660d387"
+    },
+    {
+      "path": "packages/forum/lib/knowledge-directory.ts",
+      "sha256": "3d6a2de8bf5dfa3782014f7a5f5c5c02ef74414b5dbe72b0cc65a72b5ce2830d"
+    },
+    {
+      "path": "packages/forum/lib/knowledge-directory.test.ts",
+      "sha256": "cd7cd13930d6a8b778494af2988e9eec637ce9993e5e32c91cef5b59179fc159"
+    },
+    {
+      "path": "src/app/forum/communities/page.tsx",
+      "sha256": "98af3fcc5849a40d11398376c14bb47b14bc4e26bd5a5dea50e89a392e815532"
     }
   ]
 }
