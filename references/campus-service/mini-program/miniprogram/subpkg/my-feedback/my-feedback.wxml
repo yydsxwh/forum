@@ -1,0 +1,40 @@
+<!-- pages/my-feedback/my-feedback.wxml -->
+<view class="page-my-feedback">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px; height: 44px;">
+    <view class="nav-back" bindtap="goBack"><view class="nav-back-icon"></view></view>
+    <text class="nav-title">反馈详情</text>
+    <view class="nav-placeholder"></view>
+  </view>
+  <scroll-view scroll-y class="content" style="padding-top: {{navBarHeight}}px;">
+    <block wx:if="{{detail}}">
+      <view class="info-card glass-card">
+        <text class="info-title">{{detail.title}}</text>
+        <view class="info-meta">
+          <text class="status-tag {{detail.status}}">{{statusMap[detail.status]}}</text>
+          <text class="info-time">{{detail._timeText}}</text>
+        </view>
+      </view>
+      <view class="section glass-card">
+        <text class="section-title">详细信息</text>
+        <text class="info-row">类型: {{detail.category}}</text>
+      </view>
+      <view class="section glass-card">
+        <text class="section-title">详细内容</text>
+        <text class="info-content">{{detail.content}}</text>
+      </view>
+      <view class="section glass-card" wx:if="{{detail.handleNote}}">
+        <text class="section-title">处理回复</text>
+        <text class="info-content">{{detail.handleNote}}</text>
+        <text class="info-time" wx:if="{{detail.handleTime}}">处理时间: {{detail._handleTimeText}}</text>
+      </view>
+      <view class="actions" wx:if="{{detail.status === 'resolved'}}">
+        <view class="btn-outline" bindtap="onRate">评分</view>
+        <view class="btn-outline" bindtap="onClose">关闭反馈</view>
+      </view>
+    </block>
+    <view class="loading-more" wx:elif="{{loading}}">
+      <view class="spinner"></view>
+      <text>加载中...</text>
+    </view>
+  </scroll-view>
+</view>

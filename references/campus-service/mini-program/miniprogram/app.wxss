@@ -1,0 +1,576 @@
+@import './pages/_shared/base.wxss';
+
+/* 全局 Design Tokens - 暖色浅底模式（默认） */
+page {
+  background-color: #F5F5F7;
+  --primary: #FF9500;
+  --primary-light: #FFB347;
+  --primary-dark: #E08600;
+  --primary-gradient: linear-gradient(135deg, #FF9500 0%, #E08600 100%);
+  --danger: #FF453A;
+  --warning: #FF9F0A;
+  --info: #0A84FF;
+  --success: #30D158;
+  --bg-page: #F5F5F7;
+  --bg-white: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F5F5F7;
+  --text-primary: #1C1C1E;
+  --text-secondary: rgba(28,28,30,.65);
+  --text-hint: rgba(28,28,30,.40);
+  --text-placeholder: rgba(28,28,30,.30);
+  --border: rgba(0,0,0,.08);
+  --border-light: rgba(0,0,0,.04);
+  --shadow-sm: 0 2rpx 12rpx rgba(0,0,0,.06);
+  --shadow-md: 0 8rpx 32rpx rgba(0,0,0,.08);
+  --shadow-lg: 0 16rpx 48rpx rgba(0,0,0,.12);
+  --radius-sm: 12rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 44rpx;
+  --radius-xl: 32rpx;
+  --font-xs: 20rpx;
+  --font-sm: 24rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-xxl: 40rpx;
+
+  /* 语义化变量（暖色浅底） */
+  --nav-bg: rgba(255,255,255,0.92);
+  --overlay-bg: rgba(0,0,0,.3);
+  --card-inner-bg: rgba(0,0,0,.03);
+  --badge-bg: rgba(0,0,0,.05);
+  --card-inner-bg-2: rgba(0,0,0,.04);
+  --card-inner-bg-3: rgba(0,0,0,.06);
+  --card-inner-bg-hover: rgba(0,0,0,.04);
+  --mine-gradient: linear-gradient(135deg, #FFB347 0%, #FF9500 55%, #E08600 100%);
+  --mine-header-shadow: 0 8rpx 32rpx rgba(255,149,0,.15);
+  --avatar-border: rgba(255,255,255,.8);
+  --avatar-border-sm: rgba(255,255,255,.6);
+  --avatar-border-lg: rgba(255,255,255,.9);
+  --avatar-bg: rgba(255,255,255,.3);
+  --stat-divider: rgba(255,255,255,.7);
+  --menu-arrow: rgba(0,0,0,.3);
+  --back-btn-bg: rgba(0,0,0,.05);
+  --back-btn-border: rgba(0,0,0,.1);
+  --duck-color: #1C1C1E;
+  --input-bg: rgba(0,0,0,.04);
+  --input-bg-2: rgba(0,0,0,.02);
+  --dash-line: rgba(0,0,0,.15);
+  --timeline-dot: rgba(0,0,0,.3);
+  --btn-shadow-primary: 0 6rpx 24rpx rgba(255,149,0,.20);
+  --danger-bg: rgba(255,69,58,.08);
+  --danger-border: rgba(255,69,58,.25);
+  --danger-bg-light: rgba(255,69,58,.06);
+  --primary-bg: rgba(255,149,0,.08);
+  --primary-bg-light: rgba(255,149,0,.05);
+  --primary-bg-mid: rgba(255,149,0,.10);
+  --primary-bg-strong: rgba(255,149,0,.12);
+  --primary-border: rgba(255,149,0,.20);
+  --primary-border-mid: rgba(255,149,0,.25);
+  --warning-bg: rgba(255,159,10,.06);
+  --warning-bg-mid: rgba(255,159,10,.08);
+  --warning-border: rgba(255,159,10,.12);
+  --info-bg: rgba(10,132,255,.10);
+  --success-bg: rgba(48,209,88,.10);
+  --pink: #FF6B8A;
+  --pink-bg: rgba(255,107,138,.08);
+  --blue: #5E8BFF;
+  --blue-bg: rgba(94,139,255,.08);
+  --text-on-primary: #FFFFFF;
+  --modal-overlay: rgba(0,0,0,.4);
+  --nav-bg-2: rgba(255,255,255,0.96);
+  --topbar-gradient: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
+  --highlight-green: #FF5A5F;
+
+  /* 首页专属语义变量 */
+  --hero-gradient: linear-gradient(135deg, #FFD78E 0%, #FF9500 100%);
+  --hot-rec-gradient: linear-gradient(135deg, #FF9500 0%, #FF6B35 100%);
+  --search-btn-bg: #FF9500;
+  --topbar-bg: #FFFFFF;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: var(--font-md);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 通用全屏背景图（各页面在 wxml 中放 <image class="page-bg">） */
+.page-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 暗色模式 */
+/* 通用按钮 - 主色调 */
+.grad-btn {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-radius: 999rpx;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 0;
+  box-shadow: var(--btn-shadow-primary);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.grad-btn:active {
+  transform: scale(0.97);
+  opacity: 0.92;
+}
+
+.grad-btn[disabled] {
+  opacity: 0.4;
+  transform: none;
+}
+
+/* 次要按钮 */
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2rpx solid var(--border);
+  border-radius: 999rpx;
+  font-size: var(--font-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0;
+  transition: all 0.2s;
+}
+
+.btn-secondary:active {
+  background: var(--card-inner-bg-hover);
+}
+
+/* 点击缩放 */
+.tap-shrink {
+  transition: transform 0.1s ease;
+}
+.tap-shrink:active {
+  transform: scale(0.95);
+}
+
+/* 通用卡片 */
+.card {
+  background: var(--bg-card);
+  border-radius: 44rpx;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1rpx solid var(--border-light);
+}
+
+/* 玻璃卡片（统一各页面内容容器） */
+.glass-card {
+  background: var(--bg-card);
+  border-radius: 44rpx;
+  padding: 32rpx;
+  margin-bottom: 20rpx;
+  border: 1rpx solid var(--border-light);
+}
+
+/* 统一导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20rpx);
+  -webkit-backdrop-filter: blur(20rpx);
+  border-bottom: 1rpx solid var(--border-light);
+}
+
+.nav-back {
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-back-icon {
+  width: 24rpx;
+  height: 24rpx;
+  border-left: 4rpx solid var(--text-primary);
+  border-bottom: 4rpx solid var(--text-primary);
+  transform: rotate(45deg);
+  margin-left: 8rpx;
+}
+
+.nav-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-placeholder {
+  width: 72rpx;
+  flex-shrink: 0;
+}
+
+/* 统一空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 48rpx;
+}
+
+.empty-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: var(--card-inner-bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  border: 2rpx solid var(--border);
+}
+
+.empty-icon text {
+  font-size: 40rpx;
+}
+
+.empty-text {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  margin-bottom: 8rpx;
+}
+
+.empty-hint {
+  font-size: var(--font-sm);
+  color: var(--text-hint);
+}
+
+/* 统一加载 */
+.loading-more {
+  display: flex;
+  justify-content: center;
+  padding: 32rpx 0;
+  font-size: var(--font-sm);
+  color: var(--text-hint);
+}
+
+.no-more {
+  color: var(--text-placeholder);
+  font-size: var(--font-xs);
+}
+
+/* 线条图标基础类 */
+.icon-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.icon-line svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 安全区适配 */
+.safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 单行省略 */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: var(--border-light);
+}
+
+/* 全局 spinner */
+.spinner {
+  width: 32rpx; height: 32rpx;
+  border: 3rpx solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* loading-more 带图标 */
+.loading-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 48rpx 0;
+  font-size: var(--font-sm);
+  color: var(--text-hint);
+}
+
+/* ===== 全局鸭子矢量图标 ===== */
+.top-duck-icon {
+  width: 44rpx;
+  height: 44rpx;
+  position: relative;
+  transform: scaleX(-1);
+}
+.td-head {
+  position: absolute;
+  top: 4rpx;
+  left: 8rpx;
+  width: 16rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--duck-color);
+}
+.td-eye {
+  position: absolute;
+  top: 8rpx;
+  right: 18rpx;
+  width: 4rpx;
+  height: 4rpx;
+  border-radius: 50%;
+  background: var(--duck-color);
+}
+.td-beak {
+  position: absolute;
+  top: 12rpx;
+  left: 4rpx;
+  width: 14rpx;
+  height: 6rpx;
+  border-radius: 0 6rpx 6rpx 0;
+  background: var(--warning);
+}
+.td-body {
+  position: absolute;
+  bottom: 2rpx;
+  left: 10rpx;
+  width: 26rpx;
+  height: 20rpx;
+  border-radius: 50% 50% 40% 40%;
+  border: 3rpx solid var(--duck-color);
+  background: var(--primary-bg-strong);
+}
+.td-wing {
+  position: absolute;
+  bottom: 10rpx;
+  left: 22rpx;
+  width: 14rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--duck-color);
+  transform: rotate(-20deg);
+}
+.td-tail {
+  position: absolute;
+  bottom: 14rpx;
+  right: 2rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-left: 3rpx solid var(--duck-color);
+  border-bottom: 3rpx solid var(--duck-color);
+  transform: rotate(45deg);
+}
+
+/* ========== SVG Emoji Icons (全局) ========== */
+.svg-ico {
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+.svg-ico-bank {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="3" y="3" width="18" height="3" rx="1"/><path d="M3 6h18v2H3z"/><path d="M3 10h2v8H3z"/><path d="M19 10h2v8h-2z"/><path d="M3 18h18v2H3z"/><path d="M10 10v8M14 10v8"/></svg>");
+}
+.svg-ico-books {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M4 4h6v16H4z"/><path d="M14 4h6v16h-6z"/><path d="M2 20h20"/></svg>");
+}
+.svg-ico-briefcase {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/><path d="M3 12h18"/></svg>");
+}
+.svg-ico-bulb {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/></svg>");
+}
+.svg-ico-bullhorn {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 11v2a1 1 0 001 1h2l4 4V6L6 10H4a1 1 0 00-1 1z"/><path d="M14 8a5 5 0 010 8"/><path d="M17 5a9 9 0 010 14"/></svg>");
+}
+.svg-ico-bus {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="4" y="4" width="16" height="14" rx="2"/><path d="M4 12h16"/><circle cx="8" cy="18" r="1"/><circle cx="16" cy="18" r="1"/><path d="M8 8h8"/></svg>");
+}
+.svg-ico-calendar-tear {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16"/><path d="M8 3v4M16 3v4"/></svg>");
+}
+.svg-ico-cat {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 5l-2-2-1 3-4 1v8l4 3h6l4-3V7l-4-1-1-3z"/><circle cx="9" cy="11" r="1" fill="#555"/><circle cx="15" cy="11" r="1" fill="#555"/><path d="M11 14l1 1 1-1"/></svg>");
+}
+.svg-ico-chart {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>");
+}
+.svg-ico-chat {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M21 12a8 8 0 01-8 8H7l-4 3V12a8 8 0 018-8h2a8 8 0 018 8z"/><path d="M8 10h8M8 13h4"/></svg>");
+}
+.svg-ico-check-green {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9" fill="%2322c55e" stroke="none"/><path d="M8 12l3 3 5-6" stroke="white"/></svg>");
+}
+.svg-ico-clipboard {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>");
+}
+.svg-ico-clock-1 {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>");
+}
+.svg-ico-clock-3 {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>");
+}
+.svg-ico-credit-card {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>");
+}
+.svg-ico-dice {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="1.5" fill="#555" stroke="none"/><circle cx="15" cy="15" r="1.5" fill="#555" stroke="none"/><circle cx="15" cy="9" r="1.5" fill="#555" stroke="none"/><circle cx="9" cy="15" r="1.5" fill="#555" stroke="none"/></svg>");
+}
+.svg-ico-dizzy-face {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9"/><path d="M8 10l2 2M10 8l-2 2M14 8l2 2M16 10l-2 2"/><path d="M9 16c1-1 2-1 3 0s2 1 3 0"/></svg>");
+}
+.svg-ico-document {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h6"/></svg>");
+}
+.svg-ico-eyes {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>");
+}
+.svg-ico-fire {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 3s4 4 4 8a4 4 0 11-8 0c0-2 1-3 1-3s-2 1-2 4a6 6 0 1012 0c0-5-7-9-7-9z"/></svg>");
+}
+.svg-ico-graduation {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 9l9-4 9 4-9 4z"/><path d="M7 11v5c0 1 2 2 5 2s5-1 5-2v-5"/><path d="M21 9v5"/></svg>");
+}
+.svg-ico-group {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M15 19c0-2 1-3 2-4"/></svg>");
+}
+.svg-ico-hatching-chick {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 3v2"/><path d="M10 5h4"/><ellipse cx="12" cy="14" rx="6" ry="6"/><circle cx="10" cy="13" r="1" fill="#555" stroke="none"/><circle cx="14" cy="13" r="1" fill="#555" stroke="none"/><path d="M12 15l1 1-1 1-1-1z" fill="#555" stroke="none"/><path d="M8 18l-3 2M16 18l3 2"/></svg>");
+}
+.svg-ico-herb {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 20v-8"/><path d="M12 12c0-4-3-6-3-6s3 2 3 6c0-4 3-6 3-6s-3 2-3 6"/><path d="M9 20h6"/></svg>");
+}
+.svg-ico-id-card {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="7" cy="11" r="2"/><path d="M11 10h6M11 13h4"/><path d="M5 15c0-1 1-2 2-2s2 1 2 2"/></svg>");
+}
+.svg-ico-inbox {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 5h18v14H3z"/><path d="M3 12l4 0 2 3h6l2-3 4 0"/></svg>");
+}
+.svg-ico-key {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="8" cy="12" r="4"/><path d="M12 12h8M16 12v3M19 12v2"/></svg>");
+}
+.svg-ico-lightning {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M13 3L5 13h6l-2 8 8-10h-6z"/></svg>");
+}
+.svg-ico-lock {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>");
+}
+.svg-ico-mailbox-empty {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 8V5h6"/><path d="M18 12v3"/></svg>");
+}
+.svg-ico-medal {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="9" r="5"/><path d="M9 13l-3 7 6-3 6 3-3-7"/><path d="M12 7v4M10 9h4"/></svg>");
+}
+.svg-ico-megaphone {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 11v2a1 1 0 001 1h2l4 4V6L6 10H4a1 1 0 00-1 1z"/><path d="M14 8a5 5 0 010 8"/></svg>");
+}
+.svg-ico-memo {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>");
+}
+.svg-ico-mobile {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>");
+}
+.svg-ico-money-bag {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M6 5l2-2h8l2 2"/><path d="M6 5h12l-1 3H7z"/><path d="M6 8h12l2 4a6 6 0 01-6 8H10a6 6 0 01-6-8z"/><circle cx="12" cy="14" r="1.5" fill="#555" stroke="none"/></svg>");
+}
+.svg-ico-necktie {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M10 3h4l-2 4z"/><path d="M8 7l4 3 4-3-2 14h-4z"/></svg>");
+}
+.svg-ico-no-entry {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9"/><path d="M6 12h12" stroke="%23e23" stroke-width="3"/></svg>");
+}
+.svg-ico-outbox {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 5h18v14H3z"/><path d="M3 12l4 0 2 3h6l2-3 4 0"/><path d="M12 3v6M9 6l3-3 3 3"/></svg>");
+}
+.svg-ico-package {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>");
+}
+.svg-ico-postbox {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="6" y="4" width="12" height="10" rx="1"/><path d="M12 14v6"/><path d="M9 8h6"/></svg>");
+}
+.svg-ico-pushpin {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M9 4l3 3-4 4-3-3z"/><path d="M5 8l-2 5 7-7"/><path d="M9 4l5-2-7 7"/><path d="M14 11l5 5-3 3-5-5"/></svg>");
+}
+.svg-ico-receipt {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>");
+}
+.svg-ico-refresh {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 12a9 9 0 0115-6l2 2"/><path d="M21 12a9 9 0 01-15 6l-2-2"/><path d="M18 4v4h-4M6 20v-4h4"/></svg>");
+}
+.svg-ico-salad {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 11h18a8 8 0 01-8 8h-2a8 8 0 01-8-8z"/><path d="M7 11c0-3 2-5 5-5M12 6c0-2 2-3 3-3M15 8c1-2 3-2 4-1"/><path d="M5 21h14"/></svg>");
+}
+.svg-ico-scroll {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M5 4h12v16H7a2 2 0 01-2-2z"/><path d="M17 4h2v16h-2"/><path d="M8 8h6M8 12h6M8 16h4"/></svg>");
+}
+.svg-ico-slot-machine {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16"/><circle cx="9" cy="14" r="2"/><circle cx="15" cy="14" r="2"/><path d="M9 14l1 1M15 14l1 1"/></svg>");
+}
+.svg-ico-sparkles {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M18 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/></svg>");
+}
+.svg-ico-sweat-smile {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9"/><path d="M8 14c1 2 3 3 4 3s3-1 4-3"/><circle cx="9" cy="10" r="1" fill="#555" stroke="none"/><circle cx="15" cy="10" r="1" fill="#555" stroke="none"/><path d="M17 6c-1 1-1 3 0 4" fill="%234af" stroke="none"/></svg>");
+}
+.svg-ico-thought {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M3 15a5 5 0 015-5 6 6 0 0111 3 4 4 0 01-1 8H8a5 5 0 01-5-5z"/><circle cx="5" cy="20" r="1.5" fill="#555" stroke="none"/><circle cx="9" cy="22" r="1" fill="#555" stroke="none"/></svg>");
+}
+.svg-ico-thumbs-up {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M7 11v8H4a1 1 0 01-1-1v-6a1 1 0 011-1z"/><path d="M7 11l4-7c1 0 2 1 2 3v4h6a2 2 0 012 2l-2 6a2 2 0 01-2 1H7"/></svg>");
+}
+.svg-ico-tree {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 3l-5 8h3l-4 6h12l-4-6h3z"/><path d="M12 17v4"/></svg>");
+}
+.svg-ico-white-heart {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d="M12 21l-8-8a5 5 0 010-7 5 5 0 017-1 5 5 0 017 1 5 5 0 010 7z" fill="none" stroke="%23ddd"/></svg>");
+}
+.svg-ico-x-mark {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><circle cx="12" cy="12" r="9" fill="%23e23" stroke="none"/><path d="M8 8l8 8M16 8l-8 8" stroke="white"/></svg>");
+}
+
+.svg-ico-charity-heart {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22%23555%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><path d%3D%22M12 10l-1.5-1.5a3 3 0 00-4.5 4l1 1L12 18l5-4.5 1-1a3 3 0 00-4.5-4z%22 fill%3D%22%23e23%22 stroke%3D%22%23e23%22/><path d%3D%22M3 19c2-1 4-1 6 0M21 19c-2-1-4-1-6 0%22/></svg>");
+}
+
+.svg-ico-envelope-white {
+  background-image: url("data:image/svg+xml,<svg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 stroke%3D%22white%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22><rect x%3D%223%22 y%3D%225%22 width%3D%2218%22 height%3D%2214%22 rx%3D%222%22/><path d%3D%22M3 7l9 6 9-6%22/></svg>");
+}

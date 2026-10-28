@@ -1,0 +1,114 @@
+{
+  "source_file_count": 715,
+  "source_bytes": 7179961,
+  "uploaded_file_count": 706,
+  "uploaded_bytes": 7027098,
+  "excluded": [
+    {
+      "path": "backend/.env",
+      "reason": "local environment configuration"
+    },
+    {
+      "path": "backend/admin/calendar-h5.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar-preview.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar-preview2.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar-preview3.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/styles.css.v14-bloated",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "mini-program/miniprogram/project.private.config.json",
+      "reason": "developer private configuration"
+    },
+    {
+      "path": "mini-program/project.private.config.json",
+      "reason": "developer private configuration"
+    }
+  ],
+  "main_pages": 5,
+  "subpackage_pages": 80,
+  "declared_pages_total": 85,
+  "missing_page_files": [],
+  "relative_require_unresolved": [],
+  "sql_install_table_count": 36,
+  "sql_install_tables": [
+    "achievement_items",
+    "achievement_tracks",
+    "admins",
+    "announcements",
+    "canteen_stalls",
+    "canteens",
+    "carpool_participants",
+    "carpools",
+    "complaint_timeline",
+    "complaints",
+    "contact_messages",
+    "daily_stats",
+    "favorites",
+    "feedbacks",
+    "guide_categories",
+    "guide_items",
+    "hot_routes",
+    "ip_records",
+    "map_pois",
+    "messages",
+    "module_favorites",
+    "module_posts",
+    "module_replies",
+    "notifications",
+    "operation_logs",
+    "questionbanks",
+    "reviews",
+    "sensitive_words",
+    "sms_codes",
+    "stall_reviews",
+    "treehole_comments",
+    "treehole_likes",
+    "treehole_posts",
+    "user_achievements",
+    "users",
+    "yellowpages"
+  ],
+  "router_method_declarations": 240,
+  "route_file_count": 27,
+  "controller_file_count": 26,
+  "model_file_count": 34,
+  "extension_counts": {
+    "[none]": 5,
+    ".example": 1,
+    ".js": 213,
+    ".html": 6,
+    ".svg": 10,
+    ".css": 1,
+    ".v14-bloated": 1,
+    ".sql": 8,
+    ".json": 95,
+    ".jpg": 11,
+    ".md": 9,
+    ".wxss": 90,
+    ".wxml": 88,
+    ".png": 176,
+    ".txt": 1
+  },
+  "missing_readme_references": [
+    "deploy-achievement.sh",
+    "deploy-treehole.sh",
+    "backend/src/seed.js"
+  ]
+}

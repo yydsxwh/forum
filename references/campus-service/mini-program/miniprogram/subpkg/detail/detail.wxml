@@ -1,0 +1,239 @@
+<!-- pages/detail/detail.wxml -->
+<view class="page-detail">
+  <image class="page-bg" src="/images/bg-gradient-rainbow.jpg" mode="aspectFill" />
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px; height: 44px;">
+    <view class="nav-back" bindtap="goBack">
+      <view class="nav-back-icon"></view>
+    </view>
+    <text class="nav-title">{{isModule ? '帖子详情' : '行程详情'}}</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <scroll-view scroll-y class="content" style="padding-top: {{navBarHeight}}px;">
+
+    <!-- ========== 模块帖子详情 ========== -->
+    <block wx:if="{{isModule && detail}}">
+      <!-- 标题+状态 -->
+      <view class="section glass-card">
+        <view class="module-detail-header">
+          <text class="module-detail-title">{{detail.title}}</text>
+          <view class="status-badge status-{{detail.status}}">{{statusText || '进行中'}}</view>
+        </view>
+        <view class="module-detail-type">{{detail.type === 'find' ? '求助' : '提供'}}</view>
+      </view>
+
+      <!-- 内容 -->
+      <view class="section glass-card" wx:if="{{detail.content}}">
+        <view class="section-title">详细描述</view>
+        <text class="note-text">{{detail.content}}</text>
+      </view>
+
+      <!-- 图片 -->
+      <view class="section glass-card" wx:if="{{hasImages}}">
+        <view class="section-title">图片</view>
+        <view class="image-grid">
+          <image wx:for="{{detail.images}}" wx:key="*this" class="grid-image tap-shrink" src="{{item}}" mode="aspectFill" data-url="{{item}}" bindtap="onPreviewImage"></image>
+        </view>
+      </view>
+
+      <!-- 价格+联系方式 -->
+      <view class="section glass-card" wx:if="{{hasPrice || detail.contact}}">
+        <view class="section-title">信息</view>
+        <view class="info-row" wx:if="{{hasPrice}}">
+          <text class="info-label">价格</text>
+          <text class="info-value price-value">{{priceText}}</text>
+        </view>
+        <view class="info-row" wx:if="{{detail.contact}}">
+          <text class="info-label">联系方式</text>
+          <text class="info-value">{{detail.contact}}</text>
+        </view>
+        <view class="info-row" wx:if="{{detail.viewCount != null || detail.favoriteCount != null}}">
+          <text class="info-label">浏览/收藏</text>
+          <text class="info-value">{{detail.viewCount || 0}} / {{detail.favoriteCount || 0}}</text>
+        </view>
+      </view>
+
+      <!-- 发布者 -->
+      <view class="section glass-card" wx:if="{{detail.creator}}">
+        <view class="section-title">发布者</view>
+        <view class="user-row">
+          <image class="avatar" src="{{detail.creator.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" data-user-id="{{detail.creator._id}}" bindtap="goUserProfile"></image>
+          <view class="user-info" data-user-id="{{detail.creator._id}}" bindtap="goUserProfile">
+            <text class="user-name">{{detail.creator.nickName}}</text>
+            <view class="user-tags">
+              <text class="tag" wx:if="{{detail.creator.creditScore}}">信用 {{detail.creator.creditScore}}</text>
+              <text class="tag" wx:if="{{detail.creator.school}}">{{detail.creator.school}}</text>
+            </view>
+          </view>
+          <view class="contact-btn tap-shrink" wx:if="{{detail.creator._id !== currentUserId}}" bindtap="goChat">
+            <view class="chat-line-icon"><view class="cli-bubble"></view><view class="cli-dot cli-dot-1"></view><view class="cli-dot cli-dot-2"></view></view>
+            <text>私信</text>
+          </view>
+        </view>
+        <text class="create-time-text">发布于 {{formattedTime}}</text>
+      </view>
+
+      <!-- 操作栏 -->
+      <view class="action-bar safe-bottom">
+        <view class="btn-outline-sm tap-shrink" bindtap="onCopyContact" wx:if="{{detail.contact}}">复制联系方式</view>
+        <view class="btn-fav tap-shrink {{detail.isFavorited ? 'active' : ''}}" bindtap="onToggleFavorite">
+          <view class="fav-star {{detail.isFavorited ? 'filled' : ''}}"></view>
+        </view>
+      </view>
+    </block>
+
+    <!-- ========== 拼车详情（原有） ========== -->
+    <block wx:elif="{{!isModule && detail}}">
+      <!-- 路线卡片 -->
+      <view class="route-card glass-card">
+        <view class="route-row">
+          <view class="route-point">
+            <view class="dot dot-from"></view>
+            <text class="route-text">{{detail.from}}</text>
+          </view>
+          <view class="route-line"></view>
+          <view class="route-point">
+            <view class="dot dot-to"></view>
+            <text class="route-text">{{detail.to}}</text>
+          </view>
+        </view>
+        <view class="route-detail-row" wx:if="{{detail.fromDetail}}">
+          <text class="route-detail-label">出发地详情</text>
+          <text class="route-detail-text">{{detail.fromDetail}}</text>
+        </view>
+        <view class="route-detail-row" wx:if="{{detail.toDetail}}">
+          <text class="route-detail-label">目的地详情</text>
+          <text class="route-detail-text">{{detail.toDetail}}</text>
+        </view>
+        <view class="route-meta">
+          <view class="meta-item">
+            <view class="meta-icon meta-clock"></view>
+            <text>{{formattedTime}}</text>
+          </view>
+          <view class="meta-item">
+            <view class="meta-icon meta-people"></view>
+            <text>{{detail.totalSeats}}人（余{{detail.remainSeats}}）</text>
+          </view>
+          <view class="status-badge status-{{detail.status}}">{{statusText}}</view>
+        </view>
+        <view class="type-badge {{detail.type}}">
+          {{detail.type === 'offer' ? '有空位' : '找同行'}}
+        </view>
+      </view>
+
+      <!-- 基本信息卡片 -->
+      <view class="section glass-card" wx:if="{{hasPrice || hasVehicleInfo || detail.viewCount != null || detail.favoriteCount != null}}">
+        <view class="section-title">行程信息</view>
+        <view class="info-row" wx:if="{{hasPrice}}">
+          <text class="info-label">费用</text>
+          <text class="info-value price-value">{{priceText}}</text>
+        </view>
+        <view class="info-row" wx:if="{{hasVehicleInfo}}">
+          <text class="info-label">车辆信息</text>
+          <text class="info-value">{{vehicleInfoText}}</text>
+        </view>
+        <view class="info-row" wx:if="{{detail.viewCount != null || detail.favoriteCount != null}}">
+          <text class="info-label">浏览/收藏</text>
+          <text class="info-value">{{detail.viewCount || 0}} / {{detail.favoriteCount || 0}}</text>
+        </view>
+      </view>
+
+      <!-- 图片展示 -->
+      <view class="section glass-card" wx:if="{{hasImages}}">
+        <view class="section-title">图片</view>
+        <view class="image-grid">
+          <image wx:for="{{detail.images}}" wx:key="*this" class="grid-image tap-shrink" src="{{item}}" mode="aspectFill" data-url="{{item}}" bindtap="onPreviewImage"></image>
+        </view>
+      </view>
+
+      <!-- 发布者信息 -->
+      <view class="section glass-card" wx:if="{{detail.creator}}">
+        <view class="section-title">发布者</view>
+        <view class="user-row">
+          <image class="avatar" src="{{detail.creator.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" data-user-id="{{detail.creator._id}}" bindtap="goUserProfile"></image>
+          <view class="user-info" data-user-id="{{detail.creator._id}}" bindtap="goUserProfile">
+            <text class="user-name">{{detail.creator.nickName}}</text>
+            <view class="user-tags">
+              <text class="tag" wx:if="{{detail.creator.creditScore}}">信用 {{detail.creator.creditScore}}</text>
+              <text class="tag" wx:if="{{detail.creator.tripCount}}">出行 {{detail.creator.tripCount}}次</text>
+              <text class="tag" wx:if="{{detail.creator.goodRate}}">好评 {{detail.creator.goodRate}}%</text>
+            </view>
+          </view>
+          <view class="contact-btn tap-shrink" wx:if="{{detail.creator._id !== currentUserId}}" bindtap="goChat">
+            <view class="chat-line-icon"><view class="cli-bubble"></view><view class="cli-dot cli-dot-1"></view><view class="cli-dot cli-dot-2"></view></view>
+            <text>私信</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 标签 -->
+      <view class="section glass-card" wx:if="{{detail.tags && detail.tags.length > 0}}">
+        <view class="section-title">标签</view>
+        <view class="tag-list">
+          <text class="tag-chip" wx:for="{{detail.tags}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+
+      <!-- 备注 -->
+      <view class="section glass-card" wx:if="{{detail.note}}">
+        <view class="section-title">备注</view>
+        <text class="note-text">{{detail.note}}</text>
+      </view>
+
+      <!-- 参与者 -->
+      <view class="section glass-card" wx:if="{{detail.participants && detail.participants.length > 0}}">
+        <view class="section-title">已加入 ({{detail.participants.length}})</view>
+        <view class="participant-list">
+          <view class="participant-item" wx:for="{{detail.participants}}" wx:key="index">
+            <image class="avatar-sm" src="{{item.user.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+            <text class="participant-name">{{item.user.nickName}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="action-bar safe-bottom">
+        <block wx:if="{{detail.isCreator}}">
+          <view class="btn-outline-sm tap-shrink" bindtap="goEdit" wx:if="{{detail.status === 'active' || detail.status === 'full'}}">编辑</view>
+          <view class="btn-outline-sm tap-shrink" bindtap="onEndCarpool" wx:if="{{detail.status === 'active' || detail.status === 'full'}}">结束行程</view>
+          <view class="btn-outline-sm danger tap-shrink" bindtap="onDeleteCarpool">取消发布</view>
+          <view class="btn-fav tap-shrink {{detail.isFavorited ? 'active' : ''}}" bindtap="onToggleFavorite">
+            <view class="fav-star {{detail.isFavorited ? 'filled' : ''}}"></view>
+          </view>
+        </block>
+        <block wx:elif="{{detail.isJoined}}">
+          <view class="btn-outline-sm tap-shrink" bindtap="onCancelJoin" wx:if="{{detail.status === 'active' || detail.status === 'full'}}">取消加入</view>
+          <view class="btn-outline-sm tap-shrink" bindtap="onCopyContact" wx:if="{{detail.contact}}">复制联系方式</view>
+          <view class="btn-outline-sm tap-shrink" bindtap="goGroupChat" wx:if="{{detail.status === 'active' || detail.status === 'full' || detail.status === 'ended'}}">群聊</view>
+          <view class="btn-fav tap-shrink {{detail.isFavorited ? 'active' : ''}}" bindtap="onToggleFavorite">
+            <view class="fav-star {{detail.isFavorited ? 'filled' : ''}}"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="btn-primary grad-btn tap-shrink" bindtap="onJoin" wx:if="{{detail.remainSeats > 0 && detail.status === 'active'}}">立即加入</view>
+          <view class="btn-outline-sm disabled" wx:elif="{{detail.status === 'full'}}" style="color:var(--text-hint);border-color:var(--border-light);">已满员</view>
+          <view class="btn-outline-sm disabled" wx:elif="{{detail.status === 'ended' || detail.status === 'expired' || detail.status === 'cancelled'}}" style="color:var(--text-hint);border-color:var(--border-light);">已结束</view>
+          <view class="btn-fav tap-shrink {{detail.isFavorited ? 'active' : ''}}" bindtap="onToggleFavorite">
+            <view class="fav-star {{detail.isFavorited ? 'filled' : ''}}"></view>
+          </view>
+        </block>
+      </view>
+
+      <!-- 评价入口 -->
+      <view class="section glass-card" wx:if="{{detail.status === 'ended'}}">
+        <view class="section-title">评价</view>
+        <view class="review-btns">
+          <view class="btn-outline tap-shrink" bindtap="goReview" wx:if="{{detail.isJoined || detail.isCreator}}">去评价</view>
+          <view class="btn-outline tap-shrink" bindtap="goViewReviews">查看评价</view>
+        </view>
+      </view>
+    </block>
+
+    <view class="loading" wx:elif="{{loading}}">加载中...</view>
+    <view class="empty-state" wx:else>
+      <view class="empty-icon"><view class="ei-inbox"></view></view>
+      <text class="empty-text">{{isModule ? '帖子不存在或已删除' : '行程不存在或已删除'}}</text>
+    </view>
+  </scroll-view>
+</view>

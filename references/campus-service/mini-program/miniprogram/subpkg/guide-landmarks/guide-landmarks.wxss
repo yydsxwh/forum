@@ -1,0 +1,184 @@
+/* subpkg/guide-landmarks/guide-landmarks.wxss — light theme */
+
+page { background: #F5F5F7; overflow: hidden; }
+
+.sub-page {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: #F5F5F7;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, #FFF8F0 0%, #F5F5F7 60%);
+  z-index: 0;
+}
+
+.sub-bg-glow {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+.status-pad { width: 100%; position: relative; z-index: 10; flex-shrink: 0; }
+
+.sub-nav {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 88rpx; padding: 0 24rpx;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  width: 60rpx; height: 60rpx;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+
+.back-arrow {
+  width: 20rpx; height: 20rpx;
+  border-left: 4rpx solid rgba(28,28,30,0.7);
+  border-bottom: 4rpx solid rgba(28,28,30,0.7);
+  transform: rotate(45deg); margin-left: 6rpx;
+}
+
+.nav-title { flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8rpx; }
+.nav-title-icon { width: 36rpx; height: 36rpx; }
+.nav-title-text { font-size: 32rpx; font-weight: 700; letter-spacing: 4rpx; }
+
+.bell-icon { position: relative; width: 32rpx; height: 32rpx; }
+.bell-top { width: 20rpx; height: 16rpx; border: 3rpx solid rgba(28,28,30,0.6); border-radius: 10rpx 10rpx 0 0; margin: 0 auto; }
+.bell-bottom { width: 26rpx; height: 4rpx; background: rgba(28,28,30,0.6); border-radius: 2rpx; margin: 2rpx auto 0; }
+.bell-dot { position: absolute; top: -2rpx; right: -2rpx; width: 16rpx; height: 16rpx; background: #FF3B30; border-radius: 50%; border: 2rpx solid #FFFFFF; }
+
+.tap-shrink { transition: transform .1s; }
+.tap-shrink:active { transform: scale(.92); }
+
+.cat-banner {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20rpx 32rpx 20rpx;
+  flex-shrink: 0;
+}
+
+.cat-banner-left { display: flex; align-items: center; gap: 16rpx; }
+.cat-banner-icon { width: 56rpx; height: 56rpx; flex-shrink: 0; }
+.cat-banner-info { display: flex; flex-direction: column; gap: 4rpx; }
+.cat-banner-name { font-size: 36rpx; font-weight: 700; color: #1C1C1E; }
+.cat-banner-count { font-size: 22rpx; color: rgba(28,28,30,0.4); }
+.cat-banner-deco { width: 120rpx; height: 120rpx; border-radius: 50%; opacity: .12; filter: blur(30rpx); flex-shrink: 0; }
+
+.card-scroll {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  min-height: 0;
+}
+
+.card-list { padding: 0 28rpx 40rpx; }
+
+.g-card {
+  display: flex; align-items: center; gap: 20rpx;
+  padding: 28rpx 24rpx; margin-bottom: 14rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  border: 1rpx solid rgba(0,0,0,0.06);
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+  transition: background .2s;
+}
+.g-card:active { background: #F5F5F7; }
+
+.g-card-index { font-size: 32rpx; font-weight: 800; opacity: .25; flex-shrink: 0; min-width: 48rpx; text-align: center; font-style: italic; }
+
+.g-card-badge {
+  width: 72rpx; height: 72rpx; border-radius: 16rpx;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; padding: 14rpx; box-sizing: border-box;
+}
+
+.g-card-icon { width: 44rpx; height: 44rpx; }
+
+.g-card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8rpx; }
+.g-card-name { font-size: 28rpx; font-weight: 600; color: #1C1C1E; }
+.g-card-desc {
+  font-size: 24rpx; line-height: 1.6;
+  color: rgba(28,28,30,0.5);
+  display: -webkit-box; -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; overflow: hidden;
+}
+
+.list-footer { text-align: center; padding: 32rpx 0 60rpx; }
+.list-footer-text { font-size: 22rpx; color: rgba(28,28,30,0.25); }
+
+/* ===== 详情弹窗 ===== */
+.modal-mask {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(8rpx);
+  -webkit-backdrop-filter: blur(8rpx);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn .2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-card {
+  position: relative;
+  width: 620rpx;
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  padding: 48rpx 40rpx 40rpx;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 20rpx 60rpx rgba(0,0,0,.15);
+  animation: popIn .25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modal-close {
+  position: absolute; top: 24rpx; right: 24rpx;
+  width: 48rpx; height: 48rpx;
+  border-radius: 50%;
+  background: rgba(0,0,0,.04);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.close-x {
+  width: 20rpx; height: 20rpx;
+  background:
+    linear-gradient(45deg, transparent 45%, rgba(28,28,30,.5) 45%, rgba(28,28,30,.5) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, rgba(28,28,30,.5) 45%, rgba(28,28,30,.5) 55%, transparent 55%);
+}
+
+.modal-badge {
+  width: 120rpx; height: 120rpx;
+  border-radius: 28rpx;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 28rpx;
+}
+
+.modal-icon { width: 72rpx; height: 72rpx; }
+
+.modal-name {
+  font-size: 32rpx; font-weight: 700;
+  color: #1C1C1E;
+  text-align: center;
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.modal-desc {
+  font-size: 26rpx; line-height: 1.7;
+  color: rgba(28,28,30,0.6);
+  text-align: left;
+  width: 100%;
+}
+
+.modal-index {
+  position: absolute; top: 24rpx; left: 32rpx;
+  font-size: 24rpx; font-weight: 800;
+  font-style: italic;
+}

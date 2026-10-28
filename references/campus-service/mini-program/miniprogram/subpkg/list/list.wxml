@@ -1,0 +1,33 @@
+<!-- pages/list/list.wxml — 列表页 -->
+<view class="page-list">
+  <scroll-view class="list-scroll" scroll-y enhanced show-scrollbar="{{false}}" bindscrolltolower="onLoadMore">
+    <view class="list-items">
+      <view
+        wx:for="{{items}}" wx:key="_id"
+        class="list-card tap-shrink"
+        data-id="{{item._id || item.id}}"
+        bindtap="onItemTap"
+      >
+        <view class="card-body">
+          <view class="card-title">{{item.title || '无标题'}}</view>
+          <view class="card-desc" wx:if="{{item.content || item.description}}">{{item.content || item.description}}</view>
+          <view class="card-meta">
+            <text class="meta-user">{{item.nickname || item.userName || '匿名用户'}}</text>
+            <text class="meta-time">{{item.createTime || ''}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="load-more">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{noMore}}">— 没有更多了 —</text>
+    </view>
+    <view class="list-bottom-safe"></view>
+  </scroll-view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && items.length === 0}}">
+    <view class="empty-icon"><view class="svg-ico svg-ico-mailbox-empty"></view></view>
+    <text class="empty-text">暂无内容</text>
+  </view>
+</view>

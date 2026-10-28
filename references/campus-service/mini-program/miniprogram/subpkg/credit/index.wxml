@@ -1,0 +1,115 @@
+<!-- pages/credit/index.wxml — 信用分详情 -->
+<view class="page-credit" style="padding-top: {{statusBarHeight + 44}}px;">
+  <image class="page-bg" src="/images/bg-gradient-rainbow.jpg" mode="aspectFill" />
+  <view class="nav-bar credit-nav" style="padding-top: {{statusBarHeight}}px; height: 44px;">
+    <view class="nav-back" bindtap="goBack"><view class="nav-back-icon"></view></view>
+    <text class="nav-title">信用分</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 顶部信用分卡片 -->
+  <view class="credit-card">
+    <view class="gold-dot dot-lg dot-1"></view>
+    <view class="gold-dot dot-md dot-2"></view>
+    <view class="gold-dot dot-sm dot-3"></view>
+    <view class="gold-dot dot-xs dot-4"></view>
+    <view class="gold-dot dot-md dot-5"></view>
+    <view class="gold-dot dot-sm dot-6"></view>
+    <view class="credit-circle {{creditLevel.class}}">
+      <text class="credit-score">{{creditScore}}</text>
+      <text class="credit-level">{{creditLevel.text}}</text>
+    </view>
+    <view class="credit-desc">
+      信用分是平台对用户行为的综合评价
+    </view>
+  </view>
+
+  <!-- 信用等级说明 -->
+  <view class="level-section card">
+    <view class="section-title">信用等级</view>
+    <view class="level-list">
+      <view class="level-item" wx:for="{{levelConfig}}" wx:key="level">
+        <view class="level-dot" style="background-color: {{item.color}}"></view>
+        <view class="level-info">
+          <text class="level-text">{{item.text}}</text>
+          <text class="level-range">{{item.min}}-{{item.max}}分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 信用变动记录 -->
+  <view class="record-section card" wx:if="{{recordList.length > 0}}">
+    <view class="section-title">最近变动</view>
+    <view class="record-list">
+      <view class="record-item" wx:for="{{recordList}}" wx:key="id">
+        <view class="record-left">
+          <text class="record-title">{{item.title}}</text>
+          <text class="record-time">{{item.time}}</text>
+        </view>
+        <view class="record-right">
+          <text class="record-change {{item.change > 0 ? 'plus' : 'minus'}}">
+            {{item.change > 0 ? '+' : ''}}{{item.change}}
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class="load-more" wx:if="{{hasMore && loading}}">加载中...</view>
+    <view class="load-more empty" wx:elif="{{!hasMore}}">— 没有更多了 —</view>
+  </view>
+  <view class="empty-state" wx:elif="{{loading === false && recordList.length === 0}}">
+    <text class="empty-text">暂无信用变动记录</text>
+  </view>
+
+  <!-- 加分减分规则 -->
+  <view class="rule-section card">
+    <view class="section-title">信用分规则</view>
+    <view class="rule-list">
+      <view class="rule-item plus">
+        <view class="rule-icon">+</view>
+        <view class="rule-content">
+          <text class="rule-title">发布拼车并正常完成</text>
+          <text class="rule-desc">+5 分</text>
+        </view>
+      </view>
+      <view class="rule-item plus">
+        <view class="rule-icon">+</view>
+        <view class="rule-content">
+          <text class="rule-title">参与拼车并正常完成</text>
+          <text class="rule-desc">+2 分/次</text>
+        </view>
+      </view>
+      <view class="rule-item plus">
+        <view class="rule-icon">+</view>
+        <view class="rule-content">
+          <text class="rule-title">获得好评</text>
+          <text class="rule-desc">+3 分/个</text>
+        </view>
+      </view>
+      <view class="rule-item minus">
+        <view class="rule-icon">-</view>
+        <view class="rule-content">
+          <text class="rule-title">获得差评</text>
+          <text class="rule-desc">-5 分/个</text>
+        </view>
+      </view>
+      <view class="rule-item minus">
+        <view class="rule-icon">-</view>
+        <view class="rule-content">
+          <text class="rule-title">放鸽子/违规被投诉</text>
+          <text class="rule-desc">-10 分/次</text>
+        </view>
+      </view>
+    </view>
+    <view class="rule-footer">
+      <text>• 信用分范围：0-110分，最高 110 分，分数越高信用越好</text>
+      <text>• 初始信用分：100分</text>
+      <text>• 0-79 分：极差，账号自动临时封禁 1 个月</text>
+      <text>• 80-84 分：较差；85-89 分：一般</text>
+      <text>• 90-94 分：良好；95-100 分：优秀；100 分以上：极佳</text>
+      <text>• 封禁到期后自动恢复 5 信用分</text>
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+</view>

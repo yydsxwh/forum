@@ -1,0 +1,380 @@
+<!-- pages/mine/mine.wxml -->
+<view class="page-mine">
+  <!-- 顶部状态栏占位 -->
+  <view style="height: {{statusBarHeight}}px;"></view>
+
+  <!-- 个人信息卡片 -->
+  <view class="profile-card">
+    <view class="profile-bg">
+      <view class="bg-circle circle-1"></view>
+      <view class="bg-circle circle-2"></view>
+      <view class="bg-circle circle-3"></view>
+    </view>
+
+    <!-- 未登录 -->
+    <view wx:if="{{!isLogin}}" class="profile-content" bindtap="goLogin">
+      <view class="avatar-placeholder">
+        <view class="avatar-line-icon">
+          <view class="ali-head"></view>
+          <view class="ali-body"></view>
+        </view>
+      </view>
+      <view class="profile-info">
+        <text class="profile-name">点击登录</text>
+        <text class="profile-desc">登录后享受更多功能</text>
+      </view>
+      <view class="login-arrow">
+        <view class="arrow-line"></view>
+      </view>
+    </view>
+
+    <!-- 已登录 -->
+    <view wx:else class="profile-content">
+      <image wx:if="{{userInfo.avatarUrl}}" class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="profile-avatar-text">
+        <text>{{avatarInitial || '?'}}</text>
+      </view>
+      <view class="profile-info">
+        <view class="profile-name-row">
+          <text class="profile-name">{{userInfo.nickName || '用户'}}</text>
+          <view class="verified-badge">
+            <view class="check-icon"></view>
+          </view>
+        </view>
+        <text class="profile-desc">{{SCHOOL_NAME}}</text>
+      </view>
+      <view class="edit-btn tap-shrink" bindtap="editProfile">
+        <text>编辑</text>
+      </view>
+    </view>
+
+    <!-- 统计条 -->
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-value">{{stats.creditScore}}</text>
+        <text class="stat-label">信用分</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.tripCount}}</text>
+        <text class="stat-label">同行次数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.goodRate}}%</text>
+        <text class="stat-label">好评率</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 我的信息（登录后显示） ===== -->
+  <view wx:if="{{isLogin}}" class="info-card-section">
+    <view class="info-card-header">
+      <text class="info-card-title"><view class="svg-ico svg-ico-clipboard"></view> 我的信息</text>
+    </view>
+    <view class="info-card card">
+      <view class="info-rows">
+        <view class="info-row" wx:if="{{profileInfo.realName}}">
+          <text class="info-label">姓名</text>
+          <text class="info-value">{{profileInfo.realName}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.phone}}">
+          <text class="info-label">手机</text>
+          <text class="info-value">{{profileInfo.phone}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.wechat_id}}">
+          <text class="info-label">微信</text>
+          <text class="info-value">{{profileInfo.wechat_id}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.qq}}">
+          <text class="info-label">QQ</text>
+          <text class="info-value">{{profileInfo.qq}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.email}}">
+          <text class="info-label">邮箱</text>
+          <text class="info-value">{{profileInfo.email}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.department}}">
+          <text class="info-label">院系</text>
+          <text class="info-value">{{profileInfo.department}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.grade}}">
+          <text class="info-label">年级</text>
+          <text class="info-value">{{profileInfo.grade}}</text>
+        </view>
+        <view class="info-row" wx:if="{{profileInfo.bio}}">
+          <text class="info-label">简介</text>
+          <text class="info-value info-bio">{{profileInfo.bio}}</text>
+        </view>
+        <view class="info-row info-row-empty" wx:if="{{!profileInfo.realName && !profileInfo.phone && !profileInfo.wechat_id && !profileInfo.qq && !profileInfo.email && !profileInfo.department && !profileInfo.grade && !profileInfo.bio}}">
+          <text class="info-empty">还没有填写个人信息，点击编辑添加</text>
+        </view>
+      </view>
+      <view class="info-edit-btn tap-shrink" bindtap="goEditInfo">
+        <text>完善信息 ›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能入口宫格 -->
+  <view class="menu-section">
+    <view class="section-label">我的行程</view>
+    <view class="menu-grid">
+      <view 
+        wx:for="{{menuItems}}" 
+        wx:key="key" 
+        class="menu-item card tap-shrink"
+        data-key="{{item.key}}"
+        bindtap="tapMenu"
+      >
+        <view class="menu-icon-line">
+          <!-- 线条图标 -->
+          <block wx:if="{{item.icon === 'publish'}}">
+            <view class="mi-publish">
+              <view class="mi-doc"></view>
+              <view class="mi-pen"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'joined'}}">
+            <view class="mi-handshake">
+              <view class="mi-circle mi-circle-l"></view>
+              <view class="mi-circle mi-circle-r"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'star'}}">
+            <view class="mi-star">
+              <view class="mi-star-shape"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'chat'}}">
+            <view class="mi-chat">
+              <view class="mi-chat-bubble"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'bell'}}">
+            <view class="mi-bell">
+              <view class="mi-bell-body"></view>
+              <view class="mi-bell-top"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'clock'}}">
+            <view class="mi-clock">
+              <view class="mi-clock-circle"></view>
+              <view class="mi-clock-hand"></view>
+            </view>
+          </block>
+        </view>
+        <text class="menu-label">{{item.label}}</text>
+        <view wx:if="{{item.badge > 0}}" class="menu-badge">{{item.badge > 99 ? '99+' : item.badge}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 安全专区 -->
+  <view class="safe-section">
+    <view class="section-label">更多功能</view>
+    <view class="safe-list">
+      <view 
+        wx:for="{{safeItems}}" 
+        wx:key="key" 
+        class="safe-item card tap-shrink {{item.danger ? 'danger' : ''}}"
+        data-key="{{item.key}}"
+        bindtap="tapSafe"
+      >
+        <view class="safe-icon-line">
+          <block wx:if="{{item.icon === 'search'}}">
+            <view class="si-search">
+              <view class="si-search-circle"></view>
+              <view class="si-search-handle"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'target'}}">
+            <view class="si-target">
+              <view class="si-target-outer"></view>
+              <view class="si-target-inner"></view>
+              <view class="si-target-dot"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'complaint'}}">
+            <view class="si-mail">
+              <view class="si-mail-body"></view>
+              <view class="si-mail-flap"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'feedback'}}">
+            <view class="si-bulb">
+              <view class="si-bulb-body"></view>
+              <view class="si-bulb-base"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'phone'}}">
+            <view class="si-phone">
+              <view class="si-phone-body"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'share'}}">
+            <view class="si-share">
+              <view class="si-share-dot si-share-dot-1"></view>
+              <view class="si-share-dot si-share-dot-2"></view>
+              <view class="si-share-dot si-share-dot-3"></view>
+              <view class="si-share-line si-share-line-1"></view>
+              <view class="si-share-line si-share-line-2"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'info'}}">
+            <view class="si-info">
+              <view class="si-info-circle"></view>
+              <view class="si-info-dot"></view>
+              <view class="si-info-line"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'mail'}}">
+            <view class="si-mail">
+              <view class="si-mail-body"></view>
+              <view class="si-mail-flap"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'shield'}}">
+            <view class="si-shield">
+              <view class="si-shield-body"></view>
+              <view class="si-shield-check"></view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'sos'}}">
+            <view class="si-sos">
+              <view class="si-sos-circle"></view>
+              <view class="si-sos-text">!</view>
+            </view>
+          </block>
+          <block wx:elif="{{item.icon === 'logout'}}">
+            <view class="si-logout">
+              <view class="si-logout-door"></view>
+              <view class="si-logout-arrow"></view>
+            </view>
+          </block>
+        </view>
+        <text class="safe-label {{item.danger ? 'danger-text' : ''}}">{{item.label}}</text>
+        <view class="safe-arrow">
+          <view class="arrow-chevron"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部占位 -->
+  <view class="bottom-placeholder"></view>
+</view>
+
+<!-- 登录引导弹窗 -->
+<view class="login-modal-mask" wx:if="{{showLoginModal}}" catchtap="closeLoginModal">
+  <view class="login-modal" catchtap="">
+    <view class="modal-icon-wrap">
+      <view class="modal-lock">
+        <view class="ml-body"></view>
+        <view class="ml-shackle"></view>
+      </view>
+    </view>
+    <view class="modal-title">需要登录才能使用</view>
+    <view class="modal-desc">登录后可发布行程、加入同行、查看个人数据</view>
+    <view class="modal-btns">
+      <view class="modal-btn modal-btn-cancel tap-shrink" bindtap="closeLoginModal">
+        <text>暂不登录</text>
+      </view>
+      <view class="modal-btn modal-btn-confirm tap-shrink" bindtap="confirmLogin">
+        <text>立即登录</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 关于我们弹窗 -->
+<view class="about-modal-mask" wx:if="{{showAboutModal}}" catchtap="closeAbout">
+  <view class="about-modal" catchtap="">
+    <!-- Logo 区 -->
+    <view class="about-logo-wrap">
+      <view class="about-logo-text">同行鸭</view>
+      <view class="about-logo-sub">TRAVEL DUCK</view>
+    </view>
+
+    <!-- 版本 -->
+    <view class="about-version">v1.0.0</view>
+
+    <!-- 介绍 -->
+    <view class="about-body">
+      <view class="about-title">关于同行鸭</view>
+      <view class="about-desc">
+        同行鸭是一款专为{{SCHOOL_NAME}}同学打造的校园生活服务平台。我们致力于让校园出行更安全、生活更便捷。
+      </view>
+      <view class="about-features">
+        <view class="about-feat-item">
+          <view class="about-feat-dot"></view>
+          <text>校园拼车 — 安全实惠的同行选择</text>
+        </view>
+        <view class="about-feat-item">
+          <view class="about-feat-dot"></view>
+          <text>跑腿代取 — 快递取送轻松搞定</text>
+        </view>
+        <view class="about-feat-item">
+          <view class="about-feat-dot"></view>
+          <text>失物招领 — 帮你找回丢失物品</text>
+        </view>
+        <view class="about-feat-item">
+          <view class="about-feat-dot"></view>
+          <text>二手交易 — 闲置物品循环利用</text>
+        </view>
+        <view class="about-feat-item">
+          <view class="about-feat-dot"></view>
+          <text>校园论坛 — 分享交流自由发声</text>
+        </view>
+      </view>
+      <view class="about-slogan">安全 · 便捷 · 信赖 — 让校园生活更美好</view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="about-contact">
+      <view class="about-contact-header">
+        <view class="about-contact-title">联系我们</view>
+        <view class="about-contact-join">如果你对我们的开发有兴趣，欢迎加入我们</view>
+      </view>
+      <view class="about-contact-row">
+        <text class="about-contact-label">开发者微信</text>
+        <text class="about-contact-value">{{DEVELOPER_PHONE}}</text>
+      </view>
+      <view class="about-contact-row">
+        <text class="about-contact-label">反馈邮箱</text>
+        <text class="about-contact-value">{{DEVELOPER_EMAIL}}</text>
+      </view>
+      <view class="about-contact-row">
+        <text class="about-contact-label">官方网站</text>
+        <text class="about-contact-value">{{DOMAIN}}</text>
+      </view>
+    </view>
+
+    <!-- 关闭按钮 -->
+    <view class="about-close-btn tap-shrink" bindtap="closeAbout">
+      <text>关闭</text>
+    </view>
+  </view>
+</view>
+
+<!-- 完善资料弹窗 -->
+<view class="profile-modal-mask" wx:if="{{showProfileModal}}" catchtap="closeProfileModal">
+  <view class="profile-modal" catchtap="">
+    <view class="profile-modal-icon">
+      <view class="pm-avatar-circle">
+        <view class="pm-avatar-head"></view>
+        <view class="pm-avatar-body"></view>
+      </view>
+    </view>
+    <view class="profile-modal-title">完善个人资料</view>
+    <view class="profile-modal-desc">设置头像和昵称，让大家认识你！完善资料也有助于提升信用分哦~</view>
+    <view class="profile-modal-btns">
+      <view class="profile-modal-btn pm-btn-skip tap-shrink" bindtap="closeProfileModal">
+        <text>稍后再说</text>
+      </view>
+      <view class="profile-modal-btn pm-btn-go tap-shrink" bindtap="goCompleteProfile">
+        <text>去完善</text>
+      </view>
+    </view>
+  </view>
+</view>

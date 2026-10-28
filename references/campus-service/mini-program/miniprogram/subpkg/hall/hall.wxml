@@ -1,0 +1,179 @@
+<!-- pages/hall/hall.wxml -->
+<view class="page-hall">
+  <!-- 顶部品牌栏 -->
+  <view class="top-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="brand-row">
+      <view class="brand-left">
+        <view class="brand-logo">
+          <view class="duck-icon">
+            <view class="duck-head"></view>
+            <view class="duck-eye"></view>
+            <view class="duck-beak"></view>
+            <view class="duck-body"></view>
+            <view class="duck-wing"></view>
+            <view class="duck-tail"></view>
+          </view>
+        </view>
+        <text class="brand-name">同行鸭</text>
+      </view>
+      <view class="brand-right tap-shrink" bindtap="goNotifications">
+        <view class="bell-line-icon">
+          <view class="bell-body"></view>
+          <view class="bell-clapper"></view>
+          <view class="bell-top"></view>
+        </view>
+        <view wx:if="{{hasNotification}}" class="bell-dot"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 路线选择器 -->
+  <view class="route-selector card">
+    <view class="route-item route-from tap-shrink" bindtap="onPickFrom">
+      <view class="route-dot from-dot"></view>
+      <text class="route-text">{{from}}</text>
+    </view>
+    <view class="route-swap tap-shrink" bindtap="swapRoute">
+      <view class="swap-icon-h"></view>
+      <view class="swap-icon-v"></view>
+    </view>
+    <view class="route-item tap-shrink" bindtap="onPickTo">
+      <view class="route-dot to-dot"></view>
+      <text class="route-text">{{to}}</text>
+    </view>
+  </view>
+
+  <!-- 筛选标签 -->
+  <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="filter-tags">
+      <view
+        wx:for="{{filterTabs}}"
+        wx:key="value"
+        class="filter-chip {{activeFilter === item.value ? 'active' : ''}} tap-shrink"
+        data-value="{{item.value}}"
+        bindtap="selectFilter"
+      >
+        {{item.label}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 热门路线 -->
+  <view class="hot-routes" wx:if="{{hotRoutes.length > 0 && activeFilter === 'all'}}">
+    <view class="hot-title">
+      <view class="hot-flame"></view>
+      <text>热门路线</text>
+    </view>
+    <scroll-view scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="hot-list">
+        <view wx:for="{{hotRoutes}}" wx:key="_id" class="hot-item tap-shrink" data-from="{{item.from}}" data-to="{{item.to}}" bindtap="onHotRoute">
+          <text class="hot-route-name">{{item.from}} → {{item.to}}</text>
+          <text class="hot-route-count" wx:if="{{item.count}}">{{item.count}}人走过</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 同行卡片列表 -->
+  <view class="carpool-list">
+    <block wx:if="{{carpoolList.length > 0}}">
+      <view
+        wx:for="{{carpoolList}}"
+        wx:key="_id"
+        class="carpool-card card tap-shrink"
+        data-item="{{item}}"
+        bindtap="tapDetail"
+      >
+        <!-- 卡片头部：时间和类型标签 -->
+        <view class="card-header">
+          <view class="card-time">
+            <text class="time-text">{{item._formattedTime}}</text>
+            <text class="time-ago">{{item._timeAgo}}</text>
+          </view>
+          <view class="card-type {{item.type === 'offer' ? 'type-offer' : 'type-find'}}">
+            {{item.type === 'offer' ? '有空位' : '找同行'}}
+          </view>
+        </view>
+
+        <!-- 路线信息 -->
+        <view class="card-route">
+          <view class="route-line">
+            <view class="line-dot start-dot"></view>
+            <view class="line-dash"></view>
+            <view class="line-dot end-dot"></view>
+          </view>
+          <view class="route-info">
+            <view class="route-from">{{item.from}}</view>
+            <view class="route-to">{{item.to}}</view>
+          </view>
+          <view class="route-seats">
+            <text class="seats-left">还差{{item.remainSeats}}人</text>
+            <text class="seats-total">/共{{item.totalSeats}}人</text>
+          </view>
+        </view>
+
+        <!-- 发布者信息和标签 -->
+        <view class="card-footer">
+          <view class="creator-info">
+            <image 
+              class="creator-avatar" 
+              src="{{item.creator.avatarUrl || '/images/default-avatar.png'}}" 
+              mode="aspectFill"
+            />
+            <view class="creator-detail">
+              <view class="creator-name-row">
+                <text class="creator-name">{{item.creator.nickName || '匿名用户'}}</text>
+                <view class="verified-badge" wx:if="{{item.creator.creditScore >= 90}}">
+                  <view class="check-icon"></view>
+                </view>
+              </view>
+              <text class="creator-credit">信用 {{item.creator.creditScore || 100}}分</text>
+            </view>
+          </view>
+
+          <!-- 个性标签 -->
+          <view class="tag-row" wx:if="{{item.tags && item.tags.length > 0}}">
+            <text wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag" class="tag-item">{{tag}}</text>
+          </view>
+
+          <!-- 操作按钮 -->
+          <view class="action-row">
+            <view class="btn-detail tap-shrink" data-item="{{item}}" catchtap="tapDetail">
+              <text>查看详情</text>
+            </view>
+            <view class="btn-join grad-btn tap-shrink" data-item="{{item}}" catchtap="tapJoin">
+              <text>立即加入</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <view wx:if="{{!loading && carpoolList.length === 0}}" class="empty-state">
+      <view class="empty-icon"><view class="ei-inbox"></view></view>
+      <text class="empty-text">暂无同行信息</text>
+      <text class="empty-hint">快来发布第一条吧～</text>
+    </view>
+
+    <!-- 加载更多 -->
+    <view wx:if="{{loading}}" class="loading-more">
+      <text>加载中...</text>
+    </view>
+
+    <view wx:if="{{!hasMore && carpoolList.length > 0}}" class="loading-more">
+      <text class="no-more">— 没有更多了 —</text>
+    </view>
+  </view>
+
+  <!-- 备案号页脚 -->
+  <view class="page-footer">
+    <text class="footer-text">同行鸭 · 仅限学习交流使用</text>
+    <view class="footer-icp">
+      <text class="footer-icp-text" bindtap="onTapICP">©2026 {{BRAND_NAME}} 版权所有</text>
+    </view>
+  </view>
+
+  <!-- 底部占位（给 tabBar 留空间） -->
+  <view class="bottom-placeholder"></view>
+</view>

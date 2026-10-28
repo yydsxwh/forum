@@ -1,0 +1,39 @@
+<scroll-view scroll-y class="page" enhanced show-scrollbar="{{false}}">
+  <view class="header">
+    <view class="title"><view class="svg-ico svg-ico-search"></view> 隐私授权全链路诊断</view>
+    <view class="subtitle">点击下方按钮，自动检查每个环节</view>
+  </view>
+
+  <button class="run-btn" bindtap="runAll" disabled="{{running}}">
+    {{running ? '⏳ 诊断中...' : '▶️ 开始诊断'}}
+  </button>
+
+  <view class="summary" wx:if="{{summary}}">{{summary}}</view>
+
+  <view class="checks" wx:if="{{checks.length}}">
+    <view class="check-item {{item.ok ? 'ok' : 'fail'}}" wx:for="{{checks}}" wx:key="label">
+      <view class="check-icon">{{item.ok ? '<view class="svg-ico svg-ico-check-green"></view>' : '<view class="svg-ico svg-ico-x-mark"></view>'}}</view>
+      <view class="check-body">
+        <view class="check-label">{{item.label}}</view>
+        <view class="check-detail">{{item.detail}}</view>
+        <view class="check-hint" wx:if="{{item.hint}}"><view class="svg-ico svg-ico-bulb"></view> {{item.hint}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-btns">
+    <button class="sec-btn" bindtap="openSetting"><view class="svg-ico svg-ico-gear"></view>️ 打开设置页</button>
+    <button class="sec-btn" bindtap="clearAuth"><view class="svg-ico svg-ico-refresh"></view> 重置授权</button>
+  </view>
+
+  <view class="tips">
+    <view class="tips-title"><view class="svg-ico svg-ico-clipboard"></view> 排查指引</view>
+    <view class="tip-item">① 系统环境 → 确认基础库版本 ≥ 2.32.3</view>
+    <view class="tip-item">② 隐私设置 → needAuthorization 必须为 true，协议名不为空</view>
+    <view class="tip-item">③ 小程序信息 → 确认是开发版/体验版，appId 正确</view>
+    <view class="tip-item">④ 授权状态 → scope.userLocation 应显示已授权</view>
+    <view class="tip-item">⑤ wx.authorize → 必须从用户点击中触发，不能延迟调用</view>
+    <view class="tip-item">⑥ wx.getLocation → 最终验证能否获取经纬度</view>
+    <view class="tip-item">⑦ 设置页 → 应有"位置信息"开关，没有说明权限未注册</view>
+  </view>
+</scroll-view>

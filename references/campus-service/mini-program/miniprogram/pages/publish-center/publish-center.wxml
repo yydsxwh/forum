@@ -1,0 +1,135 @@
+<!-- pages/publish-center/publish-center.wxml — 发布中心 -->
+<view class="page-pub">
+  <image class="page-bg-img" src="/images/bg-gradient-rainbow.jpg" mode="aspectFill" />
+
+  <!-- 自定义导航栏 -->
+  <view class="pub-top-bar" style="padding-top:{{statusBarHeight}}px;">
+    <view class="top-bar-inner">
+      <view class="brand-logo">
+        <view class="top-duck-icon">
+          <view class="td-head"></view>
+          <view class="td-eye"></view>
+          <view class="td-beak"></view>
+          <view class="td-body"></view>
+          <view class="td-wing"></view>
+          <view class="td-tail"></view>
+        </view>
+        <view class="brand-name">发布</view>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view scroll-y class="pub-scroll" style="top: {{navBarHeight}}px;" enhanced show-scrollbar="{{false}}" bindscrolltoupper="onScrollToUpper" upper-threshold="50">
+    <view class="pub-inner" style="padding-top:10rpx;">
+
+      <!-- 顶部标题区 -->
+      <view class="pub-hero">
+        <view class="pub-hero-text">
+          <view class="pub-hero-title">
+            <text class="ht-l1">选择你要发布的</text>
+            <text class="ht-l2">内容<text class="ht-key">类型</text></text>
+          </view>
+          <text class="pub-hero-sub">让校园生活更轻松</text>
+        </view>
+      </view>
+
+      <!-- 8 张卡片 -->
+      <view class="pub-cards">
+        <view
+          wx:for="{{publishTypes}}"
+          wx:key="key"
+          class="pub-card tap-shrink"
+          data-key="{{item.key}}"
+          bindtap="onPublishTap"
+        >
+          <view class="pub-card-icon" style="background:{{item.color}}">
+            <!-- 拼车 - 小车 -->
+            <block wx:if="{{item.key === 'carpool'}}">
+              <view class="pi-car">
+                <view class="pi-car-body"></view>
+                <view class="pi-car-roof"></view>
+                <view class="pi-car-wheel pi-car-wl"></view>
+                <view class="pi-car-wheel pi-car-wr"></view>
+              </view>
+            </block>
+            <!-- 跑腿 - 包裹 -->
+            <block wx:elif="{{item.key === 'express'}}">
+              <view class="pi-package">
+                <view class="pi-pkg-body"></view>
+                <view class="pi-pkg-lid"></view>
+                <view class="pi-pkg-line"></view>
+              </view>
+            </block>
+            <!-- 求助 - 靶心 -->
+            <block wx:elif="{{item.key === 'task'}}">
+              <view class="pi-target">
+                <view class="pi-tg-outer"></view>
+                <view class="pi-tg-mid"></view>
+                <view class="pi-tg-inner"></view>
+              </view>
+            </block>
+            <!-- 二手 - 标签 -->
+            <block wx:elif="{{item.key === 'secondhand'}}">
+              <view class="pi-tag">
+                <view class="pi-tag-body"></view>
+                <view class="pi-tag-dot"></view>
+              </view>
+            </block>
+            <!-- 失物招领 - 放大镜 -->
+            <block wx:elif="{{item.key === 'lost'}}">
+              <view class="pi-lost">
+                <view class="pi-lost-glass"></view>
+                <view class="pi-lost-handle"></view>
+                <view class="pi-lost-q">?</view>
+              </view>
+            </block>
+            <!-- 物品求租 - 钥匙 -->
+            <block wx:elif="{{item.key === 'rental'}}">
+              <view class="pi-key">
+                <view class="pi-key-head"></view>
+                <view class="pi-key-shaft"></view>
+                <view class="pi-key-tooth pi-key-t1"></view>
+                <view class="pi-key-tooth pi-key-t2"></view>
+              </view>
+            </block>
+            <!-- 交换人生 - 书本+笔 -->
+            <block wx:elif="{{item.key === 'substitute'}}">
+              <view class="pi-sub">
+                <view class="pi-sub-book"></view>
+                <view class="pi-sub-pen"></view>
+              </view>
+            </block>
+            <!-- 分享资料 - 文档 -->
+            <block wx:elif="{{item.key === 'resource'}}">
+              <view class="pi-doc">
+                <view class="pi-doc-page"></view>
+                <view class="pi-doc-fold"></view>
+                <view class="pi-doc-line pi-doc-l1"></view>
+                <view class="pi-doc-line pi-doc-l2"></view>
+              </view>
+            </block>
+          </view>
+
+          <view class="pub-card-info">
+            <text class="pub-card-title">{{item.title}}</text>
+            <text class="pub-card-desc">{{item.desc}}</text>
+          </view>
+
+          <view class="pub-card-arrow" style="background:{{item.color}}">
+            <text class="arrow-icon">›</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部发布须知横幅 -->
+      <view class="pub-notice">
+        <view class="pub-notice-text">
+          <text class="pub-notice-title">发布须知</text>
+          <text class="pub-notice-desc">请遵守平台规则，文明发布</text>
+        </view>
+      </view>
+
+      <view class="pub-bottom-safe"></view>
+    </view>
+  </scroll-view>
+</view>

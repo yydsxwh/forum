@@ -1,0 +1,65 @@
+<!-- guide-landmarks.wxml — 校园地标图鉴子页面 -->
+<view class="sub-page">
+  <view class="sub-bg"></view>
+  <view class="sub-bg-glow" style="background: radial-gradient(circle at 50% 30%, rgba(255,149,0, 0.08) 0%, transparent 60%);"></view>
+
+  <view class="status-pad" style="height:{{statusBarHeight}}px;"></view>
+
+  <view class="sub-nav">
+    <view class="nav-btn nav-btn-left tap-shrink" bindtap="goBack">
+      <view class="back-arrow"></view>
+    </view>
+    <view class="nav-title">
+      <image class="nav-title-icon" src="{{categoryIcon}}" mode="aspectFit"></image>
+      <text class="nav-title-text" style="color: #FF9500;">{{categoryName}}</text>
+    </view>
+    <view class="nav-btn nav-btn-right tap-shrink" bindtap="goMsg">
+      <view class="bell-icon"><view class="bell-top"></view><view class="bell-bottom"></view></view>
+      <view wx:if="{{systemUnread > 0}}" class="bell-dot"></view>
+    </view>
+  </view>
+
+  <view class="cat-banner">
+    <view class="cat-banner-left">
+      <image class="cat-banner-icon" src="{{categoryIcon}}" mode="aspectFit"></image>
+      <view class="cat-banner-info">
+        <text class="cat-banner-name">{{categoryName}}图鉴</text>
+        <text class="cat-banner-count">共 {{items.length}} 项</text>
+      </view>
+    </view>
+    <view class="cat-banner-deco" style="background: linear-gradient(135deg, #FF9500, transparent);"></view>
+  </view>
+
+  <scroll-view class="card-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="card-list">
+      <view class="g-card" wx:for="{{items}}" wx:key="name" data-index="{{index}}" bindtap="onItemTap">
+        <view class="g-card-index" style="color: #FF9500;">{{index + 1}}</view>
+        <view class="g-card-badge" style="background: rgba(255,149,0, 0.12); border: 1rpx solid rgba(255,149,0, 0.2);">
+          <image class="g-card-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <view class="g-card-body">
+          <text class="g-card-name">{{item.name}}</text>
+          <text class="g-card-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="list-footer">
+      <text class="list-footer-text">— 已经到底啦 —</text>
+    </view>
+  </scroll-view>
+
+  <!-- 详情弹窗 -->
+  <view wx:if="{{showModal}}" class="modal-mask" bindtap="closeModal" catchtouchmove="preventMove">
+    <view class="modal-card" style="--modal-color: #FF9500;" catchtap="noop">
+      <view class="modal-close tap-shrink" bindtap="closeModal">
+        <view class="close-x"></view>
+      </view>
+      <view class="modal-badge" style="background: rgba(255,149,0, 0.12); border: 1rpx solid rgba(255,149,0, 0.2);">
+        <image class="modal-icon" src="{{selectedItem.icon}}" mode="aspectFit"></image>
+      </view>
+      <text class="modal-name">{{selectedItem.name}}</text>
+      <text class="modal-desc">{{selectedItem.desc}}</text>
+      <view class="modal-index" style="color: rgba(255,149,0, 0.15);">#{{selectedIndex + 1}}</view>
+    </view>
+  </view>
+</view>

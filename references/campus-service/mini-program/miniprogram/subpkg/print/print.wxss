@@ -1,0 +1,4 @@
+/* pages/print/print.wxss */
+page { background: transparent !important; }
+.shared-nav { background: #FFF3DC !important; }
+.page-module { background: transparent !important; }

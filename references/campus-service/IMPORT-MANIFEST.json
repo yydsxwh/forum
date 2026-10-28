@@ -1,0 +1,3578 @@
+{
+  "date": "2026-10-28",
+  "source_file_count": 715,
+  "source_bytes": 7179961,
+  "uploaded_source_file_count": 706,
+  "uploaded_source_bytes": 7027098,
+  "scope": "Reference source only; not runtime integration or deployment. Original .env and private configs excluded.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 609,
+      "sha256": "11926386cac8b36bbb5d090e1f9b1bf502526aeac051b8c77450e40a08a3f786"
+    },
+    {
+      "path": "backend/.env.example",
+      "bytes": 1678,
+      "sha256": "d517d3f079d9087849a01d313a862ab0939872e369b365d2e7b7b7089a58258b"
+    },
+    {
+      "path": "backend/.gitignore",
+      "bytes": 50,
+      "sha256": "7adcf0adcd1adcd029c5084fd1d107d5b105f569623c37ca09bced6bb0879edb"
+    },
+    {
+      "path": "backend/admin/api.js",
+      "bytes": 4032,
+      "sha256": "57ed74f584bce8b7dbc3870f22b634f4c00ff0e916f24b3b8954d5ca3719bc3f"
+    },
+    {
+      "path": "backend/admin/app.js",
+      "bytes": 31059,
+      "sha256": "54d64f423624a1eb695396cdf1542e60f452af8335abddbea3bc603e487b71ca"
+    },
+    {
+      "path": "backend/admin/index.html",
+      "bytes": 40262,
+      "sha256": "c755f50ea7eb56884a58c01a7d552e62d14102e99df80decc97d66d305214613"
+    },
+    {
+      "path": "backend/admin/logo.svg",
+      "bytes": 1291,
+      "sha256": "f9cac24de6d6ded117386040d71c814c85552a7c04b5318a98f59f18566c045b"
+    },
+    {
+      "path": "backend/admin/modules/admins.js",
+      "bytes": 3699,
+      "sha256": "c57d2e1ba9ac5bc9b83fa833b288e0bdb0fad386a5f96d3fd01a11f6cd02322b"
+    },
+    {
+      "path": "backend/admin/modules/announcements.js",
+      "bytes": 4464,
+      "sha256": "8c19fca28c84e8c31c2159260bf0ffd66635b76e7f7a4119b66a9bf463404b9e"
+    },
+    {
+      "path": "backend/admin/modules/carpools.js",
+      "bytes": 5527,
+      "sha256": "5f7d2fbc25993279dec69b5036a2c75ded4edfc30843e17ab9df70aeffdecf4c"
+    },
+    {
+      "path": "backend/admin/modules/complaints.js",
+      "bytes": 3785,
+      "sha256": "b3bd2d26f3c7649f95c0bb0dc5e4412fe0634ba21334d5b79164ab2f8916da57"
+    },
+    {
+      "path": "backend/admin/modules/contact.js",
+      "bytes": 3681,
+      "sha256": "dfb31300287be739c3486ffd93d6fec83c0a18ff57cbf984a296155f21f64100"
+    },
+    {
+      "path": "backend/admin/modules/contentManage.js",
+      "bytes": 34306,
+      "sha256": "08dd1f769e9cbded836dbd6658b43465d1102e16f2f11802c572a36f4778651d"
+    },
+    {
+      "path": "backend/admin/modules/dashboard.js",
+      "bytes": 1843,
+      "sha256": "0b8762db9a81b147a182df5e37d42ff8c6f414a6f30865d7b70caf973f101ca4"
+    },
+    {
+      "path": "backend/admin/modules/feedback.js",
+      "bytes": 2406,
+      "sha256": "109db3b72d4dc71ae6fd709491759c4049cf080c54c0f8293d8260b104149367"
+    },
+    {
+      "path": "backend/admin/modules/guideFeed.js",
+      "bytes": 8825,
+      "sha256": "7329d97a8c7fde0b3348e8d8cdea24ee243794123b328c9d692e6d8b69676fd7"
+    },
+    {
+      "path": "backend/admin/modules/ipmanage.js",
+      "bytes": 5671,
+      "sha256": "1aa7455b5f7f74b6f6df197d6c15f97b21c5908677f93f37c50326298f89e7fa"
+    },
+    {
+      "path": "backend/admin/modules/logs.js",
+      "bytes": 1006,
+      "sha256": "e165ea16436c047c1f2d5ee1988f593a474e57d4c835adaccf4e2cf72c626fcb"
+    },
+    {
+      "path": "backend/admin/modules/mapPoi.js",
+      "bytes": 16454,
+      "sha256": "3073e60f2334ff8ddd28a8f2bea7a240b7dab7b4748465360f8edcd06f2981d2"
+    },
+    {
+      "path": "backend/admin/modules/messages.js",
+      "bytes": 11119,
+      "sha256": "2267fbe11fa9bb5279e2fc2b2d85dacd110b9f65abe8aaf016aca3822a882d49"
+    },
+    {
+      "path": "backend/admin/modules/modulePosts.js",
+      "bytes": 13914,
+      "sha256": "4ca7739e6bf859e2cdbbf0e6b1d78ade7ce8ff4cd3706f6ec35ddc2746ee9531"
+    },
+    {
+      "path": "backend/admin/modules/reviews.js",
+      "bytes": 1511,
+      "sha256": "6f71f00fc64ce6bb751baf721fa77779a3726ad0e7ed8533d1f1af140d148424"
+    },
+    {
+      "path": "backend/admin/modules/stats.js",
+      "bytes": 3228,
+      "sha256": "5c7e8c3e0660a8949498bc2c48dea03f9aa6a6c7ceb55aa1d3e8493136c855ad"
+    },
+    {
+      "path": "backend/admin/modules/users.js",
+      "bytes": 8700,
+      "sha256": "f5545361f696b3759fbcd9b98aa1f922341f35e63259421b9f7255e97343452b"
+    },
+    {
+      "path": "backend/admin/styles.css",
+      "bytes": 63501,
+      "sha256": "add48efaa63244f65743b746cc34002c3751fd8f0cbd0427c46a97c2b360cec5"
+    },
+    {
+      "path": "backend/admin/utils.js",
+      "bytes": 1493,
+      "sha256": "0711bd94a6cdaa95d83ab0497c981e1be00cac6dbd294c2688ffd4a5714c9265"
+    },
+    {
+      "path": "backend/install.sql",
+      "bytes": 101362,
+      "sha256": "08aa0bd0155500b3bee75abff8e87ca5a05ff0ae867a8d6307286a16bab15554"
+    },
+    {
+      "path": "backend/package-lock.json",
+      "bytes": 89563,
+      "sha256": "9080bab766295a2290b218defa2181827d3278cce1464bbf50b7a377b70ce881"
+    },
+    {
+      "path": "backend/package.json",
+      "bytes": 740,
+      "sha256": "e53aa7590ec8fd7eb4e652485484e71504143ed29e837083614af0a1f4c1dcde"
+    },
+    {
+      "path": "backend/schema-canteen.sql",
+      "bytes": 7644,
+      "sha256": "da4902ddd8b8225effd8fd0841af841fec0728c4b9a28e06b8876374307a9128"
+    },
+    {
+      "path": "backend/schema-map-pois.sql",
+      "bytes": 4298,
+      "sha256": "f50cce0710ee0e19f2bc0ea0fe657a354679bc1224fb63f8ff88bd3a4a81aab5"
+    },
+    {
+      "path": "backend/schema-module.sql",
+      "bytes": 6262,
+      "sha256": "d689f411a28079673d05a9fa19a31c5a96bfda1a2d530592a9a3ff702e196565"
+    },
+    {
+      "path": "backend/schema-new-tables.sql",
+      "bytes": 8206,
+      "sha256": "2febb4834ebb58bc7baff059042ab8c07c28a4c75e7f21ab31ab41a2c05ecc9d"
+    },
+    {
+      "path": "backend/schema-treehole.sql",
+      "bytes": 2620,
+      "sha256": "23c8670599dfe7c7ce0a1ca5285a70abba1cbe23a041be608073cc3409b8f7a0"
+    },
+    {
+      "path": "backend/schema.sql",
+      "bytes": 29331,
+      "sha256": "d960a4f450853ac2d7eca9fd31bdb24f43d8bfcf5aa692edb8af576f6e4e1482"
+    },
+    {
+      "path": "backend/seed-new-tables.sql",
+      "bytes": 41908,
+      "sha256": "31a4d69fb94c858c390e9e97c523b264d51a0b5b0602294218af6e6b6820421a"
+    },
+    {
+      "path": "backend/src/app.js",
+      "bytes": 8623,
+      "sha256": "fb1623db563aeaefafe7164b9d705772fbe05925f7a2d8428349c3fd296dbaeb"
+    },
+    {
+      "path": "backend/src/config/db.js",
+      "bytes": 1161,
+      "sha256": "3a5488c723a1c3b21f9c6272a3033e97b282b5644a9f9570d72f55588b160b2e"
+    },
+    {
+      "path": "backend/src/controllers/achievementController.js",
+      "bytes": 11101,
+      "sha256": "88991be2952fc9d4e628a9ef0843e4692c3c2734834df2d05ea8a16ed7842483"
+    },
+    {
+      "path": "backend/src/controllers/adminController.js",
+      "bytes": 62938,
+      "sha256": "33ba0a4ba563b4c7ee38ae4f3a8606065176f8769648c4db2d3f780281478e7c"
+    },
+    {
+      "path": "backend/src/controllers/announcementController.js",
+      "bytes": 9303,
+      "sha256": "6f42082fd820a6c8297015f1f4103476ddc286068553545f649a829d8cc159bd"
+    },
+    {
+      "path": "backend/src/controllers/authController.js",
+      "bytes": 17269,
+      "sha256": "782b4d4a524bdfc589e143e32a40c80e8b073bbc7ce2147887c4b3907a84c151"
+    },
+    {
+      "path": "backend/src/controllers/carpoolController.js",
+      "bytes": 20110,
+      "sha256": "48d711bdb10f25e88c8e9449216465d6a9469fcb2ecfd3dc66552ff62ad93eb5"
+    },
+    {
+      "path": "backend/src/controllers/carpoolTagController.js",
+      "bytes": 3804,
+      "sha256": "2b4956b1ff7ca4e333cd22f3e68e3932ec463a5a7eff8b81e4b9d3cd1196f972"
+    },
+    {
+      "path": "backend/src/controllers/complaintController.js",
+      "bytes": 15042,
+      "sha256": "2be1e5f8d8a62d4c61c7a5ababdfc918cd74452a689f4c84f80a5a744cafd4f7"
+    },
+    {
+      "path": "backend/src/controllers/contactController.js",
+      "bytes": 3629,
+      "sha256": "0c3551a69aa0f6496acef38bc18bd544f17faec2613b583170d7f76f93580bb1"
+    },
+    {
+      "path": "backend/src/controllers/feedbackController.js",
+      "bytes": 6870,
+      "sha256": "0302881e1673b0f53ce5cca22eeda93b8246c0ee6e10f4d678047eae10ab47f1"
+    },
+    {
+      "path": "backend/src/controllers/foodController.js",
+      "bytes": 3776,
+      "sha256": "d498828b705a0e7ff31ca2fd3eef50abe91af49e76b410bdf33555da7a2d8665"
+    },
+    {
+      "path": "backend/src/controllers/groupChatController.js",
+      "bytes": 8298,
+      "sha256": "31cbaa87eafbc3e994dd789b71e6ca6a31dcfc405102cfe504ed18d691650304"
+    },
+    {
+      "path": "backend/src/controllers/guideCheckinController.js",
+      "bytes": 6706,
+      "sha256": "80725c750ab444e98a41ba541122cf49fd963c2f925140a7a91a434e1afd44ef"
+    },
+    {
+      "path": "backend/src/controllers/guideController.js",
+      "bytes": 1423,
+      "sha256": "b18e167dbdd5b5b3f99f07e550714802ad079336671af9add41e09a954aadc12"
+    },
+    {
+      "path": "backend/src/controllers/guideFeedController.js",
+      "bytes": 7706,
+      "sha256": "bc2210f50c23cbe5f7ab7198aa7fe16be2a40052cafa2f3d16ab425796675ddb"
+    },
+    {
+      "path": "backend/src/controllers/mapController.js",
+      "bytes": 5464,
+      "sha256": "e827271517b061349499dc144af7b1c7e2d970ebc780b2881a6e9a3a1fed9d01"
+    },
+    {
+      "path": "backend/src/controllers/messageController.js",
+      "bytes": 8975,
+      "sha256": "e27120b6ad8d92c7bb704dbc2dc57391b21fd47b4b58c4d1ad8471520e6d9447"
+    },
+    {
+      "path": "backend/src/controllers/messageEnhancedController.js",
+      "bytes": 10193,
+      "sha256": "37742f6302810bd3bba057d942a466bbdd686f9e4d7db8e7d9463a62f1c1c3a4"
+    },
+    {
+      "path": "backend/src/controllers/moduleController.js",
+      "bytes": 18861,
+      "sha256": "b4be60da6fd3a1e1a91d5daaf9a1ebc4678d9724e28d7bea27c6465bf985dbc5"
+    },
+    {
+      "path": "backend/src/controllers/notificationController.js",
+      "bytes": 3236,
+      "sha256": "57cea2988b2442cbc4fa93e96e2e86384590a753905818d092c4fac923727d9b"
+    },
+    {
+      "path": "backend/src/controllers/parttimeAdminController.js",
+      "bytes": 5961,
+      "sha256": "99ae1b916e13d3a16d4159fb33513f16b9ba7a98546036e437386ec0df5b5187"
+    },
+    {
+      "path": "backend/src/controllers/recommendController.js",
+      "bytes": 11495,
+      "sha256": "cdd22ecb9c6146017161b9fef3af702ba58ce2ae682f751016f0d6422538c1c0"
+    },
+    {
+      "path": "backend/src/controllers/referenceController.js",
+      "bytes": 1775,
+      "sha256": "9b6c63e1d7257ebf723ee971af2d9d1e9c851b3705bb66fc2f2a1b08b6be165d"
+    },
+    {
+      "path": "backend/src/controllers/remarkController.js",
+      "bytes": 3081,
+      "sha256": "4dcded541b29ee7c508ddfa575b620698c9fcbaacb8f8c8d26de8ddd961f8456"
+    },
+    {
+      "path": "backend/src/controllers/reviewController.js",
+      "bytes": 8108,
+      "sha256": "c6c564c1294527ca0e85bebe361c14ca625473b3592f0bcef2384f120c20f603"
+    },
+    {
+      "path": "backend/src/controllers/treeholeController.js",
+      "bytes": 8477,
+      "sha256": "231853eec0c76345d53252014402119a8b0704b85ee86117693347a50d203758"
+    },
+    {
+      "path": "backend/src/controllers/userController.js",
+      "bytes": 9691,
+      "sha256": "27b36952c075b76c87bdb67111ef679aa85cdf0b3b2ca86c715fe3d8d2e95fc3"
+    },
+    {
+      "path": "backend/src/middleware/adminAuth.js",
+      "bytes": 3968,
+      "sha256": "5bf48ca0ad69eca66bd977f4dd8c4294788d07838e8053d43ea6fbf40b1f59c8"
+    },
+    {
+      "path": "backend/src/middleware/auth.js",
+      "bytes": 4336,
+      "sha256": "d92fd9c63d3386740affdfbdc7cc989dfb7af4c9bb9c513b73c0941772dd998d"
+    },
+    {
+      "path": "backend/src/middleware/errorHandler.js",
+      "bytes": 1581,
+      "sha256": "cff08b65c19ae5101984082e873e8b1d5a16246c8878a58b4419d6b1aaa58be9"
+    },
+    {
+      "path": "backend/src/middleware/privacy.js",
+      "bytes": 4761,
+      "sha256": "8a6d59f3f2ccc0ba4b886ea20be34a447463facd2f198d44d81335a7768ff565"
+    },
+    {
+      "path": "backend/src/models/AchievementItem.js",
+      "bytes": 215,
+      "sha256": "fefb1a3f7908856fde23c609a77ad6687c424b83d17dc4ccfddb1551443947ac"
+    },
+    {
+      "path": "backend/src/models/AchievementTrack.js",
+      "bytes": 216,
+      "sha256": "994e73ecf2d71fb9ee1572e740e138e3afab6f05696933c9ccf083b33c648dc5"
+    },
+    {
+      "path": "backend/src/models/Admin.js",
+      "bytes": 2807,
+      "sha256": "89c3a99763168a951dea63ff89c2c1ee59a35b4aa07b60d838209db0744ac249"
+    },
+    {
+      "path": "backend/src/models/Announcement.js",
+      "bytes": 1677,
+      "sha256": "bb1bbc0a75a44997b539bd382431aa181b18850b9c9bfc4b0e6a4e6152b847d2"
+    },
+    {
+      "path": "backend/src/models/Canteen.js",
+      "bytes": 204,
+      "sha256": "6e998a53b7d4d0056d17dbc897135d1fe61cedf416c5e2b2600c339578def0a5"
+    },
+    {
+      "path": "backend/src/models/CanteenStall.js",
+      "bytes": 224,
+      "sha256": "7fe5a02702c7fcc9172c1cf7b5405b33c9709ec288d3551937738cd832d279f7"
+    },
+    {
+      "path": "backend/src/models/Carpool.js",
+      "bytes": 20973,
+      "sha256": "2788cf299086b8056c1d72d955e25c94af7d9a5dc846e8a1ce9cbd18189379ad"
+    },
+    {
+      "path": "backend/src/models/Complaint.js",
+      "bytes": 8654,
+      "sha256": "51adbc00899e1bcbcf771aa1522e19c73520d5b15f84f48878937462de5a2f1b"
+    },
+    {
+      "path": "backend/src/models/ContactMessage.js",
+      "bytes": 776,
+      "sha256": "58fbcc932fda5a71847be64b3602064a701dd57ccc22c68e771bee02c9586360"
+    },
+    {
+      "path": "backend/src/models/DailyStat.js",
+      "bytes": 238,
+      "sha256": "8b322d674fa8362ca098f138b460193ce182da3ffaf82f992c3cbdd71a8f0b55"
+    },
+    {
+      "path": "backend/src/models/Favorite.js",
+      "bytes": 566,
+      "sha256": "06249c9a9ac6478f7abb52e7a6124d00c6b919ef1d96896c145fbf6cd95429f4"
+    },
+    {
+      "path": "backend/src/models/Feedback.js",
+      "bytes": 1915,
+      "sha256": "d20472946c646164c325c6e125c00978d0ac25652b66ae84ac1c19e364d59752"
+    },
+    {
+      "path": "backend/src/models/GuideCategory.js",
+      "bytes": 214,
+      "sha256": "d690acb35a19e64377a8065db7ab4aef20ded1ae106fb140dc440efc4d64ca4a"
+    },
+    {
+      "path": "backend/src/models/GuideCheckin.js",
+      "bytes": 245,
+      "sha256": "4a1faacbc6699e12c6d169b6665e476b4dddf28d95f7cbce73d7393c913b6fed"
+    },
+    {
+      "path": "backend/src/models/GuideFeed.js",
+      "bytes": 258,
+      "sha256": "50665d5e91fcfbbee92b4f02ec27cef86874af03eca2eae728b99049ed80dc13"
+    },
+    {
+      "path": "backend/src/models/GuideItem.js",
+      "bytes": 209,
+      "sha256": "a8a74b44c7214541618e7f966fccca861be624eebb4a62fff31e5746b66ac87f"
+    },
+    {
+      "path": "backend/src/models/HotRoute.js",
+      "bytes": 260,
+      "sha256": "ed29cfb34d7414fb6ed05763c8d84cc6eadedcaade4166f48f00ab6a9e7f3646"
+    },
+    {
+      "path": "backend/src/models/index.js",
+      "bytes": 1900,
+      "sha256": "a5414a2651902695a5051f7640c37adc50601e2d02e61763ea8f4bf03fdc08cd"
+    },
+    {
+      "path": "backend/src/models/IpRecord.js",
+      "bytes": 375,
+      "sha256": "00d776d98fd05db82fc3004e1b213c6041be05ce88fc219e921d342b721d7a63"
+    },
+    {
+      "path": "backend/src/models/MapPoi.js",
+      "bytes": 270,
+      "sha256": "94dd0c1c2ddab1b7a717d79875b95801e13583daebb0ef3f05b1e69988d7188d"
+    },
+    {
+      "path": "backend/src/models/Message.js",
+      "bytes": 5243,
+      "sha256": "7d2de37ed15dc34a6e21af380ad13a21874e85cead6f106c92c8a529e7ac0bac"
+    },
+    {
+      "path": "backend/src/models/ModulePost.js",
+      "bytes": 14880,
+      "sha256": "d4ba58e2b200736087fdbaf95fff750c282e1549b53fe52a9e8e93baa8e632f0"
+    },
+    {
+      "path": "backend/src/models/mysql.js",
+      "bytes": 19570,
+      "sha256": "ee4e54caf379bda938e7356b046a2fc650ba32c6f2cf047d1e441e55a0fa3c63"
+    },
+    {
+      "path": "backend/src/models/Notification.js",
+      "bytes": 1533,
+      "sha256": "a1eff2ba655b5f3041e54ecc923e8187a808b75ab958baee008001ecf71ec363"
+    },
+    {
+      "path": "backend/src/models/OperationLog.js",
+      "bytes": 462,
+      "sha256": "5a68673229e8a25e77672f0fcc5b83e325f5b00fc357c74fb1413ea3aa22d5d1"
+    },
+    {
+      "path": "backend/src/models/Questionbank.js",
+      "bytes": 201,
+      "sha256": "7f5761adb5e7318809c00826f4322c6e2c8029cf16a8eeeca09e549bf358b90c"
+    },
+    {
+      "path": "backend/src/models/Remark.js",
+      "bytes": 451,
+      "sha256": "8503ba1a4a5305d58a51fd1f67208a11a60663e806ffbce03970ae1019c0d8f7"
+    },
+    {
+      "path": "backend/src/models/Review.js",
+      "bytes": 1917,
+      "sha256": "c821ea6e4d2700d444609263ff0e0c50d172d18342b4e12c86f7d34bdbd727b6"
+    },
+    {
+      "path": "backend/src/models/SensitiveWord.js",
+      "bytes": 611,
+      "sha256": "35582a23168af0f535c0ecd1e50fd2aed504cdd1442497a7d85f98d6fbf63503"
+    },
+    {
+      "path": "backend/src/models/StallReview.js",
+      "bytes": 199,
+      "sha256": "e787e65790d4bfdbca520e0395ca74a57402d899f8e3bf8e151478b247f655e6"
+    },
+    {
+      "path": "backend/src/models/TreeholePost.js",
+      "bytes": 9688,
+      "sha256": "67e1cd10a114c7605812058e9f2df24ecddadb2d0688e855b4fef510b42814e3"
+    },
+    {
+      "path": "backend/src/models/User.js",
+      "bytes": 8721,
+      "sha256": "9c28fe6b2d11b32a3ab872b245069d44e938ecd2c762e2978513beed0fa8344c"
+    },
+    {
+      "path": "backend/src/models/UserAchievement.js",
+      "bytes": 205,
+      "sha256": "535913b223e7cd706f3e9d37fea09aa49e5663ee07b2bf89beaa1647dabf0a4b"
+    },
+    {
+      "path": "backend/src/models/Yellowpage.js",
+      "bytes": 199,
+      "sha256": "10f87ca1c4b234d9dc899f51802a3da68705b9fb0df04409bdb5248bd54293f4"
+    },
+    {
+      "path": "backend/src/routes/achievement.js",
+      "bytes": 859,
+      "sha256": "6876fe85e87a4ccf7ec9ac768fed356e1301c68c9dda7b1ee8bdad722c211eff"
+    },
+    {
+      "path": "backend/src/routes/admin.js",
+      "bytes": 11180,
+      "sha256": "798f12018a77ae78350ecc0849366e4f8d09b8c9fbdcfa5032ad6baf4103b36d"
+    },
+    {
+      "path": "backend/src/routes/announcement.js",
+      "bytes": 1383,
+      "sha256": "8a563a46152551e635c9c53e5206cc392e319b6e7eaccb6a785b99420a4e7b5c"
+    },
+    {
+      "path": "backend/src/routes/auth.js",
+      "bytes": 898,
+      "sha256": "b278614e66934e11a9388a5e59565ef731765ad1599d15b89123ae7ec9180390"
+    },
+    {
+      "path": "backend/src/routes/canteen.js",
+      "bytes": 738,
+      "sha256": "968e18bcbefe2e1856d88b4fb9d18934d2b43c8daab7040ff92bd4979105731e"
+    },
+    {
+      "path": "backend/src/routes/carpool.js",
+      "bytes": 1325,
+      "sha256": "3a8ba301fb281cdc90ccab44767bfbf14b53d27b5c42ca94ad74a4deef6ad613"
+    },
+    {
+      "path": "backend/src/routes/carpoolTag.js",
+      "bytes": 577,
+      "sha256": "86fa7120f8eb430ad92b83474f6899a40c79eec90ed8da94402e85ce96febd32"
+    },
+    {
+      "path": "backend/src/routes/complaint.js",
+      "bytes": 922,
+      "sha256": "24726c24c7da716554d202b72d82c04185ba6cd4f5dc29a38679acc8b7886609"
+    },
+    {
+      "path": "backend/src/routes/contact.js",
+      "bytes": 860,
+      "sha256": "1d6fe17c3b8c27b1a780ce558b48eee687fb1b3897529cad975ba3a0b279d7fe"
+    },
+    {
+      "path": "backend/src/routes/feedback.js",
+      "bytes": 899,
+      "sha256": "f6e51216fa35d3d72ab2230a1520053c875ded3a58fa75e99149301f4a478605"
+    },
+    {
+      "path": "backend/src/routes/groupChat.js",
+      "bytes": 440,
+      "sha256": "03a53de2088fc0910c99c985b4fc55fe8cab7b3d5b491cbdba7193b3e0faa65e"
+    },
+    {
+      "path": "backend/src/routes/guide.js",
+      "bytes": 814,
+      "sha256": "9106ab0a1282042fb837e2cef6f47312f761a4c8239cb030852f54d007f7794f"
+    },
+    {
+      "path": "backend/src/routes/guideCheckin.js",
+      "bytes": 775,
+      "sha256": "07a7813b827f0988cc05cb15e272ee2dfa3ccd58b6785060cc73f08869012cb9"
+    },
+    {
+      "path": "backend/src/routes/map.js",
+      "bytes": 760,
+      "sha256": "add798a2651b92e38bcde076ab780e48e9eec9f44c63257de4831ad7d00a6787"
+    },
+    {
+      "path": "backend/src/routes/message.js",
+      "bytes": 749,
+      "sha256": "ca3c64cb9e580f98a5cc4e28f8937e6a88bc3d67d7bb93936a1a48d122d04909"
+    },
+    {
+      "path": "backend/src/routes/messageEnhanced.js",
+      "bytes": 907,
+      "sha256": "340529fadb837066040fde0d925d2ab9988f14270923dd57d56e764adaa2c1f2"
+    },
+    {
+      "path": "backend/src/routes/module.js",
+      "bytes": 2544,
+      "sha256": "ae45aea83ed8e6dbaec4fdaa61cd7433890354285d5db27f7f45c852aed2ec26"
+    },
+    {
+      "path": "backend/src/routes/notification.js",
+      "bytes": 686,
+      "sha256": "8ed70bd7041b9cb62d54952404b7e1fa0bed635f2306218fdd46d4a86402b27c"
+    },
+    {
+      "path": "backend/src/routes/recommend.js",
+      "bytes": 774,
+      "sha256": "e0381d288f6dcda17fedb12a318b2debadbc56d9ffecacd6fbbb7b36f57f8833"
+    },
+    {
+      "path": "backend/src/routes/reference.js",
+      "bytes": 490,
+      "sha256": "fba11dd881be87f4b3c5de18ab8e1031a023bef730e9aed4c6a631602115b6d5"
+    },
+    {
+      "path": "backend/src/routes/remark.js",
+      "bytes": 395,
+      "sha256": "8da7493bfd974ad34042639cd5e4edf8feaec6a0efb1c5da9fae3855aefcbbe4"
+    },
+    {
+      "path": "backend/src/routes/review.js",
+      "bytes": 558,
+      "sha256": "852148e4bb03484dd161f33b5cd65b801d41862a04d8da4cc2d37ba10d41e1fa"
+    },
+    {
+      "path": "backend/src/routes/sticker.js",
+      "bytes": 3090,
+      "sha256": "4393b3bc4f7343dea26f5ea9cdbad5030489d1fce38996a24c5e9fbb9bdfcae1"
+    },
+    {
+      "path": "backend/src/routes/treehole.js",
+      "bytes": 1216,
+      "sha256": "cd65e921d3cc53ee00d70ac30977ceebf3493bda3be2a4558f4544815e85c571"
+    },
+    {
+      "path": "backend/src/routes/treeholeAdmin.js",
+      "bytes": 22534,
+      "sha256": "be9fb8ce1b31b750b8d36d21b4c86e66c6ca8d5a48401111dfd63786a52c2fb2"
+    },
+    {
+      "path": "backend/src/routes/upload.js",
+      "bytes": 4017,
+      "sha256": "b1b130e9da57f9d6bea0f0880166a647d784ca1820fa2ecc16127820e8281132"
+    },
+    {
+      "path": "backend/src/routes/user.js",
+      "bytes": 986,
+      "sha256": "0278a1ace14f5576b68bc01a590b09199a925d8e30b45fb767fb959543371db8"
+    },
+    {
+      "path": "backend/src/services/dailyStats.js",
+      "bytes": 4860,
+      "sha256": "872848d72d545a628f0c8169a90276f0b470d0bfad090089cf5c937cb15ad7a5"
+    },
+    {
+      "path": "backend/src/services/dailyStatsJob.js",
+      "bytes": 5512,
+      "sha256": "7da709fc5370eaedd8d9f6eba8ddd4df42f36be9048d683445bfb1e8ab712052"
+    },
+    {
+      "path": "backend/src/services/ipGuard.js",
+      "bytes": 4550,
+      "sha256": "e36624867f69b36e5067bae6864f1f0c3573d7ee47a1dde1d6ce7275d0916cf9"
+    },
+    {
+      "path": "backend/src/services/sensitiveFilter.js",
+      "bytes": 2650,
+      "sha256": "6f0dc733a14bf04dca970ad8a38e1ca9c6be7e34c04c17ef2fafac5573a1c9b1"
+    },
+    {
+      "path": "backend/src/services/smsProvider.js",
+      "bytes": 4096,
+      "sha256": "6fc5f0b7125bb2c2738108aafe4b6ee86402d3c2403eaf1e87fa75d57af8e2ae"
+    },
+    {
+      "path": "backend/src/services/wechatNotify.js",
+      "bytes": 3894,
+      "sha256": "8e280c3757d5b101b1c1e746cf815692859c3f5733c7d1d183917f71f2d96793"
+    },
+    {
+      "path": "backend/uploads/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/uploads/map/yasuomap_2k.jpg",
+      "bytes": 1202133,
+      "sha256": "17cac8971f49f7e3b385a55b353d852d5b3542bd7316638e39778c288fee97a2"
+    },
+    {
+      "path": "backend/uploads/map/yasuomap_8k.jpg",
+      "bytes": 1202133,
+      "sha256": "17cac8971f49f7e3b385a55b353d852d5b3542bd7316638e39778c288fee97a2"
+    },
+    {
+      "path": "mini-program/.gitignore",
+      "bytes": 145,
+      "sha256": "6b76ebb2e8d8fef965cd95f34c13b21d7ac617278b1118be5a80e0276bc228d0"
+    },
+    {
+      "path": "mini-program/API接口文档.md",
+      "bytes": 23301,
+      "sha256": "269b808499512d19dc224059792b174098da20a84791d89fcadae8e092a7531c"
+    },
+    {
+      "path": "mini-program/miniprogram/app.js",
+      "bytes": 11853,
+      "sha256": "801ed8f1c7962f4348cf5a6a7a2aadfa54cc4aad766a8c032e5dfa4e5c57097a"
+    },
+    {
+      "path": "mini-program/miniprogram/app.json",
+      "bytes": 4570,
+      "sha256": "b295e56ecdf7969cc867c71d5fa550e7ea14d94187623d6c9a17162c26dc9030"
+    },
+    {
+      "path": "mini-program/miniprogram/app.wxss",
+      "bytes": 30259,
+      "sha256": "ba952bca04820222c7b9fe6e7a67adf9f329f58e321d8128c18ffb1aa8bb0763"
+    },
+    {
+      "path": "mini-program/miniprogram/CHANGELOG-API.md",
+      "bytes": 10459,
+      "sha256": "eb0fbde02ab5860ed788eb199aff3021aa88a58182ace74e9d280cd29b944d71"
+    },
+    {
+      "path": "mini-program/miniprogram/custom-tab-bar/index.js",
+      "bytes": 2160,
+      "sha256": "05e2168ed932c1668bf32ef183fb4ee6b7adf4684323210aaee36bf979aa6954"
+    },
+    {
+      "path": "mini-program/miniprogram/custom-tab-bar/index.json",
+      "bytes": 49,
+      "sha256": "035503c1a56d8b4b9227ce8bb9145fbd1ef8ec7dce59e55f9d5d55fb5eb7d566"
+    },
+    {
+      "path": "mini-program/miniprogram/custom-tab-bar/index.wxml",
+      "bytes": 3069,
+      "sha256": "b66efaa791a168c3cbbf24e51dbe6fc77efd62ffae8acc9434405037216add1d"
+    },
+    {
+      "path": "mini-program/miniprogram/custom-tab-bar/index.wxss",
+      "bytes": 2826,
+      "sha256": "6f8fe239030521dd203fa6d50bc7f81c541cb6e090f083b28da77c95f79840e6"
+    },
+    {
+      "path": "mini-program/miniprogram/images/banner-carpool.jpg",
+      "bytes": 46229,
+      "sha256": "a16129c894086a82802950c1392f6af28e9abb3d22d33c53cf0495a976790250"
+    },
+    {
+      "path": "mini-program/miniprogram/images/banner-secondhand.jpg",
+      "bytes": 43444,
+      "sha256": "aed0c132d3736535b407ebf43476c4722c67cf44ca000386369f7c0cc123cb19"
+    },
+    {
+      "path": "mini-program/miniprogram/images/bg-gradient-rainbow.jpg",
+      "bytes": 83993,
+      "sha256": "a396c37f00510e5ee56bd2f3d8d77cfd0f933c18eccf84e23ba5d3231240584f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/brand-logo.png",
+      "bytes": 79209,
+      "sha256": "fdfaf6651db9027b7bdd41452d6c5bca1a107453a47919bd796fd4d726e2376d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/default-avatar.png",
+      "bytes": 69,
+      "sha256": "ff0a1ce89176143459ffd3cdfa9b080c6d7350d713780458942f0500ff74bf41"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/00.png",
+      "bytes": 2387,
+      "sha256": "bcf2f382615b792a18d275f036982c023e16a2de178a01e7b1499e2d20aa45ad"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/01.png",
+      "bytes": 2094,
+      "sha256": "96b9e86ffedcb2ce55feb56844892d13af9bb0e3456737db17b714737e18ce62"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/02.png",
+      "bytes": 2224,
+      "sha256": "543178112ad7fbf752127fe53d501044cb10ff13ae23b8565342c845047cbe57"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/03.png",
+      "bytes": 2581,
+      "sha256": "53220ba1421c4f11138ef029bd24609704ae1cdee4dab69e6ca453ffeb8b059a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/04.png",
+      "bytes": 1698,
+      "sha256": "a555d72de121566feb189890642ede321281625dbed25dd11866408027dd106e"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/05.png",
+      "bytes": 1471,
+      "sha256": "56a989695c90d85205f37f1b894d4ecae8fcea13a7c927274ad43bc9401b614c"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/06.png",
+      "bytes": 1886,
+      "sha256": "c7a681b2160c7f1d76f1b4a173b05fb1ca787f7e8f69bac19fa08e931cf68833"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/07.png",
+      "bytes": 2330,
+      "sha256": "f63fa6600d4df895dabe948568debf1b199401e0cd80ccbd9a1fc4113d57187a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/08.png",
+      "bytes": 3106,
+      "sha256": "5ee2a5a48f1ead9c20309b228d260cc417d1e56d76f1232ce24163f0ff17fdb6"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/09.png",
+      "bytes": 992,
+      "sha256": "bb9c0a8a5d7ac9b9bd2f95f5cc8e8581d6563554e36af9fe99cf7ee26788ad6d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/10.png",
+      "bytes": 2378,
+      "sha256": "81683be4e4d856f45def290f2f06dd3064be59c376ecd4d004d9a83a3a549bca"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/11.png",
+      "bytes": 1949,
+      "sha256": "29287672f13938cd55408e3c22dcd8cd291a6f76e30a3336207b0e1c08d0aff4"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/12.png",
+      "bytes": 2454,
+      "sha256": "585b002778aa8aed6934902eb6174afbf03f0786d6a0927c107b18acbeb4a7b6"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/13.png",
+      "bytes": 2237,
+      "sha256": "33a8e075e9fa1ffca7769d1511d8b0dd318b0f1ceb1d92545d256fdf8eedc51a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/14.png",
+      "bytes": 2565,
+      "sha256": "9bc5f0b0255bb16822cac3dd111337755495dcbbe6c148b205f99fd7430afa4e"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/15.png",
+      "bytes": 1672,
+      "sha256": "b010031f468eff9451e7f56ae8df8e06f85bb874f5121f7542dd4f9a15dd4288"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/16.png",
+      "bytes": 2079,
+      "sha256": "01fedc2edd2c5d8051aa71e3c550fc837e3b8257ea0b39b938b67b2f8326ab44"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/17.png",
+      "bytes": 2959,
+      "sha256": "3e472ac1c986694ddeecfafea46202549cc51eff363d7f82b73859e46eb7975a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/18.png",
+      "bytes": 2247,
+      "sha256": "58cae77bd60ba0ff018bcac7bb29e2efbd8d14f189032293d4b067aef3d9adf2"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/19.png",
+      "bytes": 1620,
+      "sha256": "ce0bfaae3329887b2bc64b70d13d8c3f498423ac1eda9c80bcdc11d34b56513e"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/20.png",
+      "bytes": 1898,
+      "sha256": "189995db6a34fc42a956fd28c927121c63fbb7eb87ece11129031130089c8796"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/21.png",
+      "bytes": 1372,
+      "sha256": "617f68aa5042dcff1c6b6a9083b106d83ef8c8633feeea037dbc5085dd74912a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/22.png",
+      "bytes": 3407,
+      "sha256": "cf388683c8125cbdc78017ba21701baf7a65c294f03aa33790ed55fc9ace9372"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/23.png",
+      "bytes": 2868,
+      "sha256": "b848bd891aac17e3c4c2d2e80d9d91593fdde8ba68fbc151c234258ddfcb115c"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/24.png",
+      "bytes": 2081,
+      "sha256": "5d923cb975694c7576c67d27928f280296db537bac1bdeb18bf2191d4f19ad82"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/25.png",
+      "bytes": 3548,
+      "sha256": "d5784b1baad4712779a0c158dbb01a7c1544464343c4178a2f284817a20d7a3b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/26.png",
+      "bytes": 2968,
+      "sha256": "58a8cc4660dd62b18c47ce128936836fc34d4122677e6d6e700770a0529f9ed0"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/27.png",
+      "bytes": 942,
+      "sha256": "357123d3fddaf8651b4b1f1fe9d857dc24c5b2fc06b2dca8e0df848f5cf6991a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/28.png",
+      "bytes": 2186,
+      "sha256": "0908bd4c260472a93340f3f60e51cfcb192a563b7f9c78b00642a3bc2d8b514c"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/29.png",
+      "bytes": 2677,
+      "sha256": "f0960ab465221c2ee738c2f5eba72a2dc0b50649dab6a15cdb6eb2960741c116"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/30.png",
+      "bytes": 2396,
+      "sha256": "1d1258dcd6b4d09d8b135a833885d582f47a619750520511154ab68ed40e2f70"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/31.png",
+      "bytes": 2449,
+      "sha256": "8c5992bc6a1ca44c5b6749d67f19575c9e004bacb7f399ef8b9ca47c7c4440a7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/32.png",
+      "bytes": 3077,
+      "sha256": "b33e3d0a1384e05b24324e20ca34d5cffabc512f1940f1f0792c2b7ac0910049"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/33.png",
+      "bytes": 1934,
+      "sha256": "628b52069e003a6d776083d914c83640507280f96d9aa65282d4aecdb3e7c17c"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/34.png",
+      "bytes": 1742,
+      "sha256": "a139650d2c011a94721982953537e76d240bec85a9fc22cf595148b8817bf222"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/35.png",
+      "bytes": 1502,
+      "sha256": "32d17a402e9a9147053e1b768d6d88493ce1425d2321bd97e17bc0866fca956b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/36.png",
+      "bytes": 2457,
+      "sha256": "aae118b96876026b4a74318a60f1d15579bc7164b5ac051a287b924029ca9dcf"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/37.png",
+      "bytes": 2081,
+      "sha256": "fe1d561f5b1e1769aa9ea56ae2643158161a3359bafb8fe89b62d86376d6b6d7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/38.png",
+      "bytes": 1782,
+      "sha256": "5205c32a29a7856d1c088514e26f595887c8838297575b619318c8d5d895d446"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/39.png",
+      "bytes": 3316,
+      "sha256": "5a8dbb3787c04d7ba97170b589b1ee91574c18cad112e8e9769006431a41fa00"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/40.png",
+      "bytes": 1746,
+      "sha256": "6c59bae83e0425b22d5831385551a0b595a14104768103a37ff1814e9a83353d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/41.png",
+      "bytes": 2571,
+      "sha256": "97f046a8bdfaac7959f5ee5c2be2b28d8e35e5f0355ba4121aeb76e5ef48c36a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/42.png",
+      "bytes": 2704,
+      "sha256": "9a326f58e68fa3ba9d3e9b55656afa4aeed801fb308769bac827948d473e9541"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/43.png",
+      "bytes": 1474,
+      "sha256": "faa7676f415912c8de5d525fd989cb5b0d9d99c76ef31e616c765c5d3962b1d1"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/44.png",
+      "bytes": 1490,
+      "sha256": "08c4c0a8ef455c6ad3ab3f9917392cb54f8f94b671cb43442771a9ac772dc1d6"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/45.png",
+      "bytes": 2374,
+      "sha256": "83e9c5b7c8614018e8b9844cbb24a4df94826da58f4080f94c85fc58c5a1e4a2"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/46.png",
+      "bytes": 2284,
+      "sha256": "50ff7281027e3a1911095ac18306b0f9c8cd1bbb5129f1c3eb185ee087a6ad2b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/47.png",
+      "bytes": 856,
+      "sha256": "1f0efe2cbc6e64c856da75651e5a5e2169cd548f3d8c20a65f6652cf481901b7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/48.png",
+      "bytes": 2054,
+      "sha256": "2b6c1aa71f6f68e358feea7bdfcca6253f28024b8b9bab48f927f04c4f1dc6f8"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/49.png",
+      "bytes": 3093,
+      "sha256": "f10e8cc99b2d8bf7213b72751942a343654f1ed355a0c91caa1ab455a2b8e85f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/50.png",
+      "bytes": 2611,
+      "sha256": "4e6ce302e93f9ee12adfdbdea797427a10814694e36bf7a2c1c57190df226049"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/51.png",
+      "bytes": 2151,
+      "sha256": "f5d558c764442c18da3bf58dcb10888acd7582156483a8b9e77f77c24a267d72"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/52.png",
+      "bytes": 1459,
+      "sha256": "54088bf7b056e9c65f51d05d4b688296d9935977dc1a562a959470f239a9251d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/53.png",
+      "bytes": 2261,
+      "sha256": "64cfb8c7538e067be4391751f8a3959120d832b21fb72601f820e158fa0e1350"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/54.png",
+      "bytes": 2759,
+      "sha256": "39e61bb05b909742560bf4347d7a17d80239d181888a517382bf6488a444d9ce"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/55.png",
+      "bytes": 2102,
+      "sha256": "9cbe2a3edfe729ed57a08d1578646dba0123c234305c20b413a45d7a03d7917f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/56.png",
+      "bytes": 2430,
+      "sha256": "c5ade4fa2e8072746608330bed04925ca5e216fa9893422fcb48d174b6648270"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/57.png",
+      "bytes": 1551,
+      "sha256": "a9eebb3c8b4f5d4f5dfa08ffa8ecb77ddd60303db52f04229a348241975d4783"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/58.png",
+      "bytes": 1875,
+      "sha256": "0383fa51ae66f5d4ab96b24b241fd47f37f74a90fc899247ce55333fbff73eb7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/59.png",
+      "bytes": 2036,
+      "sha256": "e4235bc8dbd9c5ce82a83e2c26190e9e1ffd55c348d4cfcdfb647fc46a5d066a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/60.png",
+      "bytes": 2328,
+      "sha256": "3bf4290e1319ef96fd9f19bbc93858700ff6d81cdb6ec0f74527fbc743686193"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/61.png",
+      "bytes": 2096,
+      "sha256": "fdc023c70cb62bf70a6659d15297c97d6b90619e7d6208e7293edf1478deaa95"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/62.png",
+      "bytes": 3458,
+      "sha256": "b9b355e26d41317c47d649d256f4b21fcc31eeddcf82643896c00cc183541cea"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/63.png",
+      "bytes": 2921,
+      "sha256": "2a9db0250de3542fd28cd83b6e8cf51f0a302247ac274dc6bd9fa9e2438788c8"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/64.png",
+      "bytes": 3185,
+      "sha256": "6edb522d93c5e89e98069ce13b8a4386d3024768b6e333db1bb9cef0d2dbfa84"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/65.png",
+      "bytes": 1860,
+      "sha256": "748c8290c519f0326b015ac66cc2d1ab04c85e6c38000ad99c247618911370c9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/66.png",
+      "bytes": 1782,
+      "sha256": "6f04d706f8f4ac427348a55add94c652f6fb026ef529f02d2031e6ef41bd92aa"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/67.png",
+      "bytes": 2500,
+      "sha256": "57366920c823d79a63418605206cd80e0522e83d84464c27db9def3dd5249a96"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/68.png",
+      "bytes": 1754,
+      "sha256": "6b44b8568d18947ad93ea95602be1ffb9c807170cd722d00beb7e30171e27f6e"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/69.png",
+      "bytes": 1864,
+      "sha256": "dec88025005b9624afe20848d764d4991e02ebc0786bec2549ac300dba970863"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/70.png",
+      "bytes": 2627,
+      "sha256": "23248daf336429cce81c3d90852fbab240f7b8d4041c80283073892d4274347b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/guide-icons/71.png",
+      "bytes": 2440,
+      "sha256": "a3823fddabda9908d912155e8310c82d9767597da511d65175724697c8ec9832"
+    },
+    {
+      "path": "mini-program/miniprogram/images/hot-rec-banner.jpg",
+      "bytes": 62843,
+      "sha256": "3c0de70242695ef5dee77693e2550e5ea04ba4daf67ea070d057a1e689d8f91d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-carpool.png",
+      "bytes": 12263,
+      "sha256": "c71731538e85ecded28c48dded38d293bd702494465d7b3dca41857f7c1bbe8c"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-express.png",
+      "bytes": 4740,
+      "sha256": "125127d69e6e02193b0dea24265a1200922af9aa5de6ee1487eeced8118f6159"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-forum.png",
+      "bytes": 9418,
+      "sha256": "97714f9d5caa4bb61cf18da2b66e3e9bf1034871f5114cc89cfb7e8b722d9cb0"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-lost.png",
+      "bytes": 6901,
+      "sha256": "0577bb69317128e942cb0c657f0a7e987c421837ff9cef78867b73f1ac171cbe"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-phone.png",
+      "bytes": 6682,
+      "sha256": "39d39ec4be70e5eec803d9c345a0734044bca7d78f8599d5aab2999e6de41a7b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-rental.png",
+      "bytes": 5056,
+      "sha256": "822de6d200809a8def61da84aacffccf6a127f41a2efafb0bd674ee2f41fa468"
+    },
+    {
+      "path": "mini-program/miniprogram/images/icon-grid-secondhand.png",
+      "bytes": 8064,
+      "sha256": "cb90dafcf884fc544e97744cee32c756478761c256c2888163fc1bf1cf1784e1"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/card-charity.png",
+      "bytes": 3338,
+      "sha256": "a869f1a9f30277dbc72eb5eb69c1f005062955e7fc40d7356323843d62ee6b63"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/card-help.png",
+      "bytes": 3303,
+      "sha256": "1d05c8efeca9cb654035470f9a4bf8792ccb9f1a63a5790db4c0d039d0899c3f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/card-need.png",
+      "bytes": 4912,
+      "sha256": "09a845f278d737c6cf3c452fb4337b431503a15c8fb6991a35af01058adef871"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/decor_badge_blue.png",
+      "bytes": 2427,
+      "sha256": "24f16e5f3f388b09320f1854d7e0b7e462e834646ef019e61ae36b489705c43f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/decor_badge_yellow.png",
+      "bytes": 2680,
+      "sha256": "d24b47c2761e69b6ad670b67bcc5fd096bce02f98ce244e1c200b715d2a0b9e9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/decor_dot_01.png",
+      "bytes": 2300,
+      "sha256": "276e0816cfa74947aae2a1789db27c22a9011bba67b384c03c67f3f9cf7ed6fe"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/decor_dot_02.png",
+      "bytes": 1134,
+      "sha256": "e9c7bf216668baf20f63d392a7d68b4c55e5ea35f535b9972c912b33e3fd3f8f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/decor_dot_03.png",
+      "bytes": 2383,
+      "sha256": "b9a0d600c4104b3751d7deda7ec958ee0b9eb4aa55794b8f9bf78ed9133ab7aa"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/decor_line_red.png",
+      "bytes": 1524,
+      "sha256": "442b6963e8e1fb4f5229b7960a2406d455cfe4bb484643bbbc11e724c3993111"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/duck-circle.png",
+      "bytes": 4201,
+      "sha256": "391597e361e7429d6749f6b7affeb2fbf117d9185aac595c5e93030858dc8f40"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-calendar.png",
+      "bytes": 2680,
+      "sha256": "d24b47c2761e69b6ad670b67bcc5fd096bce02f98ce244e1c200b715d2a0b9e9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-carpool.png",
+      "bytes": 3064,
+      "sha256": "7da1a98ad2e8be1d4489d280904c333f7e7a1fc62a6287d956e082f1336f0f49"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-express.png",
+      "bytes": 1748,
+      "sha256": "e88b5abe3902a7a37d4fedfadef42bba5a202bc43272ad96ea66d18e3e5c3211"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-forum.png",
+      "bytes": 2300,
+      "sha256": "276e0816cfa74947aae2a1789db27c22a9011bba67b384c03c67f3f9cf7ed6fe"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-lost.png",
+      "bytes": 3303,
+      "sha256": "1d05c8efeca9cb654035470f9a4bf8792ccb9f1a63a5790db4c0d039d0899c3f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-map.png",
+      "bytes": 3338,
+      "sha256": "a869f1a9f30277dbc72eb5eb69c1f005062955e7fc40d7356323843d62ee6b63"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-parttime.png",
+      "bytes": 2383,
+      "sha256": "b9a0d600c4104b3751d7deda7ec958ee0b9eb4aa55794b8f9bf78ed9133ab7aa"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-phone.png",
+      "bytes": 1134,
+      "sha256": "e9c7bf216668baf20f63d392a7d68b4c55e5ea35f535b9972c912b33e3fd3f8f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-rental.png",
+      "bytes": 2896,
+      "sha256": "f88d43e3c2fa560d3b678aa48d954213b20caca09eddd7341821c00eb1a3856d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/grid-secondhand.png",
+      "bytes": 3094,
+      "sha256": "9e943ab8a3e7b7e99aadbfe409c9d7c99d695f17ab15fce3510ad6c1f99f98b9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-1.jpg",
+      "bytes": 32254,
+      "sha256": "08f5b333e20308db1bdd58ca2a9a129f12bbb519642e3c3a9158327211653d7e"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-2.jpg",
+      "bytes": 34075,
+      "sha256": "69f0c9de961502fa35ccf2d8904e89431fa917b09cdb160c6d686dd537eb8f14"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-3.jpg",
+      "bytes": 31393,
+      "sha256": "bb37222c334fe8dffd4ff85d85fdcb930ad62ea3f9c800ad4d32ac58de473c7d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-4.jpg",
+      "bytes": 30111,
+      "sha256": "1ea1fcb61fc85e57e518065798ce5b8cb3b420ac089c047a8e9f610f1f60ffff"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-5.jpg",
+      "bytes": 35696,
+      "sha256": "6206a9c69444b77ab8c3b939f7d578296bd15b5d79f9af5e00850009b220264d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-decoration.png",
+      "bytes": 3919,
+      "sha256": "7e4e16b368498683e6704c63702d1f9ec2cc9ee4ee223e437d02914483443886"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/hero-duck.png",
+      "bytes": 4882,
+      "sha256": "ed834df9f0fe11aff5a251a0fdfcccf98f881434e299c654e2574696ba375676"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/logo-large.png",
+      "bytes": 5839,
+      "sha256": "de691bc5c10512e3c597b805604a4627e0b73a41386e0251137061cad4eaba16"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-blue.png",
+      "bytes": 4498,
+      "sha256": "b17ec652a9e17ed12c2a0e53073ba2f72eb86747ca39bb7e9ccd749459192ee7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-flower-red.png",
+      "bytes": 2360,
+      "sha256": "a113248a778c97fbf50ff7cdc4d066ddfbb59edcb27f29dcaa77d5c1949ef693"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-flower.png",
+      "bytes": 3220,
+      "sha256": "a4eba6e785769538cd9c545cfd872b8ff4f7c92dcbebf97dcddcd1b6b602b172"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-graduation.png",
+      "bytes": 4329,
+      "sha256": "07fdc7e46fdfcfbd55b48a1550b558fa9b0338da1a7e449657578b282ca3b073"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-mortarboard.png",
+      "bytes": 4912,
+      "sha256": "09a845f278d737c6cf3c452fb4337b431503a15c8fb6991a35af01058adef871"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-orange.png",
+      "bytes": 4361,
+      "sha256": "923297eddfed2a83e9db4f81552217da5d3db6781a48ddd84366ad39163b1576"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-phone.png",
+      "bytes": 2896,
+      "sha256": "f88d43e3c2fa560d3b678aa48d954213b20caca09eddd7341821c00eb1a3856d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-purple.png",
+      "bytes": 1897,
+      "sha256": "f1164610dfeb2a226cfa43f1c6228371ae783c6fa4359e10e2c5362289e90c26"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-red.png",
+      "bytes": 3064,
+      "sha256": "7da1a98ad2e8be1d4489d280904c333f7e7a1fc62a6287d956e082f1336f0f49"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/stamp-turquoise.png",
+      "bytes": 1794,
+      "sha256": "75527911c86e4d0d61af06742b21ad10a0fbfacbe110edb7783e4449d99defec"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-achievement-new.png",
+      "bytes": 1897,
+      "sha256": "f1164610dfeb2a226cfa43f1c6228371ae783c6fa4359e10e2c5362289e90c26"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-achievement.png",
+      "bytes": 2833,
+      "sha256": "bfa534070e2117cbd348779f1281dae8c198b9bd36cd03a508da16f1b7ae5b53"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-food.png",
+      "bytes": 3541,
+      "sha256": "a79d4dd7ea74009bb6e24f994d26462060b597605a80976fa5311db4faca6cde"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-questionbank.png",
+      "bytes": 1897,
+      "sha256": "f1164610dfeb2a226cfa43f1c6228371ae783c6fa4359e10e2c5362289e90c26"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-questionbank.py-toolbox.png",
+      "bytes": 3421,
+      "sha256": "b51e1976e0d26f6a0ef804e4e33d1cb471060a8e0f9895c45cfb2b38422c3077"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-takeout.png",
+      "bytes": 3094,
+      "sha256": "9e943ab8a3e7b7e99aadbfe409c9d7c99d695f17ab15fce3510ad6c1f99f98b9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-toolbox.png",
+      "bytes": 4201,
+      "sha256": "391597e361e7429d6749f6b7affeb2fbf117d9185aac595c5e93030858dc8f40"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/strip-wash.png",
+      "bytes": 1862,
+      "sha256": "02667b849bd9200eb87ee50c1b6df48899694cc144a3a488b148e5fc62423c6f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/sunburst.png",
+      "bytes": 2245,
+      "sha256": "e8cb7f138904add3783f52297baffba9e7fd547c15139b976480b0131636c4f9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/index-icons/topbar-duck.png",
+      "bytes": 1862,
+      "sha256": "02667b849bd9200eb87ee50c1b6df48899694cc144a3a488b148e5fc62423c6f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/guide-quan.png",
+      "bytes": 2000,
+      "sha256": "08d1e22b02a2a03c4cb8182cacf1649567d757fb445999ab9a7479e471569b23"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/home-active.png",
+      "bytes": 3308,
+      "sha256": "83e7a9894d088590529c90ea1f3c30c7df8d3de24931732641d34519c86a3346"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/home.png",
+      "bytes": 3308,
+      "sha256": "83e7a9894d088590529c90ea1f3c30c7df8d3de24931732641d34519c86a3346"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r10_c2.png",
+      "bytes": 2743,
+      "sha256": "919f13975620d35a13df28cb2ceba3e4983e344f0f9fb1438202c9f9a1cf6089"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r10_c3.png",
+      "bytes": 2219,
+      "sha256": "14ed2faee779755d4d7b703a4ba00399ea1bb992f7335689cf796d443d88d4df"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r10_c4.png",
+      "bytes": 2802,
+      "sha256": "422d7c5f4f96e9e44108ae3d635cb0ef87bc6a88e2e0252b6957637ff15df4ec"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r10_c5.png",
+      "bytes": 1837,
+      "sha256": "e0c06e7f35e5d4cd3cbd3cbf63ae7f76cfe32b62bf5c2c21fe9c7c9088f2a670"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r10_c8.png",
+      "bytes": 1660,
+      "sha256": "008c38e01380c6468a9879f50c6ba8c0f68703fbbbb8d7836c5bbc6e9d8a932b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r10_c9.png",
+      "bytes": 1760,
+      "sha256": "d1779a75611e9b731c78c1a5cbfc8249bde2139e78f4aeb08f2e8c6fac951af2"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r11_c0.png",
+      "bytes": 2004,
+      "sha256": "0c99581d6b02969f17cdbd0b7fbacc78834dd3d040a04ecfa6f276f79519b75a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r11_c2.png",
+      "bytes": 2326,
+      "sha256": "4e8a32b5b9fca4a8b173d965b508f2350cac00aff1a04c61f502c029f53de06f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r11_c5.png",
+      "bytes": 1332,
+      "sha256": "ad5354eb17f46506a95491f3e6f9189c2ae316a30df3d672761ed336723e83f1"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r11_c6.png",
+      "bytes": 3035,
+      "sha256": "25fbbead48b09ddbcb3caeeedbb73e23bb152da850e292db570a02424e4a7904"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r11_c7.png",
+      "bytes": 1866,
+      "sha256": "1d9357d6a07592d0e471f40f8a82ac6143d36d328468b039d67cd17f29d5de74"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r11_c9.png",
+      "bytes": 2583,
+      "sha256": "26b12ca92d530cb19a4b79bbd6fcc7d85b730730df91fe1a9b67295ffc95f49b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r12_c2.png",
+      "bytes": 2037,
+      "sha256": "5a75139cbfb0ebf9903e9626a48df3aaab99f5914d4cb4cb9054e0252491f8c9"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r12_c6.png",
+      "bytes": 2374,
+      "sha256": "409cda925bb25e2e395f9b00d93027bc69af922913ebc67daaa6c6c2a8db3980"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r13_c0.png",
+      "bytes": 2087,
+      "sha256": "a49e61766304f48ce372ad4505f119975ba3b25fe6af4d20827b7865b29245c2"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r13_c4.png",
+      "bytes": 2293,
+      "sha256": "bce819e9e8aaf167824a9a864dbd9b58ca995320075dbe650fedabacca39e743"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c0.png",
+      "bytes": 1914,
+      "sha256": "22b261a400ad73b558f89039d1a3ca7633e46a2817f6e31ce1a9c30b3356d8d5"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c1.png",
+      "bytes": 2223,
+      "sha256": "f195ddbd1287922bceeeef6645f8273f8a20c3920f52816552afd79e2c7dddf8"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c2.png",
+      "bytes": 2509,
+      "sha256": "ddf832759b6f43607fe57eb6af773a74d82390f2a3506b2fa9fd184f51bc4e59"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c3.png",
+      "bytes": 2159,
+      "sha256": "636090e3529979bb50905c7620a91283d905aa8efc37dbf1801b99df2bb561b0"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c4.png",
+      "bytes": 2118,
+      "sha256": "5be96d4af1ca41048cd5bdf2f64be80384d4f37b6cd7fa571d6e4d0654b855ea"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c5.png",
+      "bytes": 1563,
+      "sha256": "47326b00f850d6cb8dbb68ac556c01d5f3d817c552e6d5367e00c310ab8f5b54"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c6.png",
+      "bytes": 2019,
+      "sha256": "a685a0be0f42e52dcd340995e68f2c913d723395f66cab3f6c9c1ce8a13b812d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r7_c7.png",
+      "bytes": 2526,
+      "sha256": "80b6445a478164bd044639426f26fc4886524e015f5922d3b8445d2ad59a8dda"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r8_c2.png",
+      "bytes": 1807,
+      "sha256": "e924e4ef6c6a6e508dc4c6b62868ee9c1d58910947f366e8153fececa467b968"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r8_c3.png",
+      "bytes": 1888,
+      "sha256": "cbffa4ded00652a99b0c2b7fc402d5a7986403ee8ce5fdc10ad7cd43db9a86bf"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r8_c4.png",
+      "bytes": 2127,
+      "sha256": "f4279bdf8dc5c1b7e243543907341e48fefba6a80811e4d156972e753d7f9e55"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r8_c6.png",
+      "bytes": 2123,
+      "sha256": "6470bca9252f5f87db6895b5dba416e779f487e11965f947bbb84da2b6be2a2d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r8_c7.png",
+      "bytes": 1897,
+      "sha256": "b9612d13cb7145c062db45cf11e6d620cf23c8190b1cbe95a5c068c52a123ffe"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r8_c9.png",
+      "bytes": 1694,
+      "sha256": "fef2b4102793a045247fd957348bba2b350797885432b852ec9d7a0ea5ea520e"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r9_c1.png",
+      "bytes": 2199,
+      "sha256": "470ebcd89ecb6ef6ea06463e70c03cd2a21a85a9a8d963fac0ca28d7a964a90b"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r9_c2.png",
+      "bytes": 2632,
+      "sha256": "2f22c81f37abb89a2cf1f8766b13036b67151e782edf2c7f0356b323449fe871"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/icon_r9_c3.png",
+      "bytes": 2402,
+      "sha256": "1b81bcce7018dccbd091f71436e04d6dc153acd2a2aee6abfff20ad5358ee548"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/message-active.png",
+      "bytes": 2269,
+      "sha256": "1460dbf55386ec11673fdb74e670bfb0f5ea5079a329bf1c61bcd59879c1feb7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/message.png",
+      "bytes": 2269,
+      "sha256": "1460dbf55386ec11673fdb74e670bfb0f5ea5079a329bf1c61bcd59879c1feb7"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/profile-active.png",
+      "bytes": 2000,
+      "sha256": "08d1e22b02a2a03c4cb8182cacf1649567d757fb445999ab9a7479e471569b23"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/profile.png",
+      "bytes": 2000,
+      "sha256": "08d1e22b02a2a03c4cb8182cacf1649567d757fb445999ab9a7479e471569b23"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/publish-active.png",
+      "bytes": 2338,
+      "sha256": "95b1de43460452ef116d79f7a9dcbeb34847024bb4a8b50f76367a57d9104b38"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/publish.png",
+      "bytes": 2338,
+      "sha256": "95b1de43460452ef116d79f7a9dcbeb34847024bb4a8b50f76367a57d9104b38"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab0-active.png",
+      "bytes": 2118,
+      "sha256": "5be96d4af1ca41048cd5bdf2f64be80384d4f37b6cd7fa571d6e4d0654b855ea"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab0-gray.svg",
+      "bytes": 1852,
+      "sha256": "9759a28d78179e456a4a2b068385136a91679f88eff6664aa76f5eedf3c31002"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab0.png",
+      "bytes": 2118,
+      "sha256": "5be96d4af1ca41048cd5bdf2f64be80384d4f37b6cd7fa571d6e4d0654b855ea"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab0.svg",
+      "bytes": 1852,
+      "sha256": "ca922fcbbea69beebbd8b389ed201f85c1cda7e89db19711c5f6f03099804519"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab1-active.png",
+      "bytes": 1914,
+      "sha256": "22b261a400ad73b558f89039d1a3ca7633e46a2817f6e31ce1a9c30b3356d8d5"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab1-gray.svg",
+      "bytes": 1787,
+      "sha256": "df243c89bd3f7d5f81c100f19129c73fb6e82ae6ba9d5746c0ff95d3d135f6dc"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab1.png",
+      "bytes": 1914,
+      "sha256": "22b261a400ad73b558f89039d1a3ca7633e46a2817f6e31ce1a9c30b3356d8d5"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab1.svg",
+      "bytes": 1787,
+      "sha256": "d60cd33cd481b9aa6390f29bdbb342049a7b6475c72faa4b20fcee0863ac0a2a"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab2-gray.png",
+      "bytes": 2087,
+      "sha256": "a49e61766304f48ce372ad4505f119975ba3b25fe6af4d20827b7865b29245c2"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab2-gray.svg",
+      "bytes": 1594,
+      "sha256": "18a09932333a18c7e05baa31077b8a51d778dfe68428c2a85facbe48b0f04f3d"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab2.png",
+      "bytes": 2087,
+      "sha256": "a49e61766304f48ce372ad4505f119975ba3b25fe6af4d20827b7865b29245c2"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab2.svg",
+      "bytes": 1594,
+      "sha256": "ecde32d84351b11e02f5f313e7add4fe82ea085a166bb1aa10c9e1d5901f496f"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab3-active.png",
+      "bytes": 2118,
+      "sha256": "5be96d4af1ca41048cd5bdf2f64be80384d4f37b6cd7fa571d6e4d0654b855ea"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/tab3.png",
+      "bytes": 2118,
+      "sha256": "5be96d4af1ca41048cd5bdf2f64be80384d4f37b6cd7fa571d6e4d0654b855ea"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/treehole-active.png",
+      "bytes": 1804,
+      "sha256": "548fe904adf2fe728d169d35571ce31e6687181e5fe06ed823b90216d679c4e4"
+    },
+    {
+      "path": "mini-program/miniprogram/images/tabbar/treehole.png",
+      "bytes": 1804,
+      "sha256": "548fe904adf2fe728d169d35571ce31e6687181e5fe06ed823b90216d679c4e4"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/_shared/base.js",
+      "bytes": 16691,
+      "sha256": "3bae014666e6d61baf410c737e483f4e5cd886c73763abe0cea5d90c7baf34a5"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/_shared/base.wxss",
+      "bytes": 18791,
+      "sha256": "0aeb5f86948262c7de500fcce1171256a9acff6dac41e35e5d247b6a1b1e2ad4"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/_shared/nav-bar.wxml",
+      "bytes": 2645,
+      "sha256": "7195681a9db889563b7697c485d05e6edd2012a5d85fcec14f6fd6518fe700dd"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/_shared/pull-refresh.js",
+      "bytes": 426,
+      "sha256": "e53fc225a4b5450d4fa9aaf1fd3af67e83f6ec20508f2360959c12fc0425d522"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/index/index.js",
+      "bytes": 15201,
+      "sha256": "ab2398f9728d3d22cd4565bea8f2dc7b0022ca180df526ef3b312dc823b6ad74"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/index/index.json",
+      "bytes": 173,
+      "sha256": "aa996d300507068b0e0bb56b8523c20ef2708c39303c16c556015712e91c9c29"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/index/index.wxml",
+      "bytes": 13901,
+      "sha256": "a7117c110b42e3d8b671a9764bfd5c5ff3e659c3599488fd4e718cc1aa93743c"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/index/index.wxss",
+      "bytes": 22481,
+      "sha256": "76f009585ddff764e5aa1123698554ab9b4a03f7deec02d13269011e550286ec"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/message/index.js",
+      "bytes": 9416,
+      "sha256": "1e59efc9451921a7e3d5684b17fe9bcd0067a06e3b9bed76ecef987a0fa934da"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/message/index.json",
+      "bytes": 98,
+      "sha256": "c27f5a7b5d32525e896c0fc080266d28ae7dc0f90971f46137cf3e287985d849"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/message/index.wxml",
+      "bytes": 4430,
+      "sha256": "18c2f79f2dda0f92cc16fdc11b32b04e614d54ff928fe354b7d79742abffbdb0"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/message/index.wxss",
+      "bytes": 8268,
+      "sha256": "924befb5affa57ea7853ecef2041c7650c3514abb70b0d560e94ed99895ab1f9"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/profile/index.js",
+      "bytes": 6365,
+      "sha256": "0ea2d23a478408c3b44d40b62bec365751a6dea1f0ca7c7b71668a4c51001ffd"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/profile/index.json",
+      "bytes": 65,
+      "sha256": "5881372d1385889b11e5544498acfe27121bc8e9da05e9a8786430e6d7ac4034"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/profile/index.wxml",
+      "bytes": 8598,
+      "sha256": "b3ee913c2a7b3add4ec0751f6e37b60943c8d52b41b06f8f98f32d7c69e63f51"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/profile/index.wxss",
+      "bytes": 12666,
+      "sha256": "d5a38718d7e5f2a959aec0a7faf928bd2ecb32f54ba13daf9b41ed3982c3b831"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/publish-center/publish-center.js",
+      "bytes": 2666,
+      "sha256": "494565b88f63cc3d7cf07b448740b74951dcaa6f342bb1e0e6097c29e2712f91"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/publish-center/publish-center.json",
+      "bytes": 90,
+      "sha256": "0102f097415335fe420bcb9518e72fedf43337729c2262def97946311ed24cb2"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/publish-center/publish-center.wxml",
+      "bytes": 5141,
+      "sha256": "fb518faaa47809710d358a710ef4cd24ba1380b93ec34d9387b28e603be0fe37"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/publish-center/publish-center.wxss",
+      "bytes": 12003,
+      "sha256": "fe7bdd87b3a38d21a26d171e65d8980a3a303766c8b5d3ea48734f9b968c5940"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/treehole/treehole.js",
+      "bytes": 22380,
+      "sha256": "e1d64a4e5d226905faed4c7a7b06878a5d9d099e9c1bbd45660fc5392dfdbbba"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/treehole/treehole.json",
+      "bytes": 91,
+      "sha256": "01577ddbb93043fbe08e1c196a5bcf1772588a0ea38db3e707072577d13b4e2a"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/treehole/treehole.wxml",
+      "bytes": 16321,
+      "sha256": "8e6dcc2fb9213e6e3f6f1ea967825edf120da796ad1b68039d657664ececc5ce"
+    },
+    {
+      "path": "mini-program/miniprogram/pages/treehole/treehole.wxss",
+      "bytes": 28410,
+      "sha256": "b57ad607841c47db2c0d3e3015d53c9ac8633bd49b90a72ecf279ffc01bf5e66"
+    },
+    {
+      "path": "mini-program/miniprogram/privacy.json",
+      "bytes": 750,
+      "sha256": "9e19ca5e7f8534ebeb2fa6e257d1902712e7b31b87d9b7c7b2d5e6d2aafe477d"
+    },
+    {
+      "path": "mini-program/miniprogram/project.config.json",
+      "bytes": 750,
+      "sha256": "de8f961315e5ca3b855dba16d5cff92afa0be0addd568312666951091f2b8ac7"
+    },
+    {
+      "path": "mini-program/miniprogram/sitemap.json",
+      "bytes": 62,
+      "sha256": "1f1fb45b64dcf012299689e74ddba47221a657be054a648a99030223a1601275"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/_shared/achievement-meta.js",
+      "bytes": 15771,
+      "sha256": "557e8e00bfc54d3e1de516bfd8ccc80ea5aa30026ba0c2f63483c7672eedad40"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/_shared/base.wxss",
+      "bytes": 18810,
+      "sha256": "e73302cc9bc36fa40659c7a5825ac9132a7030879b55eec97fe49d32c55ba2be"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/_shared/mine-tab.wxml",
+      "bytes": 1285,
+      "sha256": "ca0056b8f14f42e944f867d67ebd0e62c011d4ddadafa3ead3bfba60b6769cfe"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/_shared/mine-tab.wxss",
+      "bytes": 7764,
+      "sha256": "4336dec77355f7ccbdbb29b12f0b7c1d60b75af365e973e6f5bb6f16edacc34f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement/achievement.js",
+      "bytes": 18146,
+      "sha256": "c9b479e556ee0a7c86978f81c1cc1b387c1a5e0ff69aeaacb7cf4f6af04d2afa"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement/achievement.json",
+      "bytes": 125,
+      "sha256": "740356e04626648a1e6f8c0dff427509c68a52eb50693f56aaed196dce09bc16"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement/achievement.wxml",
+      "bytes": 15026,
+      "sha256": "590c3b97616e77c1d850d15fdffc0e6b2802b1304436d16828acfd3d4c66eb3f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement/achievement.wxss",
+      "bytes": 42813,
+      "sha256": "1407a781185a287dca156285c2346380b5559a176b61a003d51496a5ad18f755"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement-detail/achievement-detail.js",
+      "bytes": 26999,
+      "sha256": "e7458405991f8e9d93e1a89a0e5897acfd901ddb0d333c058d8f17e00036d82d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement-detail/achievement-detail.json",
+      "bytes": 125,
+      "sha256": "740356e04626648a1e6f8c0dff427509c68a52eb50693f56aaed196dce09bc16"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement-detail/achievement-detail.wxml",
+      "bytes": 3940,
+      "sha256": "ff79ca4bcafdefbd0397af3ebe18c818c6f62834802ef9df312fb950ae4b9830"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/achievement-detail/achievement-detail.wxss",
+      "bytes": 22763,
+      "sha256": "0dc4c0aa6b586968a743ab0fc2284ce23f837cec97f832b7224addb1d69c297f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/agreement/agreement.js",
+      "bytes": 561,
+      "sha256": "236b929191c53ae7d126086ee9494cba4bba33a3beaa65227c58ce2fdc58be76"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/agreement/agreement.json",
+      "bytes": 123,
+      "sha256": "30e9adb36cc14ca955b9c3d2ee7a1b419c540f23f2d1d2fee94ba9f69afe05e9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/agreement/agreement.wxml",
+      "bytes": 7338,
+      "sha256": "1c7fab14a8a0cad1072e9fe7683f89e0874faad8fa46dceea65b9d3d27fa4e11"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/agreement/agreement.wxss",
+      "bytes": 879,
+      "sha256": "138c8c40c08a4ce1dc346c93c3a0eb6e111fbcc29f7e405d111fe2b1e1751563"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement/announcement.js",
+      "bytes": 2149,
+      "sha256": "8161f57e9b017e34fd7bdd47aa8d816023173d59895d308febb59fc92024eab2"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement/announcement.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement/announcement.wxml",
+      "bytes": 2388,
+      "sha256": "d10e2bc8b8b9d925ce57751af7dba373449c0e14516cc6e8f44ff1367eece6b3"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement/announcement.wxss",
+      "bytes": 2935,
+      "sha256": "d58562e072f787482e543ae0517c6ec11d5b0253370a0a9797a0ab8701198241"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement-detail/announcement-detail.js",
+      "bytes": 3245,
+      "sha256": "8d74e5dd0aa51d1a98f980432e0b8ea5f6c7449512e300608ebb7729939d3dcb"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement-detail/announcement-detail.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement-detail/announcement-detail.wxml",
+      "bytes": 3605,
+      "sha256": "faee04786142556cfa9ff50137fd035a498e40f532bf129f6b6047ee65e66b8d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/announcement-detail/announcement-detail.wxss",
+      "bytes": 4976,
+      "sha256": "21a19c451ce14587d1cc86b265f5fee5f2da7701c79047e46dd08c69a4c694c7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bind-phone/bind-phone.js",
+      "bytes": 1865,
+      "sha256": "8670918519259f1d3148de71c3f807164cce9b4e65d01f41b3fea8e8bed89078"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bind-phone/bind-phone.json",
+      "bytes": 126,
+      "sha256": "1ecfe1cf54f78837f12910600fff06841849b33620374a358a073bcc019659d5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bind-phone/bind-phone.wxml",
+      "bytes": 1270,
+      "sha256": "198bc2298b5f63b1a5d202ac3e7131d471062e432f0e836333322bdce364ad04"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bind-phone/bind-phone.wxss",
+      "bytes": 1367,
+      "sha256": "910a185f744325f58f91281c5765b11707095f11ec70c0b69adb12e5286213b8"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bulletin/bulletin.js",
+      "bytes": 282,
+      "sha256": "ad293c0a577af37d4c778467d595940e768c3ec4d8c57def9f24767f71b7d0ce"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bulletin/bulletin.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bulletin/bulletin.wxml",
+      "bytes": 11010,
+      "sha256": "3b32c9f3e42c053d93c11de054242c05c2b35be3ce2cdc70184e64327dd56d01"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/bulletin/bulletin.wxss",
+      "bytes": 35,
+      "sha256": "06e0f29d4967f19d097a401297efabc3d53225b94658cdf24f90c9661daa2332"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/calendar/calendar.js",
+      "bytes": 10495,
+      "sha256": "647ee7259ca4c7c65334ac042b1bd66b6777f727ced5f57c7f1a0409f7ea87c5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/calendar/calendar.json",
+      "bytes": 49,
+      "sha256": "7e550db8615ffef49e17faa8c087877c918747b5ccfc69ce6c3e8b4e128d064a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/calendar/calendar.wxml",
+      "bytes": 15801,
+      "sha256": "55123f9efaca7aeecc76aeec4656bdfd79a7c7d08c3c2ec6e789bc6e2f0083f7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/calendar/calendar.wxss",
+      "bytes": 12575,
+      "sha256": "f40ba361798de28621f57aeda6e0a168591a4ab604a475631c58e6a1ff721e58"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/carpool/carpool.js",
+      "bytes": 43066,
+      "sha256": "a2ac310e4061dfad8c0089e85246e50e8de8e9a3588ad90b6ffc95c3e070b00f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/carpool/carpool.json",
+      "bytes": 91,
+      "sha256": "01577ddbb93043fbe08e1c196a5bcf1772588a0ea38db3e707072577d13b4e2a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/carpool/carpool.wxml",
+      "bytes": 43745,
+      "sha256": "4b4dc4ac62f465be4411b128ed982e928e8a408b5412585405f24ddbad80adb0"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/carpool/carpool.wxss",
+      "bytes": 52392,
+      "sha256": "04e94d26a9980bbca82583952352d235dcc06988a5181b058fb7a7d2c4159396"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/charity/charity.js",
+      "bytes": 3602,
+      "sha256": "a1da92d5e14ab35a62e02e0efc03ed1f04800681ece7a3b9627ee7801d754a94"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/charity/charity.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/charity/charity.wxml",
+      "bytes": 9228,
+      "sha256": "b4a17cac8765513ff575478efe77907d33ec67ac4cefd1ca8c4dda5b4894c369"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/charity/charity.wxss",
+      "bytes": 8134,
+      "sha256": "b87c26868330ecf30e0980557dd86b951f614d8fa26d10675e647cca27e7b3ba"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/chat/chat.js",
+      "bytes": 30224,
+      "sha256": "1cadb3670e62bdacd46053994c9b115072c9acc9ba6b81ee29ef1ee0a89a7c41"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/chat/chat.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/chat/chat.wxml",
+      "bytes": 10266,
+      "sha256": "e2e85dfd159bf6951c85737799d71dfc669275fd7502a4c913ae30bbe51bf2df"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/chat/chat.wxss",
+      "bytes": 12902,
+      "sha256": "a7b9744e0d8d148ea2ff1ea1653b59acef8a22f39d2d4d721f0f5c61a536d809"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/complaint/complaint.js",
+      "bytes": 5366,
+      "sha256": "4ef83c5924cb9a93b81e8695662e7eea15b3613755ba3b3cfd3d3d3eac2cdc86"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/complaint/complaint.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/complaint/complaint.wxml",
+      "bytes": 3528,
+      "sha256": "623ba1443cb8fc2eaaed5fa004a02fb78edd9a287a115b71c4f1d7f9f671fc45"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/complaint/complaint.wxss",
+      "bytes": 2024,
+      "sha256": "e177f7358a7bf27493bd86b30cb98040a5253829aabeba849b3f521ad3803ed7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/contact/contact.js",
+      "bytes": 2479,
+      "sha256": "bc6e9ca702abd541a6ce81b0ce1c9c1de83e182b69412c7acf857c46a2c72350"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/contact/contact.json",
+      "bytes": 91,
+      "sha256": "01577ddbb93043fbe08e1c196a5bcf1772588a0ea38db3e707072577d13b4e2a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/contact/contact.wxml",
+      "bytes": 3806,
+      "sha256": "7b6e0f5ac9e353f2981195a3259a66bea308a06554000dce080f4487fd62acb8"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/contact/contact.wxss",
+      "bytes": 3804,
+      "sha256": "7c21d21e955c00be47450a342c1eaf5d2631f2a7456079600eafdd2b76f10fff"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/credit/index.js",
+      "bytes": 3523,
+      "sha256": "6c2b983ce1dc5d9f09c63304028caf4dd73e75e19958ed7f2c47158ad3e86fe3"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/credit/index.json",
+      "bytes": 91,
+      "sha256": "14fab8ad9631b41843adae000e36cc9688cc679f1cbb63f1d7ffbf19cac65574"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/credit/index.wxml",
+      "bytes": 4626,
+      "sha256": "d1addb6831234f334486a5a77fca09fafef6d9cd858f7d1da5f682cc278429d1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/credit/index.wxss",
+      "bytes": 5048,
+      "sha256": "42d81647b46dde16828bb064dd76d9a68a96922a47dd315fc69e8ee96335abb2"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/detail/detail.js",
+      "bytes": 8630,
+      "sha256": "8ccfc824038447e73c81370f6ec62d96eacd5664917658194cbfa37ec983aa2c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/detail/detail.json",
+      "bytes": 91,
+      "sha256": "14fab8ad9631b41843adae000e36cc9688cc679f1cbb63f1d7ffbf19cac65574"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/detail/detail.wxml",
+      "bytes": 12642,
+      "sha256": "8e3184fec8310b76110d32706ed9a1638b93ee3e4dd9b0431a88639309fe9d04"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/detail/detail.wxss",
+      "bytes": 10401,
+      "sha256": "621f6201b3dcb301a37e2d34a7a1925e192e0ad5c87c5214592a8f92cbfc312f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/express/express.js",
+      "bytes": 40831,
+      "sha256": "f9c8568fc1f7ae290ac062b2c892958adef32d6b864f1226a74c0050020e8253"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/express/express.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/express/express.wxml",
+      "bytes": 45622,
+      "sha256": "5ba1872caa650a5facc39fbd960e259d664b33960076a881fd69819cb7891594"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/express/express.wxss",
+      "bytes": 40359,
+      "sha256": "4566e65c0ce0b61078937314cbffeca249d5f757f251f5ad6d8dba5f88e3fc0f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/favorites/favorites.js",
+      "bytes": 2203,
+      "sha256": "2f8c77fd81f8ae95bdac16a282af5507da2d3e29a239b3fff6b0e158b1f65ebd"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/favorites/favorites.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/favorites/favorites.wxml",
+      "bytes": 3778,
+      "sha256": "eedc30e827d4eb0691430f54347149735ccd7f3342b949d52de096de3e87c852"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/favorites/favorites.wxss",
+      "bytes": 4137,
+      "sha256": "1d5a79c2666b9b14491bab06a3da5bdde397845f0fd410ef6cc0c1db057dfe62"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/feedback/feedback.js",
+      "bytes": 3026,
+      "sha256": "173c2b9b6ce07e3123ff7e1b63f577d1935dd1238cfd80eb73f9159ffe32f9c9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/feedback/feedback.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/feedback/feedback.wxml",
+      "bytes": 3692,
+      "sha256": "56d03c49463bc3d7916e245027bf1ac21061bdf63a8843fdfa4c14602245d53b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/feedback/feedback.wxss",
+      "bytes": 3799,
+      "sha256": "71fa9b9e26f4c16a3cb97062a1bd6d4cab79cfadd3d530fdf63a4456d95bc727"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/food/food.js",
+      "bytes": 24911,
+      "sha256": "b5fc268218809c6af2c81a9138efe6e1bd6deebec54e1b8439601d877f6f979c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/food/food.json",
+      "bytes": 125,
+      "sha256": "740356e04626648a1e6f8c0dff427509c68a52eb50693f56aaed196dce09bc16"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/food/food.wxml",
+      "bytes": 32696,
+      "sha256": "731dd1cf997f95c899e5914682714a63e905ee994a911b0b90ebd423dbbb4e9b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/food/food.wxss",
+      "bytes": 40487,
+      "sha256": "70c1b3baed39b55b99db9edc595a3f6ccb566fad9a434c37be2d41a1a55cc51c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum/forum.js",
+      "bytes": 9490,
+      "sha256": "d66eb929df5eb29d3a807d3fc62debe878f9e1cda93465e102c9eb0527869842"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum/forum.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum/forum.wxml",
+      "bytes": 15334,
+      "sha256": "3d7c9808f48d5c722ea34a01cd278687c3e08566b6fd9525432abecfd0ec9ed0"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum/forum.wxss",
+      "bytes": 20227,
+      "sha256": "1fe9702b8c5ea5b170210874abddd31ede67a18001ac1c826885ee060127f0f2"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum-category/forum-category.js",
+      "bytes": 3514,
+      "sha256": "280dfb04a9957febfedf315a1ebed21bb2edafe817d78798ec02ec818be9935b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum-category/forum-category.json",
+      "bytes": 53,
+      "sha256": "8ae16354947f402fad7934ffccca4cb43f252ef23c51428d020e73631cc6a3f6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum-category/forum-category.wxml",
+      "bytes": 2826,
+      "sha256": "7c344ab9186ceb3e59ced5400ce05d94309fde6fc48d8a69f5282d8b139d01d9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/forum-category/forum-category.wxss",
+      "bytes": 2622,
+      "sha256": "fce9ad83c1d4538c1576815a6e45b9b27c0436ef5125a4e8a513184982d74b1d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/gps-test/gps-test.js",
+      "bytes": 7421,
+      "sha256": "ca2526a40d7b14d0ca6116e013ede3b72d0353b2e534deb124db0336fb558694"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/gps-test/gps-test.json",
+      "bytes": 69,
+      "sha256": "ffdc0f86df8ac22f17e8aec00b29c5c04e13852acf852c707d7f9efff02d166a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/gps-test/gps-test.wxml",
+      "bytes": 2214,
+      "sha256": "417073f739fd3944270453ea103ef62ceac21b20ac380c7b79241bf7aff1720f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/gps-test/gps-test.wxss",
+      "bytes": 1973,
+      "sha256": "30d18f8751407553f1bf33aa3d5175e5584d7f72b2342a65ff499d1b41675eb7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/group-chat/group-chat.js",
+      "bytes": 12712,
+      "sha256": "ea9835249a4f5e8a9c09c037727aadbd0c9800bf23ac7815d05cc3bea88a8fca"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/group-chat/group-chat.json",
+      "bytes": 91,
+      "sha256": "01577ddbb93043fbe08e1c196a5bcf1772588a0ea38db3e707072577d13b4e2a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/group-chat/group-chat.wxml",
+      "bytes": 7058,
+      "sha256": "9cf47e3d7acc3443054d40e3b0dbb87d04347be0d0d4b5138bd966ce03c3754c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/group-chat/group-chat.wxss",
+      "bytes": 9226,
+      "sha256": "16c0a75adbefa9e6aae307e0cf168ca390bfb69bb3e6fa616f0b3539c9bb3438"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide/guide-data.js",
+      "bytes": 33574,
+      "sha256": "47ce6c5a2c99a18cba16a310d99a185e41a632540f3b33d1806f71496b52237f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide/guide.js",
+      "bytes": 23534,
+      "sha256": "c2a75b4e6b26ef99b418aef2aba18d35ec5168995c79ac1f3514b222dfdd2713"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide/guide.json",
+      "bytes": 78,
+      "sha256": "3fbe6c99bd4bda4fa6d4ed6d5342c37ee1227a5f9cf7c30c6b7bf97f7ef7ef28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide/guide.wxml",
+      "bytes": 12593,
+      "sha256": "475e27891920d5037e5cb39cd1223425dfa7bc22fb697ecfd757b1c3c10b2567"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide/guide.wxss",
+      "bytes": 17600,
+      "sha256": "176de1e320d0c2f970548d8915f77669b6a5ca6d9c6302ad6ff4ddb8abbfcac8"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-animals/guide-animals.js",
+      "bytes": 2114,
+      "sha256": "c68930db1b45153f3a9bc1815af1e079d973df1c7f1f3219c05c5aa6bae94df7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-animals/guide-animals.json",
+      "bytes": 84,
+      "sha256": "91d3e52f25f9438674a7919f8d4dc2d4f78b1112497528566fa1a5ba40c1ebfe"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-animals/guide-animals.wxml",
+      "bytes": 2892,
+      "sha256": "40acf384d90271ecc63446af778dd2aa745bbb0ebedff1f87d73e1642ca9a3aa"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-animals/guide-animals.wxss",
+      "bytes": 5568,
+      "sha256": "35d4b888953278d3c40db45f13f36016618dcab2f81c2fa506b33acdbe39ab28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-awards/guide-awards.js",
+      "bytes": 2110,
+      "sha256": "6a1a5bafc6203a783c5968b9739cc26411a4894b8d5272854d7a643c42671df5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-awards/guide-awards.json",
+      "bytes": 84,
+      "sha256": "99d2b76c66b0d85a80a29bb436aab3d30dc5782bf783b627c0aa61adc33b394d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-awards/guide-awards.wxml",
+      "bytes": 2898,
+      "sha256": "850a824e13bca60cca38f7cd3f286e3be6758441b192d6c972a85a1446b774a5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-awards/guide-awards.wxss",
+      "bytes": 5568,
+      "sha256": "35d4b888953278d3c40db45f13f36016618dcab2f81c2fa506b33acdbe39ab28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-certificates/guide-certificates.js",
+      "bytes": 2164,
+      "sha256": "87e9d183028ad8998ad74d2a83c246126dc8ada27d22b9ad8af7de08490a40fe"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-certificates/guide-certificates.json",
+      "bytes": 84,
+      "sha256": "85148e6d41410ce5b162ad4d4316e0552cbab2ac4bfdd0716dbb4af567b82963"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-certificates/guide-certificates.wxml",
+      "bytes": 2898,
+      "sha256": "fbe6b985e9141b9562604df635e0f8d389e1ee13386f413809164ad27196502e"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-certificates/guide-certificates.wxss",
+      "bytes": 5568,
+      "sha256": "35d4b888953278d3c40db45f13f36016618dcab2f81c2fa506b33acdbe39ab28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-landmarks/guide-landmarks.js",
+      "bytes": 2164,
+      "sha256": "ab9c91db2c9bf2297f3ab06b21ba652da76d036a2c566da54e8ddb89a32d0539"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-landmarks/guide-landmarks.json",
+      "bytes": 143,
+      "sha256": "7f0a7abea6d030810e6f0d8896df920b4d28c9157dcde48602a50cc750176172"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-landmarks/guide-landmarks.wxml",
+      "bytes": 3030,
+      "sha256": "a5e5abb163f641ddd555600e09d4ae3bb1810bffca6db9aa63e16cf4f0102842"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-landmarks/guide-landmarks.wxss",
+      "bytes": 5699,
+      "sha256": "a21b414fb5b29f61ac0be5255ae932d1d585a80f0266dada209c01d63a01a47a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-limited/guide-limited.js",
+      "bytes": 2114,
+      "sha256": "a99209f221a44cba4e69cc07a2d58ac6d28e42c659a387456f4ec63037200272"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-limited/guide-limited.json",
+      "bytes": 84,
+      "sha256": "3fec7b9a5403605079c9bcc661c41b7017cf24b0f527d4465b3aed479c759f61"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-limited/guide-limited.wxml",
+      "bytes": 2892,
+      "sha256": "34a28b5fbb79ac5a4662aa58835f1e0948525cfb98174e60e366a0970fe5dd02"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-limited/guide-limited.wxss",
+      "bytes": 5568,
+      "sha256": "35d4b888953278d3c40db45f13f36016618dcab2f81c2fa506b33acdbe39ab28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-organizations/guide-organizations.js",
+      "bytes": 2180,
+      "sha256": "33f08e51b459c486c34d265ec81d3c8f92a12c9317b926635a8df234d356d7a6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-organizations/guide-organizations.json",
+      "bytes": 84,
+      "sha256": "31197750105eca46a77624d1efdce4bbf20b3561be9f446c3f4619b08d4d9619"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-organizations/guide-organizations.wxml",
+      "bytes": 2898,
+      "sha256": "f39c42f16b3eddd3a1a50c46605280bc85d1ccc8bb4ae205621285c5eaa98747"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-organizations/guide-organizations.wxss",
+      "bytes": 5568,
+      "sha256": "35d4b888953278d3c40db45f13f36016618dcab2f81c2fa506b33acdbe39ab28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-plants/guide-plants.js",
+      "bytes": 2104,
+      "sha256": "b833416efe04d65cc07e29720224e43745015ad8f658b4b7ca6594ec223e475a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-plants/guide-plants.json",
+      "bytes": 84,
+      "sha256": "1d4d5eabf16e7c86e5bdcd18e01860304632dcf374cc2f0aef75009d380915c1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-plants/guide-plants.wxml",
+      "bytes": 2898,
+      "sha256": "ebdb86938aa993993370c921e77694d6c014590853f3c924b70d19c55e994096"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/guide-plants/guide-plants.wxss",
+      "bytes": 5568,
+      "sha256": "35d4b888953278d3c40db45f13f36016618dcab2f81c2fa506b33acdbe39ab28"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall/hall.js",
+      "bytes": 9377,
+      "sha256": "da4fc67f8fb36409153f81f952cca583710057731a85ca9b3d6c14b581fdac26"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall/hall.json",
+      "bytes": 123,
+      "sha256": "df510394f9c5e2c66638795ad969f44086205150e6a1c2e6af4cd4c9b34d3579"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall/hall.wxml",
+      "bytes": 6537,
+      "sha256": "c4184e1f3800dde8819aea259d51f354877ce0189cf6897a5307c3e33d7a6b80"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall/hall.wxss",
+      "bytes": 11660,
+      "sha256": "4a3b5877042bd6645011a39f6a50ceea6b81a9a18477a5e79e63b639dd1afdbe"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall-task/hall-task.js",
+      "bytes": 6631,
+      "sha256": "16b64ed60d239a0766e6c7e36fb734f8b850736cfd441a7d406f341e49606923"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall-task/hall-task.json",
+      "bytes": 85,
+      "sha256": "776738abcd583c5ed536dfa86873f1d69d536d89f14ab22ec425ef472438741f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall-task/hall-task.wxml",
+      "bytes": 15842,
+      "sha256": "9ae1a8b941b6888853783c16ab7293cc7d015661db2c8229297ff9656565ce6d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/hall-task/hall-task.wxss",
+      "bytes": 18725,
+      "sha256": "a6ff8f9e4fc00e81f52958bce976e292a72927341ddb1ab450aaba3a22fd9cff"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/checkin/checkin.js",
+      "bytes": 3724,
+      "sha256": "104e19b610ba14fb7104390cd98ed28888ed51b473a5ad33ecf4f1ef3988a9a9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/checkin/checkin.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/checkin/checkin.wxml",
+      "bytes": 5615,
+      "sha256": "911057e768e2d1c6e950132e366e3f7ff43da53ef33424eba5ce24a98bbd2347"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/checkin/checkin.wxss",
+      "bytes": 6975,
+      "sha256": "a573fd4706fbbec5bc2c28c9152b713afe8077d8f91ef43a8d7fd2c78ac777c6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/dazi/dazi.js",
+      "bytes": 3905,
+      "sha256": "59818ec41d4545933a2b830c2d4806ee4c65e27bc0b01b087b0533e10b8de5b2"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/dazi/dazi.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/dazi/dazi.wxml",
+      "bytes": 5629,
+      "sha256": "8253f01c2ae8b671197b578ee84d1197f9dfd9e1ebf372d534d2f5fcb4de8c0e"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/dazi/dazi.wxss",
+      "bytes": 6969,
+      "sha256": "2350f0e44f6df3dee6b038e4f1934b0022740d9c3f22375a189215c10b6d4abb"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/exam/exam.js",
+      "bytes": 3470,
+      "sha256": "1270e9f7395b27bb552a1f6365544e272a7efdeb8262ace5150c0a79fcac6935"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/exam/exam.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/exam/exam.wxml",
+      "bytes": 5604,
+      "sha256": "1946d8e056ab07ede7bfbb5dd3b720f89d031b8b1827bc22a6545dbad53cd93e"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/exam/exam.wxss",
+      "bytes": 6969,
+      "sha256": "e508a5247eb66d6536f6c05c4fa9e3cc54731689f819d5ae4d3c6f9b9efbd4df"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/goods/goods.js",
+      "bytes": 3427,
+      "sha256": "3aa507fbaf6f8512ec488d53654e4ac7a8f095ff99efbbcf4fe03c7ccd859cd6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/goods/goods.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/goods/goods.wxml",
+      "bytes": 5650,
+      "sha256": "66921f155a32120a2025b2506f4d700e24b488618545f6eaacfed15964a98305"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/goods/goods.wxss",
+      "bytes": 6971,
+      "sha256": "cb013705c3b4e43f769cd360e3e72ec8d350560b31b7b55223c662208ef83982"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/parttime/parttime.js",
+      "bytes": 8747,
+      "sha256": "6e5e8240ea85681efbaaa247a82aa6947e413bcc78b3004444b1f8470f0d16a4"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/parttime/parttime.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/parttime/parttime.wxml",
+      "bytes": 7611,
+      "sha256": "8f411eefdcb19730008ce3aead162b785a09ac9b27d6d02fe0e64c67d6a474f8"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/parttime/parttime.wxss",
+      "bytes": 8946,
+      "sha256": "5df3366cfce94c79a61fc8ca7f8fe9e64e0338acddd36a3f13728f6a661f949a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/plant/plant.js",
+      "bytes": 3677,
+      "sha256": "2222f7a0ac0660730fa266b185fe2f5cb005b4f735f6801f93eff7b99e1a12ac"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/plant/plant.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/plant/plant.wxml",
+      "bytes": 5607,
+      "sha256": "ca26c43e88ba425c5c90a5b8964912f4ff5a5d41adcc154c2d83da8dc59bf776"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/life/plant/plant.wxss",
+      "bytes": 6971,
+      "sha256": "d62ab68184be16a0007b1e52b2c55f3c0785962d565d27f67929555f00d03824"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/list/list.js",
+      "bytes": 1632,
+      "sha256": "ff4857c4c2c38cbef71836d82b87fd251a4e71b780ebb689b258ff49dca42a72"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/list/list.json",
+      "bytes": 117,
+      "sha256": "24dbbe386967dbcadd94056ba9fd7897f533194b61dcfd4005661c6f2e8bb234"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/list/list.wxml",
+      "bytes": 1332,
+      "sha256": "af79826ff19ef9041282d678d58b2ee0538aab0adc76ce3c23eeac7b9daa09fb"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/list/list.wxss",
+      "bytes": 1140,
+      "sha256": "4d3c9ddab1bbea4e273e62c3702a7d68138584c6c7e846f2659f89eeced6869b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/location-picker/location-picker.js",
+      "bytes": 1881,
+      "sha256": "d72d2613f23ff58d3707503a9cc7ef7f81fd4fc7d1aa0867ec2d2e68c1857edd"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/location-picker/location-picker.json",
+      "bytes": 123,
+      "sha256": "fbf128c38f33f1fcd0c16c6fbad92710a970954e88a4e4e6b6da58173d8b7d29"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/location-picker/location-picker.wxml",
+      "bytes": 1106,
+      "sha256": "195b930934ccb5d88a3e94311aa224e8ebb90ee1ec0774d1661972d14b6203d1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/location-picker/location-picker.wxss",
+      "bytes": 1479,
+      "sha256": "4bd7d90c9f9f5a092882ddbb2e122af40495cf34544de7efe1b6394c978275e0"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/login/login.js",
+      "bytes": 5310,
+      "sha256": "b746044a46d7dab794a6328cb25a2aeed59561a3e4991a1044328eb0bcc56899"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/login/login.json",
+      "bytes": 115,
+      "sha256": "9ba2a4b45accaef662bae5e5ed41b8f31155f87c7c572e81ad97f753d9586deb"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/login/login.wxml",
+      "bytes": 4651,
+      "sha256": "4a22a517cd0c4ed50e3528cd8335676f393b07232825fc566e06527efdf2e420"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/login/login.wxss",
+      "bytes": 11056,
+      "sha256": "8dc34dbcb394a54db9364eee56f12d1a2439fea39b46b4070c7b0e7da2808492"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/lost/lost.js",
+      "bytes": 11203,
+      "sha256": "cf8d66344a313abbbce5697cd59d0c7a31aecc91e09b93239d8753366930f498"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/lost/lost.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/lost/lost.wxml",
+      "bytes": 20214,
+      "sha256": "fae603aada7324ee058d19b23caf4ba4fa0fe7179d0a783413995802f7198efe"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/lost/lost.wxss",
+      "bytes": 13172,
+      "sha256": "3d16a31078c71c382c1781a877eb03226b3d8e7299bb5d38ec9498dc49abf26a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/main/main.js",
+      "bytes": 47129,
+      "sha256": "8825659dadf6d4dd1666c0a13a67fb2ad6ac561dec78c9432eda24ec0076eebe"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/main/main.json",
+      "bytes": 116,
+      "sha256": "8b54266d46556bfdd02ca7e8ade967968309ffc3ade008a5bcb750c30fcb009f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/main/main.wxml",
+      "bytes": 34980,
+      "sha256": "ce1de251c15702df0e038b765f3e5bc2ca4c7b176588d21cec7f390b37447c8b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/main/main.wxss",
+      "bytes": 69743,
+      "sha256": "04196e1556703e8de59415b080bf4dad76a033ca9e6a4e15c7ac419436817fb6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/locate.svg",
+      "bytes": 1550,
+      "sha256": "90565e7fb9b3622c655d48f83f901f8ca316c7d66f439e67242a4ef001ba2c22"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/map.js",
+      "bytes": 33083,
+      "sha256": "7a7b560504f19eee9e1c38158a169d34c55b086365ab5a9296532a1816601821"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/map.json",
+      "bytes": 75,
+      "sha256": "a400f7021a7a761356bb4b7181c8dff541ba182ca1156d3218857f489d3aefce"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/map.wxml",
+      "bytes": 6100,
+      "sha256": "b210ab1dc72f3025fc6e44b48d71b083a6f8b1f7906197830da8a5f61d0a011f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/map.wxss",
+      "bytes": 10305,
+      "sha256": "70db28e0f9c2fa5311573230c0bb636a34d50da310802d23e822446b0e0ffb13"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/menu.svg",
+      "bytes": 255,
+      "sha256": "267386b5fbb38784e186ed177c451bde9e5f297d6e9de8e307c95bf33e3b3f1c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/map/search.svg",
+      "bytes": 240,
+      "sha256": "297c822067bc8ec55dc879e0d0ce1a0f150df13d1278aa259114d082c015c360"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/messages/messages.js",
+      "bytes": 4508,
+      "sha256": "fe85d5c4310f325598387c3c4df1d47c95e3e519043ea1cd16e9cadc53e4457e"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/messages/messages.json",
+      "bytes": 78,
+      "sha256": "17c43e1b63f08f26460245747471afaddae26e72bfe95b931b47a9797803c0ec"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/messages/messages.wxml",
+      "bytes": 4294,
+      "sha256": "d8b5e974d8d674fc904c934a53fb6bed71093d8f50f015b6b7cc8b080d2d0ff3"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/messages/messages.wxss",
+      "bytes": 6242,
+      "sha256": "1d7717704a2f7415a8dc75e2fa3f81c55d7662640077fa9206caa265b06e568d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/mine/mine.js",
+      "bytes": 9509,
+      "sha256": "dfaa99d144c1aebaad28d46627bb9794a6f6f7999c414fb6b363a7e70c246c21"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/mine/mine.json",
+      "bytes": 123,
+      "sha256": "df510394f9c5e2c66638795ad969f44086205150e6a1c2e6af4cd4c9b34d3579"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/mine/mine.wxml",
+      "bytes": 14474,
+      "sha256": "58d7c6b2356d87d2e57970350e8ad8e3b206cb25100a1bc24fa8dd559f29b16d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/mine/mine.wxss",
+      "bytes": 22203,
+      "sha256": "82832837dd442900ddfdead42d248d6ef35336c6076f15d580de6900415f0b0b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-complaints/my-complaints.js",
+      "bytes": 2723,
+      "sha256": "51bf7a83fd1e902864712a42fb09e946343d5b37161b79d20018434d28ed15f1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-complaints/my-complaints.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-complaints/my-complaints.wxml",
+      "bytes": 2993,
+      "sha256": "61a6efe38545832fafb79e40b01c2859a23c16e539b85a5d530bd29a5c309a29"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-complaints/my-complaints.wxss",
+      "bytes": 4480,
+      "sha256": "1ac75bb819da9c6f607b82d9a96e90231f2c5b3b2fc34fd5ef4e35a9f577c0d6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-feedback/my-feedback.js",
+      "bytes": 1829,
+      "sha256": "8d0a7b1e3f3622c29f2badaa88f7af2739112cf6aaeb0a2ff869b428b07a13c6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-feedback/my-feedback.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-feedback/my-feedback.wxml",
+      "bytes": 1826,
+      "sha256": "fb53d0d8f08d75d0b78d9537dfb48d7e0dacd75dd71ea893aadbdb2e90fc100b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-feedback/my-feedback.wxss",
+      "bytes": 1474,
+      "sha256": "587771459706429733346372144431f6c61b06e4c2b747622bc0d98837e971aa"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-list/my-list.js",
+      "bytes": 10549,
+      "sha256": "2b13e66731578b2b7073b846baf20b1e5e573839d0175c77a432d7a933de59df"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-list/my-list.json",
+      "bytes": 124,
+      "sha256": "c9c5f4c224fec7c300e544dd8119851e51d4ffd5bc0aa0b47687d6362de22ba1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-list/my-list.wxml",
+      "bytes": 10445,
+      "sha256": "754f0be0a4ed27992671d29fcc3806a37b2c21fb19035ea2cd63f6d79ae67dab"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/my-list/my-list.wxss",
+      "bytes": 12786,
+      "sha256": "396158576f8b7b44c3a1a205221b810b5f0945d1ee48a20094c55c4548e03b87"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/notification/index.js",
+      "bytes": 6379,
+      "sha256": "50c01295fde306034f81c773279ea20c9606a461e067e49c7099097e6998aabc"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/notification/index.json",
+      "bytes": 91,
+      "sha256": "14fab8ad9631b41843adae000e36cc9688cc679f1cbb63f1d7ffbf19cac65574"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/notification/index.wxml",
+      "bytes": 4186,
+      "sha256": "bedff9617660c64cc38fdf72908a4e4ad0b2836e1d4f18fae880fc999c3c121c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/notification/index.wxss",
+      "bytes": 5093,
+      "sha256": "9ccd264d7cad374375b0cda8594203d2b9e1af705fa36c8e0760da1534531eb5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/print/print.js",
+      "bytes": 932,
+      "sha256": "22303c6067611f72a9bdd7abd5a9401f1c5715038a2fba4c481fb2e7b51f2616"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/print/print.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/print/print.wxml",
+      "bytes": 9589,
+      "sha256": "23bb9ec165ed70dd4e259a51d6c5c8e82dec40060a94227a8aa1326c6d85fb04"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/print/print.wxss",
+      "bytes": 175,
+      "sha256": "088c11e2135ee82da208b577ba6fa4b6830ac7f6d1b1233bbd5fe4da3bf42b9f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/profile-edit/profile-edit.js",
+      "bytes": 15050,
+      "sha256": "75ffc5b82eddb6ff25f9fe1eeb62998abd27f741843c9970f7b7e9f2108d922c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/profile-edit/profile-edit.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/profile-edit/profile-edit.wxml",
+      "bytes": 8937,
+      "sha256": "9ae53dd311286464ead986a6c80b96244e84e68668288eceb9e0da9768851faa"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/profile-edit/profile-edit.wxss",
+      "bytes": 9318,
+      "sha256": "8b5e55ba061b8eac586f7bbd6e6ad0c30d57e2443a41af295bf9bdfa3d3df7fd"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/publish/publish.js",
+      "bytes": 7044,
+      "sha256": "38370bf8b235148e4e80067ff404ad7bc0eca02b259083372b2e1260066b35dc"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/publish/publish.json",
+      "bytes": 123,
+      "sha256": "df510394f9c5e2c66638795ad969f44086205150e6a1c2e6af4cd4c9b34d3579"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/publish/publish.wxml",
+      "bytes": 7723,
+      "sha256": "5b9479646ff9ab5f0f5d3b346fbfd982e7a33aa0b4a581b681b4bdc3ff67bdf9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/publish/publish.wxss",
+      "bytes": 10908,
+      "sha256": "2dc7c0d6ddf581ebec19fadbdc5b62b7dfe28881ee57b586af61485c5e0ea954"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank-publish.js",
+      "bytes": 5306,
+      "sha256": "dad67be856f6ccfcf41b16945049657c5d35720f9bfcc39189a41ad61ef5595b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank-publish.json",
+      "bytes": 59,
+      "sha256": "204c86efbc4ac213796e127efecf36fa593b5160d3c62cd032e4c3e1bff402ba"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank-publish.wxml",
+      "bytes": 5825,
+      "sha256": "91aacdac69bd6965535feac0c78ea0cd87b4171dc5845c20eacfa59d246d5cde"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank-publish.wxss",
+      "bytes": 7936,
+      "sha256": "3201f90418ced1e54ca4061f725edce7e4f40d9c6306461bb8b709faee7f38b9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank.js",
+      "bytes": 3322,
+      "sha256": "cb4a13e8390747c77235dc7265a42184cf3357ce6c3382b3c6fd2d2df8ba7bb1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank.json",
+      "bytes": 59,
+      "sha256": "204c86efbc4ac213796e127efecf36fa593b5160d3c62cd032e4c3e1bff402ba"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank.wxml",
+      "bytes": 4711,
+      "sha256": "a4afbbf1c85ab51bd90ed1f2ef67f57e75bf04f8ae2fc6695e0e210eff19961d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/questionbank/questionbank.wxss",
+      "bytes": 6463,
+      "sha256": "1bae214b83b65484dc05a35e5b24eceb2289b595be579e7949c25711ba22654b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/recommend/recommend.js",
+      "bytes": 2347,
+      "sha256": "25ec7ac35c0aa2261e71023142c438b53f8faa4d9bcccfb73bb9ccc240363e77"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/recommend/recommend.json",
+      "bytes": 117,
+      "sha256": "38e30b7c1baee2933b90480fbd73b12b0a428225fb5f886ae59fbb8eade4e0c2"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/recommend/recommend.wxml",
+      "bytes": 3532,
+      "sha256": "8fa77f2ae917a827e6d905a9b5e49c7610d3e764f7eede71236f56b2afb6b5dc"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/recommend/recommend.wxss",
+      "bytes": 1748,
+      "sha256": "ba42c11547f8b711af7c822253a95bdca3108c024bbf5f3bc904600dacca6b6b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/rental/rental.js",
+      "bytes": 25983,
+      "sha256": "1aa1013d4188821fd16b78d98feeccfa9e0aaaf22006a12cf4f1d3edfce6b67d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/rental/rental.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/rental/rental.wxml",
+      "bytes": 34044,
+      "sha256": "b7051b57d23633a7884634f65d1fbac97ceebaf9fca578afe9a3db755b340495"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/rental/rental.wxss",
+      "bytes": 26232,
+      "sha256": "b58b5c310a48f398c7ffc74d49f2a28d93a2a4d77b3de2e0dcb7f217a69cfba3"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/review/review.js",
+      "bytes": 2047,
+      "sha256": "80adcd6d69256132c650857ec12e5bd4ecd91b0287a99e54be38b6d5d499f38e"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/review/review.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/review/review.wxml",
+      "bytes": 1947,
+      "sha256": "6fe4436516256b7e032de20cdc8a15cc33cf70704126c98a708467718f67b84f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/review/review.wxss",
+      "bytes": 2574,
+      "sha256": "e724bd06d58e763657b116a55f80673bf5ef147df48d8740124b2aa866659016"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/search/search.js",
+      "bytes": 3454,
+      "sha256": "e416003c9cd203947b1d39e66bfd162c7b1739b3da016b4d7fa6e4484a768ca8"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/search/search.json",
+      "bytes": 91,
+      "sha256": "01577ddbb93043fbe08e1c196a5bcf1772588a0ea38db3e707072577d13b4e2a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/search/search.wxml",
+      "bytes": 2494,
+      "sha256": "f668a5dc2d84f5fb2d2269a9419ca0bd611d0bffd66a61a4421a3599a04f5a41"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/search/search.wxss",
+      "bytes": 3104,
+      "sha256": "467ac1ced5ba7aada3237c16a1b4bd318d29aafcb7644b4b37c1f5e5f676f0dc"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/secondhand/secondhand.js",
+      "bytes": 13420,
+      "sha256": "53018f8eb177e8f732769a972ccd7cff74479eb8adf5af5dc8e09b828a8b4421"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/secondhand/secondhand.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/secondhand/secondhand.wxml",
+      "bytes": 30590,
+      "sha256": "169e5f2e99ba7cd4f7f1040630687667a30497db3fd46da49a4a93bbb5db591c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/secondhand/secondhand.wxss",
+      "bytes": 39909,
+      "sha256": "c149c51d02e4ff26e24d15dbce3cad5d7d88a6bc6ca9973f0e2ad306983ed1e5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/substitute/substitute.js",
+      "bytes": 307,
+      "sha256": "54267c113d7deccb0cc470fb6ad2e12b3f45cefe539f4067927c1aaf5f2475d3"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/substitute/substitute.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/substitute/substitute.wxml",
+      "bytes": 11104,
+      "sha256": "e29deb265e0df3ccbd535959977384a18383464b7ca4389109a646cb8774f604"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/substitute/substitute.wxss",
+      "bytes": 137,
+      "sha256": "bfbf291ec20e7dd99f1826f6b5a04d6f9efe69b93537cef809efa0f886f5b9ce"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/admin/admin.js",
+      "bytes": 2581,
+      "sha256": "e6f0cb043b4d625dd25776cdb780883156df93636a126d95d27c15f66908e05f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/admin/admin.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/admin/admin.wxml",
+      "bytes": 3641,
+      "sha256": "68babb0d353267fff4f6ef08561134564261fe25afb350a95e9d86fc66edf9cf"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/admin/admin.wxss",
+      "bytes": 5277,
+      "sha256": "6d3e945d54ac2bd27b01cfbd1101d6df9b1d2f296fd2aa5c75acddf63a4ce8ad"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-loss/card-loss.js",
+      "bytes": 2567,
+      "sha256": "37b8f33533adb96841b3839cca09b240b7152d53eaf5b4708357181d4ca51179"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-loss/card-loss.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-loss/card-loss.wxml",
+      "bytes": 3666,
+      "sha256": "2debe2f9d3e09d602f37ddedf1f4243c5d6b3cfeadab1fed7c32b86b6bf1fba5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-loss/card-loss.wxss",
+      "bytes": 5285,
+      "sha256": "83c880ce2ac0a5f0e4afd50b2954c65d919ae3b2eb0f51d5eff66ce2816235ef"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-recharge/card-recharge.js",
+      "bytes": 2549,
+      "sha256": "982a848f34ef5cf3bc34188d231419aacbfcae8103daa8ec61c06890a042a8d3"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-recharge/card-recharge.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-recharge/card-recharge.wxml",
+      "bytes": 3669,
+      "sha256": "00fd55ba38cf588af47f564898804cb39a49814f6a96c93f46b91aae0a35461a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-recharge/card-recharge.wxss",
+      "bytes": 5293,
+      "sha256": "08c072fac8bb4eea724ccb630dd3029626a178bde38d48cdc3aa81908082f303"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-replace/card-replace.js",
+      "bytes": 2488,
+      "sha256": "e568d709954b0f80cfbaa7dba920ce8d69d22d9c7759a0649cb3f2703520cb66"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-replace/card-replace.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-replace/card-replace.wxml",
+      "bytes": 3664,
+      "sha256": "0fd3a7ba86efe596e715bd92335050012d869242c58d7ee8c6194bbe4c85704f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/card-replace/card-replace.wxss",
+      "bytes": 5291,
+      "sha256": "f21b834e5f7ec7d241297042a1dea4f60b573f0cb3a316fa0ea56e4953f4e999"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-in-school/cert-in-school.js",
+      "bytes": 2468,
+      "sha256": "8156eed17c629155b35584df72e47b25e15acd57f25ac6bf0b403a4e7eefb5e6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-in-school/cert-in-school.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-in-school/cert-in-school.wxml",
+      "bytes": 3659,
+      "sha256": "6e16fcae37e4b57cfdda3bd296c8c1c35d2ede296a644856c9b135532135a981"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-in-school/cert-in-school.wxss",
+      "bytes": 5295,
+      "sha256": "a454c01b2b6d49de6e6f1b9c6792a188b7d94e9a2817782cfea7c180222955ee"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-status/cert-status.js",
+      "bytes": 2378,
+      "sha256": "112ed99545b2fdd70259568d2d75e5ddacee093ccff714293c5eadd3eb3d93c5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-status/cert-status.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-status/cert-status.wxml",
+      "bytes": 3658,
+      "sha256": "bec3fed4cdc4ffec94ec2a1ca00529cd1ffa896fe2c515babda6a3bc93390d8c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-status/cert-status.wxss",
+      "bytes": 5289,
+      "sha256": "f14804ffbf68893e3a3bd7432bb49d49710f325064072f17e083f44ecc0667d1"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-transcript/cert-transcript.js",
+      "bytes": 2504,
+      "sha256": "2c134a9be5ba0996bf0f086adf7b9bc5c702669de7d5269b203dd1d5b7b43b6d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-transcript/cert-transcript.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-transcript/cert-transcript.wxml",
+      "bytes": 3346,
+      "sha256": "73aecc1227447cd802f703f24f76050aa1a03af5b994da842e4c5c525b60f5a7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/cert-transcript/cert-transcript.wxss",
+      "bytes": 5297,
+      "sha256": "202411c5b49af8e1d0d8d91a8050df167beaa47943f58cd7c9923b9313ba5a33"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/loan/loan.js",
+      "bytes": 2789,
+      "sha256": "e84d66a52861500c06cafa2f661f4a8ee61bcd76fed5d5b214f2b3ac39a4a16c"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/loan/loan.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/loan/loan.wxml",
+      "bytes": 3645,
+      "sha256": "ae22cec128ebc3cb8bd1fc5fb93889da3e2111414860f04ea65123b585d89858"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/loan/loan.wxss",
+      "bytes": 5275,
+      "sha256": "4ac7240698835cc5650b4b3e63340bab41200a18fda17dc173d6e1842f1870e9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/medical/medical.js",
+      "bytes": 2698,
+      "sha256": "d91fc154304f60cd262a1be9bf17d3a901c2f62ff653411827d885cd8a77615b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/medical/medical.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/medical/medical.wxml",
+      "bytes": 3654,
+      "sha256": "7a5b41e197f9b76610e222eee212e283eacc66d347b65691cb1cc4cf64aacc95"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/medical/medical.wxss",
+      "bytes": 5281,
+      "sha256": "8a8a9edb845cecbffbe7505941f6c1f26674d5400d5235d6eb2f3e28a11f0fde"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/photo-id/photo-id.js",
+      "bytes": 2385,
+      "sha256": "89b7607f84b1c2e6627d794e60fae9e77c57b534f3587ede058cf5b0a14c9dfd"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/photo-id/photo-id.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/photo-id/photo-id.wxml",
+      "bytes": 3651,
+      "sha256": "864866317927c8182c602d0aa5e0f3502fb0ae27c1102bf945aa6fd4ecea362f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/photo-id/photo-id.wxss",
+      "bytes": 5283,
+      "sha256": "96c58d941058a97e6a14026bf7f5d266bda81d467c6e0ff7019cecbac34ffcad"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/reimburs/reimburs.js",
+      "bytes": 2529,
+      "sha256": "f6ea7ad290c38e019fdf1e9bde80158a33c086814c543ad013c311ae5c9aa137"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/reimburs/reimburs.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/reimburs/reimburs.wxml",
+      "bytes": 3649,
+      "sha256": "fff6f95cc2bb4e3dc1d2094a3b95cee139e6a788f4e5d8423ed72072467b1424"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/reimburs/reimburs.wxss",
+      "bytes": 5283,
+      "sha256": "eabfeebeb5998eae4e16214f4bbfaa88868f2d0516ab0eaae2b00a409b09e174"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/scholar/scholar.js",
+      "bytes": 2653,
+      "sha256": "ba0de159940d86d73489a9fd4e34e0395997242e99d37229fed7cc47a640ad75"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/scholar/scholar.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/scholar/scholar.wxml",
+      "bytes": 3651,
+      "sha256": "aca34cbb061a7177bbec7fc3b3dd37e32b1d6e1b29abcb64c2e6c6737a725773"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/scholar/scholar.wxss",
+      "bytes": 5281,
+      "sha256": "d46658d3fce83249b7346b85d9c3fdb210c6bb872916fe9a9c77d9de5f791d3b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/tools.js",
+      "bytes": 4493,
+      "sha256": "a5c843cc4002c601c744bf860e8e3b97d9b34b3aa3fa7c537fb4be05d18d78c7"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/tools.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/tools.wxml",
+      "bytes": 3085,
+      "sha256": "b185464980055600ccab271ad12055df76b014a465c2056e40b7aa4adf15fdab"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/tools/tools.wxss",
+      "bytes": 7491,
+      "sha256": "a6c34b5c63669858c6783dcd8252367e99ade54dd300fb8cd28e83bfe1065661"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-profile/user-profile.js",
+      "bytes": 1245,
+      "sha256": "7b8ffdfc128e8c271a3e5941d19fc1815386f6587de07a44b435fa96802acbea"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-profile/user-profile.json",
+      "bytes": 123,
+      "sha256": "e40a20773a6e1ae3df9329377550017247864371513f9bbac62f2e09f1401407"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-profile/user-profile.wxml",
+      "bytes": 3281,
+      "sha256": "2fc1e9452312343284f6d5c33fe293e19282849853437177ae3f3ff669e578a6"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-profile/user-profile.wxss",
+      "bytes": 2988,
+      "sha256": "36d3878fe900e1b6e2f312fbf183b32aa343e8ea25fdd9925d473442fe4d7002"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-reviews/user-reviews.js",
+      "bytes": 812,
+      "sha256": "3bcee16105e1a6a9c93ecb8feda89c8e74dc33b112af0724d59ba1ae9b54c1a2"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-reviews/user-reviews.json",
+      "bytes": 50,
+      "sha256": "39e723e7188bc9b6d259c24da6238fbb0b7c0be158e7be022907b0264f07ac14"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-reviews/user-reviews.wxml",
+      "bytes": 1662,
+      "sha256": "31764dec3d89f97bd339fc55b0d76713b22d281a6e14f0df9a9dc34e97f88be9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-reviews/user-reviews.wxss",
+      "bytes": 960,
+      "sha256": "10bc32c4ed9ab1db2a5d6869070fe967a17bd48a14279af852e313863cbb4dd9"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-search/user-search.js",
+      "bytes": 1695,
+      "sha256": "189e048f419afb432b197ab51d08dbf8fe5c17f0666934e761aa5f05c778d5e5"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-search/user-search.json",
+      "bytes": 91,
+      "sha256": "01577ddbb93043fbe08e1c196a5bcf1772588a0ea38db3e707072577d13b4e2a"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-search/user-search.wxml",
+      "bytes": 2319,
+      "sha256": "091f90d8670a4a3c7b86ec6c31e6b7b8299b8a671c273ea10b3617a0281d283f"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/user-search/user-search.wxss",
+      "bytes": 2723,
+      "sha256": "83e425eb630e7dbcd37bf77b6818af3a321dcc04992795307c82ad9eb622d576"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/webview/webview.js",
+      "bytes": 181,
+      "sha256": "e44a5ab093f733a019db03f0f1e771963c13738322c1473edc7945fcec35632b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/webview/webview.json",
+      "bytes": 60,
+      "sha256": "02855bcbe78f666ec3203da4b0f4285a4f1896a306d6c8791abcedf9d52cc333"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/webview/webview.wxml",
+      "bytes": 72,
+      "sha256": "49be0f0fe89e3260583b9bf2b9e521cfe2c30d97413cedb01b0ded73f7f24927"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/webview/webview.wxss",
+      "bytes": 33,
+      "sha256": "a9379136a9f15376cfaa5eff156d84a245f9564534981b13630b856b7b8fef77"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/yellowpage/yellowpage.js",
+      "bytes": 15794,
+      "sha256": "baf13981e39ede37b998200cee2014d55b1f41ab15299f1ca1ed7e114dace24b"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/yellowpage/yellowpage.json",
+      "bytes": 86,
+      "sha256": "d42f4d4a51b4698f0b7bd75ea11e1191ada0bc5d0bd190220f1704c04b7e9d9d"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/yellowpage/yellowpage.wxml",
+      "bytes": 4631,
+      "sha256": "85dd448d9badbbf12dac268827edf4cbd536df3f2db865a18f24285be75e9dc4"
+    },
+    {
+      "path": "mini-program/miniprogram/subpkg/yellowpage/yellowpage.wxss",
+      "bytes": 5847,
+      "sha256": "a076ce47ee80798dc4cbbf2d1245ef94bd39a958db5bfbf44532f9224c925051"
+    },
+    {
+      "path": "mini-program/miniprogram/utils/api.js",
+      "bytes": 52260,
+      "sha256": "ff7d33cfacdbfa14f7608144fe544b0602813eff2d242f31933e159dd1cffa49"
+    },
+    {
+      "path": "mini-program/miniprogram/兼职模块API对接诊断报告.md",
+      "bytes": 6088,
+      "sha256": "79eb1f59d386cebc07b334267fb7bd3c01bdd6de4142a308000e798215aa1fed"
+    },
+    {
+      "path": "mini-program/project.config.json",
+      "bytes": 1038,
+      "sha256": "2ebca112892f81d07386ef2470ca7e69aad3eb0f9979cd1e6c0cad828050cc60"
+    },
+    {
+      "path": "mini-program/scripts/gen-guide-pages.js",
+      "bytes": 29523,
+      "sha256": "fe10843b70ec322bf1a3edb4945bc2b6e7e12c402068562d7a65f8dc008a7f35"
+    },
+    {
+      "path": "mini-program/scripts/gen-life-pages.js",
+      "bytes": 23983,
+      "sha256": "35976591b2e01beccf5a7edddd96f11afcee57efce11d3a6f5f1214a9e14eb06"
+    },
+    {
+      "path": "mini-program/隐私保护指引.txt",
+      "bytes": 3427,
+      "sha256": "ee0d715b18193a400502cfc8c7d6d613e497a5924036618199f0a97988d3ac3a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10920,
+      "sha256": "c52475e67c133bf33bc09ca1e952880a6cc736e3c236a26b110372be47abcfc9"
+    },
+    {
+      "path": "方法与总结/README.开发文档.md",
+      "bytes": 17623,
+      "sha256": "df9cff9c24e5f1440cdb772653fad342341725b13cb02f337d4c1ba8a0d70ac7"
+    },
+    {
+      "path": "方法与总结/REPLACE_PLACEHOLDERS.md",
+      "bytes": 3028,
+      "sha256": "dec1ad14af1cc6b408f3d0b6c45b7cbd2a3e6659d3ccf0b572bbaeacec5d6817"
+    },
+    {
+      "path": "方法与总结/小程序修改工作流程.md",
+      "bytes": 17403,
+      "sha256": "f1d4e884b3c3276e8a59af90319932c8d1631be92f29e366a57ddf807429bd12"
+    },
+    {
+      "path": "方法与总结/微信订阅消息通知接入指南.md",
+      "bytes": 5292,
+      "sha256": "9138e6b599d2042645eb95f127297ad4529faca2ce7029498c3dacd60dd786af"
+    },
+    {
+      "path": "方法与总结/部署流程.md",
+      "bytes": 5475,
+      "sha256": "08d912b592cd2c6bcd81919791984a1c0a36ea17a6f87941cb0a0461b808a5f8"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "backend/.env",
+      "reason": "local environment configuration"
+    },
+    {
+      "path": "backend/admin/calendar-h5.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar-preview.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar-preview2.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar-preview3.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/calendar.html",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "backend/admin/styles.css.v14-bloated",
+      "reason": "ignored historical backup or preview"
+    },
+    {
+      "path": "mini-program/miniprogram/project.private.config.json",
+      "reason": "developer private configuration"
+    },
+    {
+      "path": "mini-program/project.private.config.json",
+      "reason": "developer private configuration"
+    }
+  ]
+}

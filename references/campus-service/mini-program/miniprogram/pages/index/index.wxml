@@ -1,0 +1,336 @@
+<!-- pages/index/index.wxml — 首页（同行鸭风格·3D 拟物图标） -->
+<view class="page-index">
+
+  <!-- 全屏背景插画（延伸到 top bar 后方） -->
+  <image class="page-bg" src="/images/bg-gradient-rainbow.jpg" mode="aspectFill" />
+
+  <!-- ===== 顶部栏（透明，融入背景） ===== -->
+  <view class="top-bar" style="padding-top:{{statusBarHeight}}px;">
+    <view class="top-bar-inner">
+      <!-- 左侧：Logo 同行鸭 + 学校定位 -->
+      <view class="tb-left">
+        <text class="tb-brand">同行鸭</text>
+        <view class="top-duck-icon tb-duck">
+          <view class="td-head"></view>
+          <view class="td-eye"></view>
+          <view class="td-beak"></view>
+          <view class="td-body"></view>
+          <view class="td-wing"></view>
+          <view class="td-tail"></view>
+        </view>
+      </view>
+      <view class="tb-location">
+        <view class="tb-loc-pin"></view>
+        <text class="tb-loc-name">{{schoolName}}</text>
+      </view>
+      <!-- 右侧：已移除按钮 -->
+      <view class="tb-right"></view>
+    </view>
+  </view>
+
+  <!-- ===== 滚动内容区 ===== -->
+  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="top:{{statusBarHeight + 44}}px;">
+
+    <!-- 校园图片轮播横幅 -->
+    <view class="hero-banner">
+      <swiper class="hero-swiper" autoplay interval="3000" duration="500" circular indicator-dots="{{false}}" bindchange="onHeroSwiperChange">
+        <swiper-item>
+          <image class="hero-slide-img" src="/images/index-icons/hero-1.jpg" mode="aspectFill" />
+          <view class="hero-cta tap-shrink" bindtap="onHeroCta">
+            <text>去查看</text>
+            <text class="hero-cta-arrow">→</text>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <image class="hero-slide-img" src="/images/index-icons/hero-2.jpg" mode="aspectFill" />
+          <view class="hero-cta tap-shrink" bindtap="onHeroCta">
+            <text>去查看</text>
+            <text class="hero-cta-arrow">→</text>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <image class="hero-slide-img" src="/images/index-icons/hero-3.jpg" mode="aspectFill" />
+          <view class="hero-cta tap-shrink" bindtap="onHeroCta">
+            <text>去查看</text>
+            <text class="hero-cta-arrow">→</text>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <image class="hero-slide-img" src="/images/index-icons/hero-4.jpg" mode="aspectFill" />
+          <view class="hero-cta tap-shrink" bindtap="onHeroCta">
+            <text>去查看</text>
+            <text class="hero-cta-arrow">→</text>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <image class="hero-slide-img" src="/images/index-icons/hero-5.jpg" mode="aspectFill" />
+          <view class="hero-cta tap-shrink" bindtap="onHeroCta">
+            <text>去查看</text>
+            <text class="hero-cta-arrow">→</text>
+          </view>
+        </swiper-item>
+      </swiper>
+      <!-- 自定义指示点 -->
+      <view class="hero-dots">
+        <view wx:for="{{[0,1,2,3,4]}}" wx:key="*this" class="hero-dot {{heroIndex === index ? 'hero-dot-active' : ''}}"></view>
+      </view>
+    </view>
+
+    <!-- 公告横条 -->
+    <view class="notice-bar tap-shrink" bindtap="onPinnedBannerTap">
+      <view class="nb-icon">
+        <text class="nb-icon-text"><view class="svg-ico svg-ico-bullhorn"></view></text>
+      </view>
+      <text class="nb-label">公告</text>
+      <text class="nb-text {{noticeAnimating ? 'nb-fade-out' : 'nb-fade-in'}}">{{pinnedBanner[noticeIndex].title || '关于校园拼车功能优化升级的通知'}}</text>
+      <text class="nb-arrow">›</text>
+    </view>
+
+    <!-- 顶部双卡：我有需求 / 顺手帮 -->
+    <view class="need-cards">
+      <view
+        wx:for="{{needCards}}" wx:key="key"
+        class="need-card need-card-{{item.theme}} tap-shrink"
+        data-key="{{item.key}}"
+        bindtap="onNeedCardTap"
+      >
+        <view class="nc-text">
+          <text class="nc-title">{{item.title}}</text>
+          <text class="nc-sub">{{item.sub}}</text>
+          <view class="nc-btn">
+            <text>{{item.btnText}}</text>
+            <text class="nc-btn-arrow">→</text>
+          </view>
+        </view>
+        <!-- 鸭子插画（图片） -->
+        <image class="nc-illu-img nc-illu-{{item.theme}}" src="/images/index-icons/card-{{item.key}}.png" mode="aspectFit" width="30" height="30" />
+      </view>
+    </view>
+
+    <!-- 5 列 × 2 行 功能宫格（10 项 3D 拟物图标） -->
+    <view class="serve-card">
+      <view class="serve-grid">
+        <view
+          wx:for="{{serveGrid}}" wx:key="serve"
+          class="serve-item tap-shrink"
+          data-serve="{{item.serve}}"
+          bindtap="onServeTap"
+        >
+          <view class="serve-icon-box">
+            <image class="serve-icon-img" src="/images/index-icons/grid-{{item.icon}}.png" mode="aspectFit" width="20" height="20" />
+          </view>
+          <text class="serve-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 5 个便利推荐（横向条） -->
+    <view class="recommend-strip">
+      <view
+        wx:for="{{recommendStrip}}" wx:key="key"
+        class="rs-card rs-card-{{item.theme}} tap-shrink"
+        data-key="{{item.key}}"
+        bindtap="onRecommendTap"
+      >
+        <view class="rs-text">
+          <text class="rs-title">{{item.title}}</text>
+          <text class="rs-sub">{{item.sub}}</text>
+        </view>
+        <image class="rs-illu-img" src="/images/index-icons/strip-{{item.icon}}.png" mode="aspectFit" width="20" height="20" />
+      </view>
+    </view>
+
+    <!-- 信息公告 + 活动进行中 -->
+    <view class="notice-row">
+      <!-- 左侧：信息公告 -->
+      <view class="notice-card">
+        <view class="nr-header">
+          <text class="nr-title">信息公告</text>
+          <view class="nr-tabs">
+            <view class="nr-tab {{infoTab==='bulletin'?'nr-tab-active':''}}" data-tab="bulletin" bindtap="onInfoTabTap">公告通知</view>
+            <view class="nr-tab {{infoTab==='news'?'nr-tab-active':''}}" data-tab="news" bindtap="onInfoTabTap">活动资讯</view>
+          </view>
+        </view>
+        <view class="nr-list">
+          <view
+            wx:for="{{notices}}" wx:key="_key"
+            class="nr-item tap-shrink"
+            data-id="{{item._id || item.id}}"
+            bindtap="onNoticeTap"
+          >
+            <view class="nr-dot"></view>
+            <text class="nr-item-title">{{item.title}}</text>
+            <text class="nr-item-tag-new" wx:if="{{item._key && item._key.indexOf('pin_') === 0}}">新</text>
+            <text class="nr-item-date">{{item._dateLabel || item.dateLabel || ''}}</text>
+          </view>
+          <view class="nr-empty" wx:if="{{notices.length === 0 && !pageLoading}}">
+            <text>暂无通知</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 右侧：活动进行中 -->
+      <view class="activity-card tap-shrink" bindtap="onActivityTap">
+        <view class="ac-header">
+          <text class="ac-title">活动进行中</text>
+        </view>
+        <view class="ac-body">
+          <text class="ac-name">志愿服务活动招募中</text>
+          <view class="ac-people">
+            <view class="ac-avatars">
+              <view class="ac-avatar"></view>
+              <view class="ac-avatar"></view>
+              <view class="ac-avatar"></view>
+            </view>
+            <text class="ac-people-text">{{activityEnrollCount}}人已报名</text>
+          </view>
+          <view class="ac-btn">
+            <text>去报名</text>
+            <text class="ac-btn-arrow">→</text>
+          </view>
+        </view>
+        <!-- 奖杯插画 -->
+        <image class="ac-trophy-img" src="/images/index-icons/hero-decoration.png" mode="aspectFit" width="24" height="24" />
+      </view>
+    </view>
+
+    <!-- 底部 3 列热门：热门任务 / 校园公益 / 校园推荐 -->
+    <view class="hot-row">
+      <!-- 大厅任务（聚合全部任务型模块） -->
+      <view class="hot-card hot-card-task tap-shrink" bindtap="onHotTaskTap">
+        <view class="hc-header">
+          <text class="hc-title">大厅任务</text>
+          <text class="hc-more">更多 ›</text>
+        </view>
+        <scroll-view class="hc-body" scroll-y enhanced show-scrollbar="{{false}}" wx:if="{{hotTasks.length > 0}}">
+          <view class="hc-task-item" wx:for="{{hotTasks}}" wx:key="id" data-id="{{item.id}}" data-module="{{item._module}}" catchtap="onHotTaskItemTap">
+            <view class="hc-task-tag {{item._module}}">{{item._moduleName}}</view>
+            <view class="hc-task-main">
+              <text class="hc-task-title">{{item.title || item.name || '未命名'}}</text>
+              <text class="hc-task-loc">{{item.location || item.location_name || ''}}</text>
+            </view>
+            <view class="hc-task-right" wx:if="{{item.price != null && item.price !== ''}}">
+              <text class="hc-yen">¥</text>
+              <text class="hc-price">{{item.price}}</text>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="hc-body hc-empty" wx:else>
+          <text class="hc-empty-text">暂无任务，去大厅看看 →</text>
+        </view>
+      </view>
+
+      <!-- 校园公益（无数据时隐藏整个卡片） -->
+      <view class="hot-card hot-card-charity tap-shrink" bindtap="onCharityTap" wx:if="{{charityCard}}">
+        <view class="hc-header">
+          <text class="hc-title">校园公益</text>
+          <text class="hc-more">更多 ›</text>
+        </view>
+        <view class="hc-body">
+          <text class="hc-name">{{charityCard.title}}</text>
+          <text class="hc-loc">{{charityCard.subtitle}}</text>
+          <view class="hc-people-row" wx:if="{{charityCard.enrollCount > 0}}">
+            <text class="hc-people-count">{{charityCard.enrollCount}}</text>
+            <text class="hc-people-suffix">人参与</text>
+          </view>
+        </view>
+        <!-- 猫猫插画（CSS） -->
+        <view class="hc-cat">
+          <view class="hc-cat-head"></view>
+          <view class="hc-cat-ear hc-cat-ear-l"></view>
+          <view class="hc-cat-ear hc-cat-ear-r"></view>
+          <view class="hc-cat-eye hc-cat-eye-l"></view>
+          <view class="hc-cat-eye hc-cat-eye-r"></view>
+          <view class="hc-cat-nose"></view>
+          <view class="hc-cat-mouth"></view>
+          <view class="hc-cat-stripe hc-cat-st1"></view>
+          <view class="hc-cat-stripe hc-cat-st2"></view>
+          <view class="hc-cat-tail"></view>
+        </view>
+      </view>
+
+      <!-- 校园推荐（无数据时隐藏整个卡片） -->
+      <view class="hot-card hot-card-rec tap-shrink" bindtap="onFoodTap" wx:if="{{foodTopStall}}">
+        <view class="hc-header">
+          <text class="hc-title">校园推荐</text>
+          <text class="hc-more">更多 ›</text>
+        </view>
+        <view class="hc-body">
+          <text class="hc-name">{{foodTopStall.name}}</text>
+          <text class="hc-loc">好评{{foodTopStall.rating}}分</text>
+          <view class="hc-stars">
+            <text class="hc-star">★</text>
+            <text class="hc-star">★</text>
+            <text class="hc-star">★</text>
+            <text class="hc-star">★</text>
+            <text class="hc-star hc-star-half">★</text>
+          </view>
+        </view>
+        <!-- 食物碗插画（CSS） -->
+        <view class="hc-bowl">
+          <view class="hc-bowl-rim"></view>
+          <view class="hc-bowl-body"></view>
+          <view class="hc-bowl-meat hc-bowl-meat-1"></view>
+          <view class="hc-bowl-meat hc-bowl-meat-2"></view>
+          <view class="hc-bowl-egg"></view>
+          <view class="hc-bowl-leaf"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部安全区 -->
+    <view class="bottom-safe"></view>
+  </scroll-view>
+
+</view>
+
+<!-- ===== 搜索弹窗 ===== -->
+<view class="search-overlay" wx:if="{{showSearchOverlay}}" catchtap="onCloseSearch">
+  <view class="search-modal" catchtap="">
+    <view class="search-modal-header">
+      <view class="search-modal-input-wrap">
+        <view class="smi-icon">
+          <view class="si-glass"></view>
+          <view class="si-handle"></view>
+        </view>
+        <input
+          class="search-modal-input"
+          value="{{searchKeyword}}"
+          placeholder="搜索拼车、跑腿、任务..."
+          placeholder-class="sm-placeholder"
+          focus="{{true}}"
+          bindinput="onSearchModalInput"
+          bindconfirm="onDoSearch"
+          confirm-type="search"
+        />
+      </view>
+      <view class="search-modal-cancel tap-shrink" bindtap="onCloseSearch">
+        <text>取消</text>
+      </view>
+    </view>
+    <scroll-view class="search-modal-body" scroll-y enhanced show-scrollbar="{{false}}">
+      <view class="search-modal-empty" wx:if="{{!searchLoading && searchResults.length === 0 && searchSearched}}">
+        <text>未找到相关内容</text>
+      </view>
+      <view
+        wx:for="{{searchResults}}" wx:key="_id"
+        class="sr-item tap-shrink"
+        data-type="{{item.type}}"
+        data-id="{{item._id}}"
+        bindtap="onSearchResultTap"
+      >
+        <view class="sr-item-tag" style="background:{{item.color}}">
+          <text class="sr-tag-text">{{item.typeName}}</text>
+        </view>
+        <view class="sr-item-info">
+          <text class="sr-item-title">{{item.title}}</text>
+          <text class="sr-item-desc">{{item.desc}}</text>
+        </view>
+        <text class="sr-item-arrow">›</text>
+      </view>
+      <view class="search-modal-loading" wx:if="{{searchLoading}}">
+        <text>搜索中...</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

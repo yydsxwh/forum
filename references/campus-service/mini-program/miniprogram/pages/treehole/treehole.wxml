@@ -1,0 +1,409 @@
+<!-- pages/treehole/treehole.wxml — 树洞（匿名倾诉 · 信纸风） -->
+<view class="page-treehole">
+
+  <!-- 顶部栏 -->
+  <view class="th-top-bar" style="padding-top:{{statusBarHeight}}px;">
+    <view class="th-topbar-inner">
+      <view class="th-topbar-left">
+        <view class="th-logo">
+          <view class="th-logo-leaves"></view>
+          <view class="th-logo-trunk"></view>
+        </view>
+        <view class="th-title-wrap">
+          <text class="th-title">树洞</text>
+          <text class="th-subtitle">TREEHOLE · ANONYMOUS</text>
+        </view>
+      </view>
+      <!-- 顶部不再放 + 号，由悬浮 FAB 替代 -->
+    </view>
+
+    <view class="th-tabs">
+      <view class="th-tab-group">
+        <view class="th-tab {{sortType === 'latest' ? 'active' : ''}}" data-type="latest" bindtap="onSwitchSort">
+          <text>最新</text>
+        </view>
+        <view class="th-tab {{sortType === 'hot' ? 'active' : ''}}" data-type="hot" bindtap="onSwitchSort">
+          <text>热门</text>
+        </view>
+        <view class="th-tab {{sortType === 'mine' ? 'active' : ''}}" data-type="mine" bindtap="onSwitchSort">
+          <text>我的</text>
+        </view>
+      </view>
+      <text class="th-stat">{{totalLabel}}</text>
+    </view>
+
+    <!-- 分类筛选条（最新/热门时显示；我的时不显示） -->
+    <scroll-view
+      wx:if="{{sortType !== 'mine'}}"
+      class="th-filter-bar"
+      scroll-x
+      enhanced
+      show-scrollbar="{{false}}"
+    >
+      <view
+        wx:for="{{categories}}"
+        wx:key="value"
+        class="th-filter-chip th-filter-chip--{{item.value}} {{filterCategory === item.value ? 'active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onSwitchFilter"
+      >
+        <text>{{item.label}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <scroll-view
+    class="th-scroll"
+    scroll-y="true"
+    enhanced
+    show-scrollbar="{{false}}"
+    refresher-enabled
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="onPullRefresh"
+    bindscrolltolower="onLoadMore"
+    bindscrolltoupper="onScrollToUpper"
+    upper-threshold="50"
+  >
+    <!-- 100rpx 拉伸缓冲留白 + topbar 高度 -->
+    <view style="padding-top:{{topBarHeight}}px;">
+
+    <!-- 顶部诗体引导 -->
+    <view class="th-poem">
+      <view class="th-poem-text">
+        <text class="th-poem-line">把<text class="th-poem-key">心事</text>说给树洞听，</text>
+        <text class="th-poem-line">让山风替你<text class="th-poem-key">收着</text>。</text>
+        <text class="th-poem-desc"><view class="svg-ico svg-ico-herb"></view> 没人知道你是谁，只留下温柔的回响</text>
+      </view>
+      <view class="th-poem-emoji"><view class="svg-ico svg-ico-tree"></view></view>
+    </view>
+
+    <!-- 空状态：区分最新/热门/筛选 vs 我的 -->
+    <view class="th-empty" wx:if="{{!loading && posts.length === 0}}">
+      <view class="th-empty-icon">
+        <view class="th-empty-leaves"></view>
+        <view class="th-empty-trunk"></view>
+        <view class="th-empty-hole"></view>
+      </view>
+
+      <!-- 我的页：空状态 -->
+      <block wx:if="{{sortType === 'mine'}}">
+        <text class="th-empty-title">还没投过心事</text>
+        <text class="th-empty-hint">点右下角的 + 号写下第一句</text>
+      </block>
+
+      <!-- 最新/热门页：空状态 -->
+      <block wx:else>
+        <text class="th-empty-title">树洞还很安静</text>
+        <text class="th-empty-hint">把第一句心事写下来</text>
+
+        <view class="th-suggestions">
+          <text class="th-sug-title">不知道怎么写？试试这些：</text>
+          <view class="th-sug-item tap-shrink" data-text="今天在食堂/图书馆想捞一个有趣的人" bindtap="onCopySuggestion">
+            <text class="th-sug-num">01</text>
+            <text class="th-sug-text">今天在食堂/图书馆想捞一个有趣的人</text>
+          </view>
+          <view class="th-sug-item tap-shrink" data-text="吐槽一下今天的校园日常" bindtap="onCopySuggestion">
+            <text class="th-sug-num">02</text>
+            <text class="th-sug-text">吐槽一下今天的校园日常</text>
+          </view>
+          <view class="th-sug-item tap-shrink" data-text="想问问学长学姐们学习/考研经验" bindtap="onCopySuggestion">
+            <text class="th-sug-num">03</text>
+            <text class="th-sug-text">想问问学长学姐们学习/考研经验</text>
+          </view>
+          <view class="th-sug-item tap-shrink" data-text="分享一个今天发生的暖心小事" bindtap="onCopySuggestion">
+            <text class="th-sug-num">04</text>
+            <text class="th-sug-text">分享一个今天发生的暖心小事</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 帖子列表 -->
+    <view class="th-posts" wx:if="{{posts.length > 0}}">
+      <block wx:for="{{posts}}" wx:key="_id" wx:for-item="post">
+        <!-- 时间分割线 -->
+        <view class="th-date-divider" wx:if="{{post._showDate}}">
+          <text>{{post._dateLabel}}</text>
+        </view>
+
+        <view
+          class="th-note tap-shrink"
+          data-id="{{post._id}}"
+          data-index="{{index}}"
+        >
+          <view class="th-note-fold"></view>
+          <view class="th-note-head">
+            <view class="th-note-avatar">
+              <text class="th-avatar-emoji">{{post.avatar}}<view class="svg-ico svg-ico-hatching-chick" wx:if="{{!post.avatar}}"></view></text>
+              <view class="th-avatar-badge"><view class="svg-ico svg-ico-thought"></view></view>
+            </view>
+            <view class="th-note-meta">
+              <view class="th-note-id">
+                <text>{{post.nickName || '匿名朋友'}}</text>
+                <text wx:if="{{post.status === 2}}" class="th-official-v">V</text>
+                <text class="th-note-id-tag"># {{post.categoryName || '分享'}}</text>
+              </view>
+              <text class="th-note-time">{{post.timeText || '刚刚'}}{{post.location ? ' · 来自 ' + post.location : ''}}</text>
+            </view>
+            <view class="th-note-tag th-tag-{{post.category || 'share'}}">{{post.categoryName || '分享'}}</view>
+          </view>
+
+          <view class="th-note-body">
+            <text class="th-note-content">{{post.content}}</text>
+
+            <!-- 真实图片（URL 才渲染） -->
+            <view class="th-note-images {{post.images && post.images.length === 1 ? 'single' : ''}}" wx:if="{{post.images && post.images.length > 0}}">
+              <image
+                wx:for="{{post.images}}" wx:key="*this" wx:for-item="img"
+                class="th-note-img"
+                src="{{img}}" mode="aspectFill"
+                data-url="{{img}}" catchtap="onPreviewImage"
+              />
+            </view>
+
+            <!-- emoji 卡片（纯文字渲染，不是图片） -->
+            <view class="th-note-images {{post.imageEmojis && post.imageEmojis.length === 1 ? 'single' : ''}}" wx:elif="{{post.imageEmojis && post.imageEmojis.length > 0}}">
+              <view
+                wx:for="{{post.imageEmojis}}" wx:key="*this" wx:for-item="emo"
+                class="th-note-emoji"
+                style="background: {{item < 2 ? 'linear-gradient(135deg, #FFB340 0%, #FF9500 100%)' : (item < 4 ? 'linear-gradient(135deg, #E8F0E5 0%, #C8E0C5 100%)' : 'linear-gradient(135deg, #FFE5C2 0%, #FFD06B 100%)')}};"
+              >
+                <text>{{emo}}</text>
+              </view>
+            </view>
+          </view>
+
+          <view class="th-note-foot">
+            <view class="th-note-action {{post.liked ? 'liked' : ''}}" data-id="{{post._id}}" data-index="{{index}}" catchtap="onLike">
+              <text class="th-icon-heart">{{post.liked ? '<view class="svg-ico svg-ico-heart"></view>' : '♡'}}</text>
+              <text>{{post.likes || 0}}</text>
+            </view>
+            <view class="th-note-action" data-id="{{post._id}}" data-index="{{index}}" catchtap="onComment">
+              <view class="th-icon-cmt"></view>
+              <text>{{post.comments || 0}}</text>
+            </view>
+            <!-- 只有「我的」tab 且该帖作者是当前用户 才显示删除按钮 -->
+            <view
+              wx:if="{{sortType === 'mine' && post.isMine}}"
+              class="th-note-action th-note-action-right th-note-action-delete"
+              data-id="{{post._id}}"
+              data-index="{{index}}"
+              catchtap="onDeletePost"
+            >
+              <view class="th-icon-delete">
+                <view class="th-icon-delete-line th-icon-delete-l1"></view>
+                <view class="th-icon-delete-line th-icon-delete-l2"></view>
+              </view>
+              <text>删除</text>
+            </view>
+            <view
+              wx:else
+              class="th-note-action th-note-action-right"
+              data-id="{{post._id}}"
+              catchtap="onShare"
+            >
+              <view class="th-icon-share">
+                <view class="th-icon-share-d1"></view>
+                <view class="th-icon-share-d2"></view>
+                <view class="th-icon-share-d3"></view>
+              </view>
+              <text>转发</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="th-load-more" wx:if="{{loading}}">
+      <text>树叶飘落中...</text>
+    </view>
+    <view class="th-end-tip" wx:elif="{{!hasMore && posts.length > 0}}">
+      <text>树洞听完了所有的心跳</text>
+    </view>
+
+    <view class="th-bottom-safe"></view>
+    </view>
+  </scroll-view>
+
+  <!-- 悬浮发帖按钮：可拖动（用普通 view + 拦截 touchmove） -->
+  <view
+    class="th-fab-wrap"
+    style="left:{{fabX}}rpx; top:{{fabY}}rpx;"
+    bindtouchstart="onFabStart"
+    bindtouchmove="onFabMove"
+    bindtouchend="onFabEnd"
+    bindtouchcancel="onFabEnd"
+  >
+    <view
+      class="th-fab {{fabDragging ? 'dragging' : ''}}"
+      catchtap="onFabTap"
+      hover-class="th-fab-hover"
+      hover-stop-propagation
+    >
+      <view class="th-fab-shadow"></view>
+      <view class="th-fab-inner">
+        <text class="th-fab-icon">+</text>
+        <text class="th-fab-text">发帖</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 发帖弹窗 -->
+<view class="th-overlay" wx:if="{{showPublish}}" bindtap="onClosePublish" catchtouchmove="">
+  <view class="th-modal" catchtap="true">
+    <view class="th-modal-handle"></view>
+    <view class="th-modal-header">
+      <text class="th-modal-title">写一封匿名信</text>
+      <text class="th-modal-sub">投递后会随机获得一个小动物头像</text>
+      <view class="th-modal-close tap-shrink" catchtap="onClosePublish">
+        <text>✕</text>
+      </view>
+    </view>
+
+    <scroll-view class="th-modal-body" scroll-y>
+      <!-- 树洞输入框胶囊 -->
+      <view class="th-capsule-box">
+        <textarea
+          class="th-textarea"
+          value="{{publishText}}"
+          placeholder="亲爱的树洞，今天想跟你说..."
+          placeholder-class="th-textarea-placeholder"
+          maxlength="500"
+          bindinput="onPublishInput"
+          auto-height
+        />
+        <text class="th-char-count">{{publishText.length || 0}}/500</text>
+      </view>
+
+      <view class="th-upload-header">
+        <text class="th-upload-label">添加图片</text>
+        <text class="th-upload-counter">{{publishImages.length}}/9</text>
+      </view>
+      <view class="th-upload-area">
+        <view class="th-upload-item" wx:for="{{publishImages}}" wx:key="*this">
+          <image class="th-upload-img" src="{{item}}" mode="aspectFill" />
+          <view class="th-upload-del tap-shrink" data-index="{{index}}" catchtap="onDeleteImage">
+            <text>✕</text>
+          </view>
+        </view>
+        <view class="th-upload-add tap-shrink" wx:if="{{publishImages.length < 9}}" catchtap="onChooseImage">
+          <text class="th-upload-add-icon">+</text>
+          <text class="th-upload-add-text">图片</text>
+        </view>
+      </view>
+
+      <!-- 来自哪儿 -->
+      <view class="th-meta-row">
+        <view class="th-meta-item th-meta-item--full">
+          <text class="th-meta-icon"><view class="svg-ico svg-ico-pin"></view></text>
+          <input
+            class="th-meta-input"
+            value="{{publishLocation}}"
+            placeholder="你在哪儿发布？例如在二餐"
+            placeholder-class="th-meta-placeholder"
+            maxlength="20"
+            bindinput="onLocationInput"
+          />
+        </view>
+      </view>
+
+      <view class="th-category-row">
+        <text class="th-cat-label">分类</text>
+        <view class="th-cat-list">
+          <view
+            wx:for="{{categories}}" wx:key="value"
+            wx:if="{{item.value !== 'all'}}"
+            class="th-cat-item tap-shrink {{publishCategory === item.value ? 'active' : ''}}"
+            data-value="{{item.value}}"
+            catchtap="onSelectCategory"
+          >
+            <text>{{item.label}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 匿名昵称 -->
+      <view class="th-capsule-box">
+        <text class="th-nick-label">以这个名字发布</text>
+        <view class="th-nick-input-wrap">
+          <input
+            class="th-nick-input"
+            value="{{publishNickName}}"
+            placeholder="匿名朋友"
+            placeholder-class="th-nick-placeholder"
+            maxlength="12"
+            bindinput="onNickNameInput"
+          />
+          <view class="th-nick-random tap-shrink" catchtap="onRandomNick">
+            <text><view class="svg-ico svg-ico-dice"></view> 随机</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="th-modal-footer">
+      <view class="th-modal-btn cancel tap-shrink" catchtap="onClosePublish">
+        <text>取消</text>
+      </view>
+      <view class="th-modal-btn confirm tap-shrink {{posting ? 'disabled' : ''}}" catchtap="onSubmitPublish">
+        <text>{{posting ? '投递中...' : '投递'}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 评论弹窗 -->
+<view class="th-overlay" wx:if="{{showComment}}" bindtap="onCloseComment" catchtouchmove="">
+  <view class="th-comment-popup" catchtap="true">
+    <view class="th-modal-handle"></view>
+    <view class="th-cmt-header">
+      <text class="th-cmt-title">匿名回应</text>
+      <view class="th-cmt-close tap-shrink" catchtap="onCloseComment">
+        <text>✕</text>
+      </view>
+    </view>
+    <!-- 评论列表 -->
+    <scroll-view class="th-cmt-list" scroll-y enhanced show-scrollbar="{{false}}">
+      <view class="th-cmt-item" wx:for="{{commentList}}" wx:key="id">
+        <view class="th-cmt-avatar">{{item.avatar}}<view class="svg-ico svg-ico-hatching-chick" wx:if="{{!item.avatar}}"></view></view>
+        <view class="th-cmt-content">
+          <view class="th-cmt-name">
+            <text>{{item.nickName}}</text>
+            <text wx:if="{{item.isMine}}" class="th-cmt-me">我</text>
+          </view>
+          <view class="th-cmt-text">{{item.content}}</view>
+        </view>
+        <view wx:if="{{item.isMine}}" class="th-cmt-del tap-shrink" data-id="{{item.id}}" catchtap="onDeleteComment">
+          <text class="th-cmt-del-icon">✕</text>
+        </view>
+      </view>
+      <view class="th-cmt-empty" wx:if="{{commentList.length === 0}}">
+        还没有回应，来做第一个温暖的人吧 <view class="svg-ico svg-ico-sparkles"></view>
+      </view>
+    </scroll-view>
+
+    <view class="th-cmt-input-row">
+      <input
+        class="th-cmt-input"
+        value="{{commentText}}"
+        placeholder="说点什么..."
+        placeholder-class="th-cmt-placeholder"
+        maxlength="200"
+        bindinput="onCommentInput"
+        confirm-type="send"
+        bindconfirm="onSubmitComment"
+      />
+      <view class="th-cmt-send {{_sendingComment ? 'th-cmt-send--disabled' : ''}} tap-shrink" catchtap="onSubmitComment">
+        <text>{{_sendingComment ? '发送中' : '发送'}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 离屏 canvas：用于图片 1080P 缩放压缩（不可见） -->
+<canvas
+  type="2d"
+  id="th-compress-canvas"
+  class="th-offscreen-canvas"
+></canvas>

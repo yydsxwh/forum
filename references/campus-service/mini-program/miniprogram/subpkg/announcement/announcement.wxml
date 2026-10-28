@@ -1,0 +1,51 @@
+<!-- pages/announcement/announcement.wxml -->
+<view class="page-announcement">
+  <image class="page-bg" src="/images/bg-gradient-rainbow.jpg" mode="aspectFill" />
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px; height: 44px;">
+    <view class="nav-back" bindtap="goBack"><view class="nav-back-icon"></view></view>
+    <text class="nav-title">公告</text>
+    <view class="nav-placeholder"></view>
+  </view>
+  <scroll-view scroll-y class="content" style="padding-top: {{navBarHeight}}px;" bindscrolltolower="loadMore">
+    <view wx:if="{{list.length === 0 && !loading}}" class="empty-state">
+      <view class="empty-icon"><text><view class="svg-ico svg-ico-megaphone"></view></text></view>
+      <text class="empty-text">暂无公告</text>
+    </view>
+    <view class="ann-card glass-card" wx:for="{{list}}" wx:key="_id" data-id="{{item._id}}" bindtap="goDetail">
+      <view class="ann-top">
+        <text class="ann-title">{{item.title}}</text>
+        <text class="ann-badge" wx:if="{{item.isTop}}">置顶</text>
+      </view>
+      <text class="ann-summary">{{item.summary || item.content}}</text>
+      <view class="ann-footer">
+        <text class="ann-time">{{item._timeText}}</text>
+        <text class="ann-views"><view class="svg-ico svg-ico-eye"></view> {{item.viewCount || 0}}</text>
+      </view>
+    </view>
+    <view class="loading-more" wx:if="{{loading}}">
+      <view class="spinner"></view>
+      <text>加载中...</text>
+    </view>
+  </scroll-view>
+
+  <!-- ===== 公告详情弹窗 ===== -->
+  <view class="ann-modal {{showModal ? 'show' : ''}}" catchtap="closeModal">
+    <view class="ann-modal-mask"></view>
+    <view class="ann-modal-card" catchtap="">
+      <view class="ann-modal-header">
+        <text class="ann-modal-title">{{modalDetail.title}}</text>
+        <view class="ann-modal-close" bindtap="closeModal">✕</view>
+      </view>
+      <scroll-view scroll-y class="ann-modal-body">
+        <text class="ann-modal-content">{{modalDetail.content}}</text>
+      </scroll-view>
+      <view class="ann-modal-meta">
+        <text>{{modalDetail._timeText}}</text>
+        <text><view class="svg-ico svg-ico-eye"></view> {{modalDetail.viewCount || 0}}</text>
+      </view>
+      <view class="ann-modal-actions">
+        <view class="ann-modal-btn tap-shrink" bindtap="closeModal">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

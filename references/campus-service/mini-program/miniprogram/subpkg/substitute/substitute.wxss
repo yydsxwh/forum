@@ -1,0 +1,3 @@
+/* pages/substitute/substitute.wxss */
+page { background: transparent !important; }
+.page-module { background: transparent !important; }

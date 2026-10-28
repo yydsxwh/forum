@@ -1,0 +1,584 @@
+<!-- pages/main/main.wxml -->
+<view class="page-main">
+  <!-- ========== 统一顶部导航栏 ========== -->
+  <!-- 样式与首页大厅 top-bar 一致，宽度不复盖内容区 -->
+  <view class="main-top-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="brand-row">
+      <view class="brand-left">
+        <view class="brand-logo">
+          <view class="duck-icon">
+            <view class="duck-head"></view>
+            <view class="duck-eye"></view>
+            <view class="duck-beak"></view>
+            <view class="duck-body"></view>
+            <view class="duck-wing"></view>
+            <view class="duck-tail"></view>
+          </view>
+        </view>
+        <text class="brand-name">同行鸭</text>
+      </view>
+      <view class="brand-right tap-shrink" bindtap="goMsgTab">
+        <view class="bell-line-icon">
+          <view class="bell-body"></view>
+          <view class="bell-clapper"></view>
+        </view>
+        <view wx:if="{{hasNotification}}" class="bell-dot"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ========== Swiper 四个Tab内容 ========== -->
+  <swiper
+    class="main-swiper"
+    current="{{currentTab}}"
+    bindchange="onSwiperChange"
+    duration="250"
+    easing-function="easeInOutCubic"
+  >
+    <!-- Tab 0: 首页 -->
+    <swiper-item>
+      <scroll-view class="tab-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+        <!-- Banner 轮播区 -->
+        <view class="home-banner-wrap">
+          <swiper class="home-banner" autoplay circular interval="4000" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,.4)" indicator-active-color="#fff">
+            <swiper-item wx:for="{{bannerList}}" wx:key="*this">
+              <view class="banner-card banner-{{index % 3}}">
+                <view class="banner-text">
+                  <text class="banner-title">{{item.title}}</text>
+                  <text class="banner-sub">{{item.sub}}</text>
+                </view>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
+
+        <!-- 公告通知条（跑马灯） -->
+        <view class="home-notice-bar" wx:if="{{latestSystemNotice}}">
+          <view class="notice-icon-box"><view class="notice-bell-sm"></view></view>
+          <text class="notice-scroll-text">{{latestSystemNotice}}</text>
+        </view>
+
+        <!-- 12 功能模块网格 -->
+        <view class="home-module-grid card">
+          <view
+            wx:for="{{homeModules}}" wx:key="name"
+            class="module-item tap-shrink"
+            data-url="{{item.url}}" data-name="{{item.name}}"
+            bindtap="onModuleTap"
+          >
+            <view class="module-icon-box module-{{index}}">
+              <block wx:if="{{index === 0}}"><view class="mi-package"><view class="mi-pkg-body"></view><view class="mi-pkg-lid"></view></view></block>
+              <block wx:elif="{{index === 1}}"><view class="mi-target"><view class="mi-tgt-outer"></view><view class="mi-tgt-inner"></view><view class="mi-tgt-cross-h"></view><view class="mi-tgt-cross-v"></view></view></block>
+              <block wx:elif="{{index === 2}}"><view class="mi-search"><view class="mi-sr-glass"></view><view class="mi-sr-handle"></view></view></block>
+              <block wx:elif="{{index === 3}}"><view class="mi-chat"><view class="mi-ct-bubble"></view><view class="mi-ct-dots"></view></view></block>
+              <block wx:elif="{{index === 4}}"><view class="mi-swap"><view class="mi-sw-a"></view><view class="mi-sw-b"></view></view></block>
+              <block wx:elif="{{index === 5}}"><view class="mi-home"><view class="mi-hm-roof"></view><view class="mi-hm-body"></view></view></block>
+              <block wx:elif="{{index === 6}}"><view class="mi-car"><view class="mi-cr-body"></view><view class="mi-cr-roof"></view><view class="mi-cr-wl"></view><view class="mi-cr-wr"></view></view></block>
+              <block wx:elif="{{index === 7}}"><view class="mi-pen"><view class="mi-pn-body"></view><view class="mi-pn-tip"></view></view></block>
+              <block wx:elif="{{index === 8}}"><view class="mi-print"><view class="mi-pr-body"></view><view class="mi-pr-paper"></view></view></block>
+              <block wx:elif="{{index === 9}}"><view class="mi-book"><view class="mi-bk-cover"></view><view class="mi-bk-line mi-bk-line-1"></view><view class="mi-bk-line mi-bk-line-2"></view></view></block>
+              <block wx:elif="{{index === 10}}"><view class="mi-megaphone"><view class="mi-mp-body"></view><view class="mi-mp-detail"></view></view></block>
+              <block wx:elif="{{index === 11}}"><view class="mi-heart"><view class="mi-ht-body"></view></view></block>
+            </view>
+            <text class="module-name">{{item.name}}</text>
+          </view>
+        </view>
+
+        <!-- 系统公告/通知聚合（3条） -->
+        <view class="home-notices card-section" wx:if="{{noticesForHome.length > 0}}">
+          <view class="section-header">
+            <view class="section-title-row">
+              <view class="section-icon"><view class="si-megaphone-sec"></view></view>
+              <text class="section-title">通知公告</text>
+            </view>
+            <text class="section-more tap-shrink" bindtap="goMsgTab">查看全部 →</text>
+          </view>
+          <view class="notice-list">
+            <view
+              wx:for="{{noticesForHome}}" wx:key="_id"
+              class="notice-item tap-shrink"
+              data-type="{{item.type}}" data-id="{{item._id}}" data-url="{{item.url}}"
+              bindtap="onNoticeTap"
+            >
+              <view class="notice-dot {{item.type === 'notice' ? 'dot-notice' : 'dot-bulletin'}}"></view>
+              <text class="notice-item-text">{{item.title || item.content}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 页脚 -->
+        <view class="page-footer">
+          <text class="footer-text">同行鸭 · 仅限学习交流使用</text>
+          <text class="footer-icp-text" bindtap="onTapICP">©2026 {{BRAND_NAME}} 版权所有</text>
+        </view>
+
+        <view class="tab-bottom-space"></view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- Tab 2: 发布 -->
+    <swiper-item>
+      <scroll-view class="tab-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+        <view class="publish-form">
+          <!-- 类型切换 -->
+          <view class="card type-switch">
+            <text class="type-label">同行类型</text>
+            <view class="type-options">
+              <view class="type-option {{publishType === 'offer' ? 'active' : ''}}" data-type="offer" bindtap="onPublishTypeChange">
+                <view class="type-line-icon"><view class="tli-car-body"></view><view class="tli-car-roof"></view><view class="tli-car-wheel tli-car-wheel-l"></view><view class="tli-car-wheel tli-car-wheel-r"></view></view>
+                <text>我有空位</text>
+              </view>
+              <view class="type-option {{publishType === 'find' ? 'active' : ''}}" data-type="find" bindtap="onPublishTypeChange">
+                <view class="type-line-icon"><view class="tli-search-circle"></view><view class="tli-search-handle"></view></view>
+                <text>我找同行</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 路线 -->
+          <view class="card form-card">
+            <view class="form-item">
+              <view class="form-label"><view class="label-dot from-dot"></view><text>出发地</text></view>
+              <input class="form-input" placeholder="{{SCHOOL_NAME}}" value="{{publishFrom}}" bindinput="onPublishFromInput"/>
+            </view>
+            <view class="swap-row">
+              <view class="swap-btn tap-shrink" bindtap="onPublishSwap">
+                <view class="swap-hori-icon">
+                  <view class="shi-left"></view>
+                  <view class="shi-right"></view>
+                </view>
+              </view>
+            </view>
+            <view class="form-divider"></view>
+            <view class="form-item">
+              <view class="form-label"><view class="label-dot to-dot"></view><text>目的地</text></view>
+              <input class="form-input" placeholder="例如：{{SCHOOL_CITY}}东站" value="{{publishTo}}" bindinput="onPublishToInput"/>
+            </view>
+          </view>
+
+          <!-- 时间/人数 -->
+          <view class="card form-card">
+            <view class="form-item">
+              <view class="form-label"><view class="fi-icon fi-calendar"></view><text>出发日期</text></view>
+              <picker mode="date" value="{{publishDate}}" bindchange="onDateChange">
+                <text class="form-picker">{{publishDate || '选择日期'}}</text>
+              </picker>
+            </view>
+            <view class="form-divider"></view>
+            <view class="form-item">
+              <view class="form-label"><view class="fi-icon fi-clock"></view><text>最早出发</text></view>
+              <picker mode="time" value="{{publishEarliestTime}}" bindchange="onEarliestTimeChange">
+                <text class="form-picker">{{publishEarliestTime || '选择时间'}}</text>
+              </picker>
+            </view>
+            <view class="form-divider"></view>
+            <view class="form-item">
+              <view class="form-label"><view class="fi-icon fi-timer"></view><text>最晚出发</text><text class="form-label-hint">（默认最早出发后半小时）</text></view>
+              <picker mode="time" value="{{publishLatestTime}}" bindchange="onLatestTimeChange">
+                <text class="form-picker">{{publishLatestTime || '选填'}}</text>
+              </picker>
+            </view>
+            <view class="form-divider"></view>
+            <view class="form-item">
+              <view class="form-label"><view class="fi-icon fi-people"></view><text>座位数</text></view>
+              <view class="stepper">
+                <view class="step-btn {{publishTotalSeats <= 1 ? 'disabled' : ''}}" bindtap="onSeatDecr"><view class="step-minus"></view></view>
+                <text class="step-value">{{publishTotalSeats}}</text>
+                <view class="step-btn" bindtap="onSeatIncr"><view class="step-plus-h"></view><view class="step-plus-v"></view></view>
+              </view>
+            </view>
+            <view class="form-divider"></view>
+            <view class="form-item">
+              <view class="form-label"><view class="fi-icon fi-phone"></view><text>联系方式</text><text style="color:var(--danger);font-size:20rpx;"> 必填</text></view>
+              <input class="form-input" placeholder="微信号/手机号" value="{{publishContact}}" bindinput="onContactInput"/>
+            </view>
+          </view>
+
+          <!-- 备注 -->
+          <view class="card form-card">
+            <view class="form-item form-item-column">
+              <view class="form-label"><view class="fi-icon fi-note"></view><text>备注</text></view>
+              <textarea class="form-textarea" placeholder="集合地点、从哪个门出发、备注等..." value="{{publishNote}}" bindinput="onNoteInput" maxlength="300"/>
+            </view>
+          </view>
+
+          <!-- 标签 -->
+          <view class="card tag-section">
+            <text class="tag-title">个性标签（选填，最多5个）</text>
+            <view class="tag-grid">
+              <view wx:for="{{tagList}}" wx:key="name" class="tag-item {{item.selected ? 'active' : ''}}" data-tag="{{item.name}}" bindtap="onPublishTagTap">{{item.name}}</view>
+              <view class="tag-item tag-add" bindtap="onAddCustomTag">+</view>
+            </view>
+            <view class="custom-tag-row" wx:if="{{showCustomTagInput}}">
+              <input class="custom-tag-input" placeholder="输入自定义标签" value="{{publishCustomTag}}" bindinput="onCustomTagInput" maxlength="10" confirm-type="done" bindconfirm="confirmCustomTag"/>
+              <view class="custom-tag-btn tap-shrink" bindtap="confirmCustomTag">确定</view>
+              <view class="custom-tag-cancel tap-shrink" bindtap="cancelCustomTag">取消</view>
+            </view>
+          </view>
+
+          <!-- 发布按钮 -->
+          <view class="publish-bar">
+            <button class="publish-btn" style="background:var(--primary)" bindtap="onSubmitPublish">发布行程</button>
+          </view>
+        </view>
+        <view class="tab-bottom-space"></view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- Tab 3: 消息 -->
+    <swiper-item>
+      <scroll-view class="tab-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+        <view class="msg-content-wrap">
+          <!-- 系统公告通知（合并） -->
+          <view class="section-header" wx:if="{{mergedNotifs.length > 0}}"><text>系统公告通知</text></view>
+          <view wx:if="{{mergedNotifs.length === 0 && !msgLoading}}" class="empty-state-sm">
+            <text class="empty-text">暂无系统消息</text>
+          </view>
+          <view class="conv-item glass-card tap-shrink" wx:for="{{mergedNotifs}}" wx:key="_key" data-item="{{item}}" bindtap="tapMergedNotif">
+            <view class="group-avatar">
+              <view wx:if="{{item._isAnnouncement}}" class="sni-tag-announcement">公告</view>
+              <view wx:else class="sni-tag-notif">通知</view>
+            </view>
+            <view class="conv-info">
+              <view class="conv-top">
+                <text class="conv-name">{{item._displayText}}</text>
+                <text class="conv-time">{{item._timeText}}</text>
+              </view>
+              <text class="conv-last {{item.isRead ? '' : 'bold'}}">{{item.content || item.summary || ''}}</text>
+            </view>
+            <view class="badge" wx:if="{{!item.isRead && !item._isAnnouncement}}"></view>
+          </view>
+          <view class="expand-row" wx:if="{{mergedTotal > 3}}" bindtap="goNotifications">
+            <text>点击查看更多</text>
+            <view class="sni-arrow"></view>
+          </view>
+
+          <!-- 群聊区 -->
+          <view class="section-header" wx:if="{{displayGroupChats.length > 0}}"><text>群聊</text></view>
+          <view class="conv-item glass-card tap-shrink" wx:for="{{displayGroupChats}}" wx:key="carpoolId" data-carpoolid="{{item.carpoolId}}" bindtap="goGroupChat">
+            <view class="group-avatar">
+              <view class="group-icon-gc"><view class="gic-bubble-1"></view><view class="gic-bubble-2"></view></view>
+            </view>
+            <view class="conv-info">
+              <view class="conv-top">
+                <text class="conv-name">{{item._dateStr}} {{item.from}}→{{item.to}}</text>
+                <text class="conv-time">{{item.memberCount}}人</text>
+              </view>
+              <text class="conv-last">{{item._lastMsg ? (item._lastSender + ': ' + item._lastMsg + (item._lastTime ? ' · ' + item._lastTime : '')) : '暂无消息'}}</text>
+            </view>
+            <view class="badge" wx:if="{{item.unreadCount > 0}}">{{item.unreadCount}}</view>
+          </view>
+          <view class="expand-row" wx:if="{{totalGroups > 3}}" bindtap="toggleAllGroups">
+            <text>{{showAllGroups ? '收起' : '展开全部群聊（' + totalGroups + '）'}}</text>
+            <view class="expand-arrow {{showAllGroups ? 'up' : ''}}"></view>
+          </view>
+        </view>
+        <view class="tab-bottom-space"></view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- Tab 4: 我的 -->
+    <swiper-item>
+      <scroll-view class="tab-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+        <!-- 个人信息卡片 -->
+        <view class="profile-card">
+          <view class="profile-bg"><view class="bg-circle circle-1"></view><view class="bg-circle circle-2"></view><view class="bg-circle circle-3"></view></view>
+          <block wx:if="{{!isLogin}}">
+            <view class="profile-content" bindtap="goLogin">
+              <view class="avatar-placeholder"><view class="avatar-line-icon"><view class="ali-head"></view><view class="ali-body"></view></view></view>
+              <view class="profile-info"><text class="profile-name">点击登录</text><text class="profile-desc">登录后享受更多功能</text></view>
+              <view class="login-arrow"><view class="arrow-line"></view></view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="profile-content">
+              <image class="profile-avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"/>
+              <view class="profile-info">
+                <view class="profile-name-row">
+                  <text class="profile-name">{{userInfo.nickName || '用户'}}</text>
+                </view>
+                <text class="profile-desc">ID: {{userInfo.user_id_code || '未分配'}}</text>
+              </view>
+              <view class="edit-btn tap-shrink" bindtap="editProfile"><text>编辑</text></view>
+            </view>
+          </block>
+          <view class="stats-row">
+            <view class="stat-item"><text class="stat-value">{{stats.creditScore}}</text><text class="stat-label">信用分</text></view>
+            <view class="stat-divider"></view>
+            <view class="stat-item"><text class="stat-value">{{stats.tripCount}}</text><text class="stat-label">同行次数</text></view>
+            <view class="stat-divider"></view>
+            <view class="stat-item"><text class="stat-value">{{stats.goodRate}}%</text><text class="stat-label">好评率</text></view>
+          </view>
+        </view>
+
+        <!-- 我的行程 -->
+        <view class="menu-section">
+          <view class="section-label">我的行程</view>
+          <view class="menu-grid">
+            <view wx:for="{{menuItems}}" wx:key="key" class="menu-item card tap-shrink" data-key="{{item.key}}" bindtap="tapMenu">
+              <view class="menu-icon-line">
+                <block wx:if="{{item.icon === 'publish'}}"><view class="mi-publish"><view class="mi-doc"></view><view class="mi-pen"></view></view></block>
+                <block wx:elif="{{item.icon === 'joined'}}"><view class="mi-handshake"><view class="mi-circle mi-circle-l"></view><view class="mi-circle mi-circle-r"></view></view></block>
+                <block wx:elif="{{item.icon === 'star'}}"><view class="mi-star"><view class="mi-star-shape"></view></view></block>
+                <block wx:elif="{{item.icon === 'chat'}}"><view class="mi-chat"><view class="mi-chat-bubble"></view></view></block>
+                <block wx:elif="{{item.icon === 'bell'}}"><view class="mi-bell"><view class="mi-bell-body"></view><view class="mi-bell-top"></view></view></block>
+                <block wx:elif="{{item.icon === 'clock'}}"><view class="mi-clock"><view class="mi-clock-circle"></view><view class="mi-clock-hand"></view></view></block>
+              </view>
+              <text class="menu-label">{{item.label}}</text>
+              <view wx:if="{{item.badge > 0}}" class="menu-badge">{{item.badge > 99 ? '99+' : item.badge}}</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 更多功能 -->
+        <view class="safe-section">
+          <view class="section-label">更多功能</view>
+          <view class="safe-list">
+            <view wx:for="{{safeItems}}" wx:key="key" class="safe-item card tap-shrink {{item.danger ? 'danger' : ''}}" data-key="{{item.key}}" bindtap="tapSafe">
+              <view class="safe-icon-line">
+                <block wx:if="{{item.icon === 'search'}}"><view class="si-search"><view class="si-search-circle"></view><view class="si-search-handle"></view></view></block>
+                <block wx:elif="{{item.icon === 'group'}}"><view class="si-group"><view class="si-group-head si-group-head-l"></view><view class="si-group-head si-group-head-r"></view><view class="si-group-body"></view></view></block>
+                <block wx:elif="{{item.icon === 'target'}}"><view class="si-target"><view class="si-target-outer"></view><view class="si-target-inner"></view><view class="si-target-dot"></view></view></block>
+                <block wx:elif="{{item.icon === 'complaint'}}"><view class="si-mail"><view class="si-mail-body"></view><view class="si-mail-flap"></view></view></block>
+                <block wx:elif="{{item.icon === 'feedback'}}"><view class="si-bulb"><view class="si-bulb-body"></view><view class="si-bulb-base"></view></view></block>
+                <block wx:elif="{{item.icon === 'announce'}}"><view class="si-megaphone"><view class="si-megaphone-body"></view><view class="si-megaphone-detail"></view></view></block>
+                <block wx:elif="{{item.icon === 'phone'}}"><view class="si-phone"><view class="si-phone-body"></view></view></block>
+                <block wx:elif="{{item.icon === 'share'}}"><view class="si-share"><view class="si-share-dot si-share-dot-1"></view><view class="si-share-dot si-share-dot-2"></view><view class="si-share-dot si-share-dot-3"></view><view class="si-share-line si-share-line-1"></view><view class="si-share-line si-share-line-2"></view></view></block>
+                <block wx:elif="{{item.icon === 'shield'}}"><view class="si-shield"><view class="si-shield-body"></view><view class="si-shield-check"></view></view></block>
+                <block wx:elif="{{item.icon === 'sos'}}"><view class="si-sos"><view class="si-sos-circle"></view><view class="si-sos-text">!</view></view></block>
+                <block wx:elif="{{item.icon === 'info'}}"><view class="si-info"><view class="si-info-circle"></view><text class="si-info-text">i</text></view></block>
+                <block wx:elif="{{item.icon === 'mail'}}"><view class="si-mail"><view class="si-mail-body"></view><view class="si-mail-flap"></view></view></block>
+                <block wx:elif="{{item.icon === 'logout'}}"><view class="si-logout"><view class="si-logout-door"></view><view class="si-logout-arrow"></view></view></block>
+              </view>
+              <text class="safe-label {{item.danger ? 'danger-text' : ''}}">{{item.label}}</text>
+              <view class="safe-arrow"><view class="arrow-chevron"></view></view>
+            </view>
+          </view>
+        </view>
+        <view class="tab-bottom-space"></view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+  <!-- ========== 自定义底部 TabBar ========== -->
+  <view class="main-tabbar safe-bottom">
+    <view class="tabbar-item {{currentTab === 0 ? 'active' : ''}}" data-index="0" bindtap="switchTab">
+      <view class="tb-icon tb-icon-hall {{currentTab === 0 ? 'active' : ''}}">
+        <view class="tbi-house-roof"></view>
+        <view class="tbi-house-body"></view>
+      </view>
+      <text class="tb-label">首页</text>
+    </view>
+    <view class="tabbar-item {{currentTab === 1 ? 'active' : ''}}" data-index="1" bindtap="switchTab">
+      <view class="tb-icon tb-icon-publish {{currentTab === 1 ? 'active' : ''}}">
+        <view class="tbi-plus-h"></view>
+        <view class="tbi-plus-v"></view>
+      </view>
+      <text class="tb-label">发布</text>
+    </view>
+    <view class="tabbar-item {{currentTab === 2 ? 'active' : ''}}" data-index="2" bindtap="switchTab">
+      <view class="tb-icon tb-icon-msg {{currentTab === 2 ? 'active' : ''}}">
+        <view class="tbi-chat-bubble"></view>
+        <view wx:if="{{notifUnread > 0}}" class="tbi-msg-badge">{{notifUnread > 99 ? '99+' : notifUnread}}</view>
+      </view>
+      <text class="tb-label">消息</text>
+    </view>
+    <view class="tabbar-item {{currentTab === 3 ? 'active' : ''}}" data-index="3" bindtap="switchTab">
+      <view class="tb-icon tb-icon-mine {{currentTab === 3 ? 'active' : ''}}">
+        <view class="tbi-head"></view>
+        <view class="tbi-body"></view>
+      </view>
+      <text class="tb-label">我的</text>
+    </view>
+  </view>
+</view>
+
+<!-- ========== 行程详情弹窗 ========== -->
+<view class="overlay-mask {{showDetailOverlay ? 'visible' : ''}}" hidden="{{!showDetailOverlay}}" catchtap="closeDetailOverlay">
+  <view class="detail-overlay {{showDetailAnimating ? 'slide-up' : ''}}" catchtap="">
+    <!-- 拖动条 -->
+    <view class="overlay-handle"><view class="handle-bar"></view></view>
+
+    <block wx:if="{{detailOverlayLoading}}">
+      <view class="overlay-loading">
+        <view class="spinner-small"></view>
+        <text class="loading-text">加载中...</text>
+      </view>
+    </block>
+
+    <block wx:elif="{{detailOverlayData}}">
+      <scroll-view class="overlay-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+        <!-- 路线 -->
+        <view class="ov-route">
+          <view class="ov-route-row">
+            <view class="ov-dot ov-dot-from"></view>
+            <text class="ov-route-text">{{detailOverlayData.from}}</text>
+          </view>
+          <view class="ov-route-line"></view>
+          <view class="ov-route-row">
+            <view class="ov-dot ov-dot-to"></view>
+            <text class="ov-route-text">{{detailOverlayData.to}}</text>
+          </view>
+          <view class="ov-type-badge {{detailOverlayData.type === 'offer' ? 'offer' : 'find'}}" style="position:absolute;right:0;top:0;">
+            {{detailOverlayData.type === 'offer' ? '有空位' : '找同行'}}
+          </view>
+        </view>
+
+        <!-- 基本信息 -->
+        <view class="ov-info-grid">
+          <view class="ov-info-item">
+            <text class="ov-info-label">出发时间</text>
+            <text class="ov-info-val">{{detailOverlayData._formattedTime || ''}}</text>
+          </view>
+          <view class="ov-info-item">
+            <text class="ov-info-label">状态</text>
+            <view class="ov-status ov-status-{{detailOverlayData.status}}">{{detailOverlayStatusText}}</view>
+          </view>
+          <view class="ov-info-item">
+            <text class="ov-info-label">座位情况</text>
+            <text class="ov-info-val">还差 {{detailOverlayData.remainSeats}} 人 / 共 {{detailOverlayData.totalSeats}} 人</text>
+          </view>
+          <view class="ov-info-item" wx:if="{{detailOverlayPriceText}}">
+            <text class="ov-info-label">费用</text>
+            <text class="ov-info-val ov-price">{{detailOverlayPriceText}}</text>
+          </view>
+          <view class="ov-info-item" wx:if="{{detailOverlayVehicleText}}">
+            <text class="ov-info-label">车辆信息</text>
+            <text class="ov-info-val">{{detailOverlayVehicleText}}</text>
+          </view>
+          <view class="ov-info-item" wx:if="{{detailOverlayData.note}}">
+            <text class="ov-info-label">备注</text>
+            <text class="ov-info-val">{{detailOverlayData.note}}</text>
+          </view>
+          <view class="ov-info-item">
+            <text class="ov-info-label">浏览/收藏</text>
+            <text class="ov-info-val">{{detailOverlayData.viewCount || 0}} / {{detailOverlayData.favoriteCount || 0}}</text>
+          </view>
+        </view>
+
+        <!-- 标签 -->
+        <view class="ov-tags" wx:if="{{detailOverlayData.tags && detailOverlayData.tags.length > 0}}">
+          <text wx:for="{{detailOverlayData.tags}}" wx:key="*this" class="ov-tag">{{item}}</text>
+        </view>
+
+        <!-- 图片 -->
+        <view class="ov-images" wx:if="{{detailOverlayData.images && detailOverlayData.images.length > 0}}">
+          <image wx:for="{{detailOverlayData.images}}" wx:key="*this" class="ov-img tap-shrink" src="{{item}}" mode="aspectFill" data-url="{{item}}" bindtap="previewOverlayImage" />
+        </view>
+
+        <!-- 发布者 -->
+        <view class="ov-creator">
+          <image class="ov-avatar" src="{{detailOverlayData.creator.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" />
+          <view class="ov-creator-info">
+            <text class="ov-creator-name">{{detailOverlayData.creator.nickName || '匿名用户'}}</text>
+            <text class="ov-creator-sub">ID: {{detailOverlayData.creator.user_id_code || '-'}}</text>
+            <text class="ov-creator-sub">信用 {{detailOverlayData.creator.creditScore || 100}} 分</text>
+          </view>
+        </view>
+
+        <!-- 参与者 -->
+        <view class="ov-participants" wx:if="{{detailOverlayData.participants && detailOverlayData.participants.length > 0}}">
+          <text class="ov-section-title">已加入 {{detailOverlayData.participants.length}} 人</text>
+          <view wx:for="{{detailOverlayData.participants}}" wx:key="_id" wx:for-item="p" class="ov-p-item">
+            <text class="ov-p-name">{{p.nickName || '用户'}}</text>
+            <text class="ov-p-credit">信用 {{p.creditScore || '-'}}</text>
+          </view>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="ov-actions safe-bottom">
+          <block wx:if="{{detailOverlayData.isCreator}}">
+            <view class="ov-btn ov-btn-outline {{detailOverlayData.status !== 'active' && detailOverlayData.status !== 'full' ? 'disabled' : ''}}" wx:if="{{detailOverlayData.status === 'active' || detailOverlayData.status === 'full'}}" bindtap="endFromOverlay">结束行程</view>
+            <view class="ov-btn ov-btn-outline" bindtap="deleteFromOverlay" style="color:var(--danger);border-color:var(--danger-border)">取消发布</view>
+            <view class="ov-btn ov-btn-outline" bindtap="goOverlayGroupChat">群聊</view>
+            <view class="ov-btn ov-btn-outline" bindtap="editFromOverlay">编辑</view>
+            <view class="ov-btn ov-btn-icon" bindtap="favFromOverlay">
+              <text style="font-size:36rpx;">{{detailOverlayData.isFavorited ? '★' : '☆'}}</text>
+            </view>
+          </block>
+          <block wx:elif="{{detailOverlayData.isJoined}}">
+            <view class="ov-btn ov-btn-outline" wx:if="{{detailOverlayData.status === 'active' || detailOverlayData.status === 'full'}}" bindtap="cancelJoinFromOverlay" style="color:var(--danger);border-color:var(--danger-border)">取消加入</view>
+            <view class="ov-btn ov-btn-primary" wx:if="{{detailOverlayData.contact}}" bindtap="onCopyContact">
+              <text style="white-space:nowrap">复制联系方式</text>
+            </view>
+            <view class="ov-btn ov-btn-outline" bindtap="goOverlayGroupChat">群聊</view>
+            <view class="ov-btn ov-btn-icon" bindtap="favFromOverlay">
+              <text style="font-size:36rpx;">{{detailOverlayData.isFavorited ? '★' : '☆'}}</text>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="ov-btn ov-btn-primary" wx:if="{{!detailOverlayData.isExpired && detailOverlayData.remainSeats > 0 && detailOverlayData.status === 'active'}}" bindtap="joinFromOverlay">立即加入</view>
+            <view class="ov-btn ov-btn-disabled" wx:elif="{{detailOverlayData.isExpired}}">已结束</view>
+            <view class="ov-btn ov-btn-disabled" wx:elif="{{detailOverlayData.status === 'full'}}">已满员</view>
+            <view class="ov-btn ov-btn-icon" bindtap="favFromOverlay">
+              <text style="font-size:36rpx;">{{detailOverlayData.isFavorited ? '★' : '☆'}}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </block>
+
+    <block wx:else>
+      <view style="text-align:center;padding:60rpx;color:var(--text-hint);">加载失败</view>
+    </block>
+  </view>
+</view>
+
+<!-- ========== 加入成功弹窗 ========== -->
+<view class="overlay-mask visible" wx:if="{{showJoinSuccessModal}}" catchtap="closeJoinSuccessModal">
+  <view class="join-success-modal" catchtap="">
+    <view class="jsm-icon"><view class="svg-ico svg-ico-party"></view></view>
+    <view class="jsm-title">已加入车队</view>
+    <!-- 行程小卡片 -->
+    <view class="jsm-trip-card">
+      <view class="jsm-trip-route">
+        <view class="jsm-trip-dot from"></view>
+        <text class="jsm-trip-from">{{joinSuccessData.from}}</text>
+        <view class="jsm-trip-arrow">→</view>
+        <view class="jsm-trip-dot to"></view>
+        <text class="jsm-trip-to">{{joinSuccessData.to}}</text>
+      </view>
+      <view class="jsm-trip-meta" wx:if="{{joinSuccessData.time}}">
+        <text class="jsm-trip-time"><view class="svg-ico svg-ico-clock-1"></view> {{joinSuccessData.time}}</text>
+        <text class="jsm-trip-seats"><view class="svg-ico svg-ico-group"></view> {{joinSuccessData.seats}}</text>
+      </view>
+      <view class="jsm-trip-contact" wx:if="{{joinSuccessData.contact}}">
+        <text><view class="svg-ico svg-ico-phone"></view> {{joinSuccessData.contact}}</text>
+      </view>
+    </view>
+    <view class="jsm-btns">
+      <view class="jsm-btn jsm-btn-group" bindtap="goGroupFromJoin">前往群聊</view>
+      <view class="jsm-btn jsm-btn-copy" wx:if="{{joinSuccessData.contact}}" bindtap="onCopyContactFromJoin">复制联系方式</view>
+    </view>
+    <view class="jsm-close" bindtap="closeJoinSuccessModal">我知道了</view>
+  </view>
+</view>
+<view class="login-modal-mask" wx:if="{{showLoginModal}}" catchtap="closeLoginModal">
+  <view class="login-modal" catchtap="">
+    <view class="modal-icon-wrap"><view class="modal-lock"><view class="ml-body"></view><view class="ml-shackle"></view></view></view>
+    <view class="modal-title">需要登录才能使用</view>
+    <view class="modal-desc">登录后可发布行程、加入同行、查看个人数据</view>
+    <view class="modal-btns">
+      <view class="modal-btn modal-btn-cancel tap-shrink" bindtap="closeLoginModal"><text>暂不登录</text></view>
+      <view class="modal-btn modal-btn-confirm tap-shrink" bindtap="confirmLogin"><text>立即登录</text></view>
+    </view>
+  </view>
+</view>
+
+<!-- ========== 地点选择弹窗 ========== -->
+<view class="overlay-mask {{showLocationPopup ? 'visible' : ''}}" hidden="{{!showLocationPopup}}" catchtap="closeLocationPopup">
+  <view class="location-popup" catchtap="">
+    <view class="loc-pop-title">选择{{locationPopupType === 'from' ? '出发地' : '目的地'}}</view>
+    <view class="loc-search-row">
+      <input class="loc-search-input" placeholder="搜索或输入地点" value="{{locationSearchText}}" bindinput="onLocationSearchInput" confirm-type="done" bindconfirm="confirmCustomLocation"/>
+      <view class="loc-search-btn tap-shrink" bindtap="confirmCustomLocation">确定</view>
+    </view>
+    <view class="loc-common-title">常用地点</view>
+    <view class="loc-list">
+      <view wx:for="{{displayLocations}}" wx:key="*this" class="loc-item tap-shrink {{(item === '任意出发地' && isFromAny) || (item === '任意目的地' && isToAny) || ((item !== '任意出发地' && item !== '任意目的地') && (locationPopupType === 'from' ? from : to) === item) ? 'active' : ''}}" data-name="{{item}}" bindtap="selectLocation">
+        <text>{{item}}</text>
+        <text wx:if="{{(item === '任意出发地' && isFromAny) || (item === '任意目的地' && isToAny) || ((item !== '任意出发地' && item !== '任意目的地') && (locationPopupType === 'from' ? from : to) === item)}}" class="loc-check">✓</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,222 @@
+<!-- pages/publish/publish.wxml -->
+<view class="page-publish">
+  <image class="page-bg" src="/images/bg-gradient-rainbow.jpg" mode="aspectFill" />
+  <!-- ===== 顶部栏（透明，融入背景 - 与首页同款） ===== -->
+  <view class="top-bar" style="padding-top:{{statusBarHeight}}px;">
+    <view class="top-bar-inner">
+      <view class="nav-back tap-shrink" bindtap="goBack">
+        <view class="nav-back-icon"></view>
+      </view>
+      <view class="nav-title">{{isEdit ? '编辑行程' : '发布同行信息'}}</view>
+      <view class="nav-placeholder"></view>
+    </view>
+  </view>
+
+  <!-- 表单滚动区 -->
+  <scroll-view scroll-y class="form-scroll" style="top: {{navBarHeight}}px; padding-bottom: {{publishBarHeight}}rpx;" show-scrollbar="{{false}}">
+    <view class="form-scroll-inner">
+    <!-- 同行类型选择 -->
+    <view class="type-switch card">
+      <view class="type-label">同行类型</view>
+      <view class="type-options">
+        <view 
+          class="type-option {{tripType === 'find' ? 'active' : ''}} tap-shrink"
+          data-type="find"
+          bindtap="switchType"
+        >
+          <view class="type-line-icon">
+            <view class="tli-search-circle"></view>
+            <view class="tli-search-handle"></view>
+          </view>
+          <text>我找同行</text>
+        </view>
+        <view 
+          class="type-option {{tripType === 'offer' ? 'active' : ''}} tap-shrink"
+          data-type="offer"
+          bindtap="switchType"
+        >
+          <view class="type-line-icon">
+            <view class="tli-car-body"></view>
+            <view class="tli-car-roof"></view>
+            <view class="tli-car-wheel tli-car-wheel-l"></view>
+            <view class="tli-car-wheel tli-car-wheel-r"></view>
+          </view>
+          <text>我有空位</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 路线信息 -->
+    <view class="form-card card">
+      <view class="form-item" bindtap="pickFrom">
+        <view class="form-label">
+          <view class="label-dot from-dot"></view>
+          <text>出发地</text>
+        </view>
+        <input class="form-input" value="{{from}}" placeholder="请输入或选择出发地" bindinput="onFromInput" />
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item" bindtap="pickTo">
+        <view class="form-label">
+          <view class="label-dot to-dot"></view>
+          <text>目的地</text>
+        </view>
+        <input class="form-input" value="{{to}}" placeholder="请输入或选择目的地" bindinput="onToInput" />
+      </view>
+
+      <!-- 交换按钮 -->
+      <view class="swap-btn-wrapper">
+        <view class="swap-btn tap-shrink" bindtap="swapRoute">
+          <view class="swap-line-icon">
+            <view class="sli-arrow-up"></view>
+            <view class="sli-arrow-down"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 价格预估 -->
+    <view class="form-card card" wx:if="{{showEstimate && estimate}}">
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-yuan"></view>
+          <text>预估价格</text>
+        </view>
+        <text class="estimate-value">{{estimate.price || '未知'}}</text>
+      </view>
+      <view class="form-divider"></view>
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-ruler"></view>
+          <text>预估距离</text>
+        </view>
+        <text class="estimate-value">{{estimate.distance || '未知'}}</text>
+      </view>
+      <view class="form-divider"></view>
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-clock"></view>
+          <text>预估时长</text>
+        </view>
+        <text class="estimate-value">{{estimate.duration || '未知'}}</text>
+      </view>
+    </view>
+
+    <!-- 出发时间 -->
+    <view class="form-card card">
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-calendar"></view>
+          <text>出发日期</text>
+        </view>
+        <picker mode="date" value="{{departureDate}}" bindchange="onDateChange">
+          <view class="form-picker">{{departureDate || '请选择日期'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-timer"></view>
+          <text>出发时间</text>
+        </view>
+        <picker mode="time" value="{{departureTime}}" bindchange="onTimeChange">
+          <view class="form-picker">{{departureTime || '请选择时间'}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 人数 -->
+    <view class="form-card card">
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-people"></view>
+          <text>同行人数</text>
+        </view>
+        <view class="stepper">
+          <view class="step-btn tap-shrink {{totalSeats <= 1 ? 'disabled' : ''}}" bindtap="onSeatsMinus">
+            <view class="step-minus"></view>
+          </view>
+          <text class="step-value">{{totalSeats}}</text>
+          <view class="step-btn tap-shrink {{totalSeats >= 6 ? 'disabled' : ''}}" bindtap="onSeatsPlus">
+            <view class="step-plus-h"></view>
+            <view class="step-plus-v"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="form-card card">
+      <view class="form-item">
+        <view class="form-label">
+          <view class="fi-icon fi-phone"></view>
+          <text>联系方式</text>
+        </view>
+        <input 
+          class="form-input" 
+          value="{{contact}}" 
+          placeholder="微信号/手机号"
+          bindinput="onContactInput"
+          maxlength="30"
+        />
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="form-card card">
+      <view class="form-item form-item-column">
+        <view class="form-label">
+          <view class="fi-icon fi-note"></view>
+          <text>备注信息</text>
+        </view>
+        <textarea 
+          class="form-textarea" 
+          value="{{note}}" 
+          placeholder="如：集合地点、行李情况等"
+          bindinput="onNoteInput"
+          maxlength="200"
+          auto-height
+        />
+      </view>
+    </view>
+
+    <!-- 同行标签 -->
+    <view class="tag-section card">
+      <view class="tag-title">同行偏好标签（可多选）</view>
+      <view class="tag-grid">
+        <view 
+          wx:for="{{allTags}}" 
+          wx:key="*this" 
+          class="tag-item {{selectedTags[item] ? 'active' : ''}}"
+          hover-class="tag-item-hover"
+          data-tag="{{item}}"
+          bindtap="toggleTag"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <!-- 微信消息通知 -->
+    <view class="form-card card">
+      <view class="notify-row">
+        <view class="notify-info">
+          <text class="notify-label"><view class="svg-ico svg-ico-bell"></view> 微信消息通知</text>
+          <text class="notify-hint">有人加入同行时通过微信服务号通知你</text>
+        </view>
+        <switch checked="{{notifySubscribed}}" bindchange="onNotifySwitch" color="#00A693"/>
+      </view>
+    </view>
+    </view>
+  </scroll-view>
+
+  <!-- 发布按钮 — 固定底部 -->
+  <view class="publish-bar safe-bottom">
+    <button class="publish-btn grad-btn tap-shrink" bindtap="publish" loading="{{submitting}}" disabled="{{submitting}}">
+      {{submitting ? (isEdit ? '保存中...' : '发布中...') : (isEdit ? '保存修改' : '立即发布')}}
+    </button>
+  </view>
+</view>
