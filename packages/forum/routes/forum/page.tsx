@@ -80,6 +80,12 @@ export default async function ForumHomePage() {
                 用网站账号登录
               </Link>
             )}
+            <Link
+              href="/forum/communities"
+              className="btn btn-secondary inline-flex min-h-11 items-center px-4 text-sm"
+            >
+              知识社区同一套圈子
+            </Link>
             {session && canManageForum(session) ? (
               <Link
                 href="/studio/forum"
