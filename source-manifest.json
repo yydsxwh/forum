@@ -813,11 +813,11 @@
     },
     {
       "path": "packages/forum/lib/knowledge-directory.ts",
-      "sha256": "3d6a2de8bf5dfa3782014f7a5f5c5c02ef74414b5dbe72b0cc65a72b5ce2830d"
+      "sha256": "0474f39fb66733787f2322b8ae9ecfc5aefa20ce6ad275ece229a7a2acb26d13"
     },
     {
       "path": "packages/forum/lib/knowledge-directory.test.ts",
-      "sha256": "cd7cd13930d6a8b778494af2988e9eec637ce9993e5e32c91cef5b59179fc159"
+      "sha256": "3f9cf7db212c9575fdf67033796bcf006ca3c6fc25c3c4d56f92151c476ec138"
     },
     {
       "path": "src/app/forum/communities/page.tsx",

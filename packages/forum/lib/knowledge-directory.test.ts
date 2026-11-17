@@ -28,6 +28,10 @@ const cards = acceptDirectoryPayload({
 });
 
 assert.deepEqual(cards.map((item) => item.slug), ["beijing"]);
+for (const canonicalUrl of ["https://", "http://[invalid", "javascript:alert(1)", "https://user:password@knowledge.example/c/test"]) {
+  const invalid = acceptDirectoryPayload({ data: { items: [{ globalId: "com_invalid", slug: "invalid", name: "Invalid", visibility: "PUBLIC", discovery: "SEARCHABLE", canonicalUrl }] } });
+  assert.deepEqual(invalid, [], canonicalUrl);
+}
 assert.equal(
   forumReturnUrl("https://knowledge.example/c/beijing"),
   "https://knowledge.example/c/beijing?from=forum&returnTo=%2Fforum%2Fcommunities",

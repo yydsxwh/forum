@@ -17,7 +17,12 @@ export function acceptDirectoryPayload(payload: unknown): KnowledgeCard[] {
     if (row.visibility !== "PUBLIC" || row.discovery !== "SEARCHABLE") continue;
     if (typeof row.globalId !== "string" || typeof row.slug !== "string" || typeof row.name !== "string") continue;
     if (typeof row.canonicalUrl !== "string") continue;
-    if (!row.canonicalUrl.startsWith("https://") && !row.canonicalUrl.startsWith("http://")) continue;
+    try {
+      const url = new URL(row.canonicalUrl);
+      if (!["https:", "http:"].includes(url.protocol) || url.username || url.password) continue;
+    } catch {
+      continue;
+    }
     cards.push({
       globalId: row.globalId,
       slug: row.slug,
