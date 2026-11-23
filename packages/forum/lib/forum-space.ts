@@ -153,7 +153,7 @@ export function forumSpaceStudioCopy(kind: ForumSpaceKind): ForumSpaceStudioCopy
       return {
         nameLabel: "学校名称",
         namePlaceholder: "如 北京大学",
-        sloganPlaceholder: "同学交流、选课、二手、跑腿…",
+        sloganPlaceholder: "同学交流、选课、二手、跑腿、寻物…",
         slugPlaceholder: "pku",
         searchPlaceholder: "搜学校名或路径",
         showRegion: true,

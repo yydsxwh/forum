@@ -127,6 +127,7 @@ export const DEFAULT_FORUM_ZONES: { key: string; name: string }[] = [
   { key: "courses", name: "选课交流" },
   { key: "secondhand", name: "二手交易" },
   { key: "errand", name: "跑腿代取" },
+  { key: "lostfound", name: "寻物招领" },
   { key: "materials", name: "学习资料分享" },
   { key: "dating", name: "恋爱交友" },
 ];
