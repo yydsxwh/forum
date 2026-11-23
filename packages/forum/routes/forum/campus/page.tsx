@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "论坛",
-  description: "按高校分区交流：日常、美食、选课、二手、跑腿、资料与交友",
+  description: "按高校分区交流：日常、美食、选课、二手、跑腿、寻物招领、资料与交友",
 };
 
 export default async function ForumCampusPage() {
